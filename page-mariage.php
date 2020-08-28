@@ -4,19 +4,71 @@
     </header>
     
     <main>
-        <?php if(get_the_content()): ?>
-        <section id="dresses">
-            <div class="intro">
-                <?php the_content(); ?>
+        <!-- INTRODUCTION -->
+        <?php 
+        $intro_block_1 = get_field('first_block');
+        $intro_block_2 = get_field('second_block');
+
+        if($intro_block_1 or $intro_block_2): ?>
+            
+        <section class="intro">
+            <?php
+            if($intro_block_1):
+                $title_default = $intro_block_1['default'];
+                $title_handwritter = $intro_block_1['handwritten'];
+                $text = $intro_block_1['text_content'];
+            ?>
+            <!-- Block #1 -->
+            <div class="block">
+                <h2><?php if($title_default): echo $title_default; endif; ?></h2>
+                <h2><?php if($title_handwritter) : echo $title_handwritter; endif; ?></h2>
+                <p><?php if($text) : echo $text; endif; ?></p>
             </div>
+
+            <?php endif; ?>
+
+            <? if($intro_block_2):
+                $title_default = $intro_block_2['default'];
+                $title_handwritter = $intro_block_2['handwritten'];
+                $text = $intro_block_2['text_content'];
+                $button_title = $intro_block_2['title'];
+                $button_url = $intro_block_2['url'];
+            ?>
+            <!-- Block #2 -->
+            <div class="block">
+                <h2><?php if($title_default) : echo $title_default; endif; ?></h2>
+                <h2><?php if($title_handwritter) : echo $title_handwritter; endif; ?></h2>
+                <p><?php if($text) : echo $text; endif; ?></p>
+                <a href="<?php if($button_url) : echo $button_url; endif; ?>"><?php echo $button_title; ?></a>
+            </div>
+
+            <?php endif; ?>
+            
+            <!-- Gallery Images -->
+            <?php
+            $images = get_field('gallery');
+            $size = 'full';
+            if($images): ?>
+                <ul>
+                    <?php foreach( $images as $image ): ?>
+                        <li>
+                            <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </section>
+
         <?php endif; ?>
         
-            <?php 
-                $args = array ( 'post_type' => 'robes');
-                $the_query = new WP_Query($args);
-            ?>
+        <!-- ROBES -->
+        <?php 
+            $args = array ( 'post_type' => 'robes');
+            $the_query = new WP_Query($args);
+        ?>
 
-            <?php if(have_posts()) : ?>
+        <?php if(have_posts()) : ?>
+        <section class="robes">
             <ul>
             <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <li>
@@ -28,49 +80,74 @@
             </ul>
         </section>
         <?php endif; ?>
-
-        <section id="quote">
-            <?php if( get_field('quote') ): ?>
-                <blockquote>
-                    <p><?php the_field('quote'); ?></p>
-                    <?php if( get_field('author') ): ?>
-                        <footer><?php the_field('author'); ?></footer>
-                    <?php endif; ?>
-                </blockquote>
-            <?php endif; ?>
-        </section>
-
-        <?php
-        $action_1 = get_field('action');
-        $action_2 = get_field('action_2');
-        $action_3 = get_field('action_3');
-
-        $actions = array($action_1, $action_2, $action_3);
-
-        if(count($actions) > 0) :?>
-        <section id="actions">
-        <?php
-            foreach ($actions as &$item) {
-                $title = $item['title']['basic'] . " " . $item['title']['handwritten'];
-                $content = $item['text'];
-                $button = [
-                    'title' => $item['button']['title'],
-                    'url' => $item['button']['url']
-                ];
-                $image = $item['image']['sizes']['medium'];
-
-                ?>
-                <div class="action">
-                    <img src="<?php echo $image ?>" alt="">
-                    <h3><?php echo $title ?></h3>
-                    <p><?php echo $content ?></p>
-                    <a href="<?php echo $button['url'] ?>"><?php echo $button['title'] ?></a>
-                </div>
-                <?php
-            }
+        
+        <!-- QUOTES -->
+        <?php 
+            $args = array ( 'post_type' => 'quotes');
+            $the_query = new WP_Query($args);
+        ?>
+        
+        <?php 
+        $quote = get_field('quote');
+        if($quote) : ?>
+        <section class="quote">
+            
+            <?php
+            $content = $quote->post_content;
+            $author = $quote->post_title;
             ?>
+            
+            <div>
+                <?php if($content) { echo $content; } ?>
+                <?php if($author) { echo $author; } ?>
+            </div>
+        
         </section>
-        <?php endif; ?>
+        <?php endif; wp_reset_postdata(); ?>
+
+        <!-- VIDEOS -->
+        <?php
+        $featured_vids = get_field('videos_selection');
+        $video_title_default = get_field('video_title')['video_default_title'];
+        $video_title_handwritten = get_field('video_title')['handwritten_title'];
+
+        if (sizeof($featured_vids) > 1) : ?>
+            <section class="videos">
+                <div class="intro">
+                    <?php echo $video_title_default; ?>
+                    <?php echo $video_title_handwritten; ?>
+                </div>
+                <ul>
+                    <?php foreach ($featured_vids as $post) :
+                        setup_postdata($post);
+                        $url = get_field('video_youtube_url');
+                        $embed = wp_oembed_get($url);
+                    ?>
+                        <li>
+                            <?php echo $embed; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </section>
+            <?php
+            wp_reset_postdata(); ?>
+        <?php elseif (sizeof($featured_vids) <= 1) : ?>
+            <section class="videos">
+                <div class="intro">
+                    <?php echo $video_title_default; ?>
+                    <?php echo $video_title_handwritten; ?>
+                </div>
+                <?php foreach ($featured_vids as $post) :
+                    setup_postdata($post);
+                    $url = get_field('video_youtube_url');
+                    $embed = wp_oembed_get($url);
+                ?>
+                    <?php echo $embed; ?>
+                <?php endforeach; ?>
+            </section>
+        <?php wp_reset_postdata();
+        endif; ?>
+
     </main>
 
 <?php get_footer() ?>

@@ -5,8 +5,9 @@
 * THEME STYLES
 *
 */
-function theme_styles() {
-    wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/style/app.css' );
+function theme_styles()
+{
+    wp_enqueue_style('main', get_template_directory_uri() . '/assets/style/app.css');
 }
 
 add_action('wp_enqueue_scripts', 'theme_styles');
@@ -37,7 +38,8 @@ add_action('after_setup_theme', 'theme_supports');
 *
 */
 
-function theme_types() {
+function theme_types()
+{
     register_post_type('robes', [
         'label' => 'Robes',
         'public' => true,
@@ -56,8 +58,23 @@ function theme_types() {
         'show_in_rest' => true,
         'has_archive' => false,
     ]);
+    register_post_type('quotes', [
+        'label' => 'Citations',
+        'public' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-format-quote',
+        'supports' => ['title', 'editor'],
+        'show_in_rest' => true,
+        'has_archive' => false,
+    ]);
+    register_post_type('videos', [
+        'label' => 'Vidéos',
+        'public' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-video-alt3',
+        'supports' => ['title'],
+        'show_in_rest' => true,
+        'has_archive' => false,
+    ]);
 }
 add_action('init', 'theme_types');
-
-
-?>

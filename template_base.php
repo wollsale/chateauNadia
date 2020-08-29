@@ -1,4 +1,4 @@
-<?php /* Template Name: _Base (Front-End / Webpack) */
+<?php /* Template Name: _Base (Front-End) */
 
     get_header() ?>
 

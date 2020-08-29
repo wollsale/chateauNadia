@@ -1,4 +1,7 @@
-<?php get_header() ?>
+<?php /* Template Name: _Base (Front-End) */
+
+    get_header() ?>
+
         <h1><?php the_title(); ?></h1>
     </header>
     

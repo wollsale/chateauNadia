@@ -1,0 +1,46 @@
+%nav {
+    display: flex;
+
+    // TO REMOVE
+    margin-bottom: 200px;
+}
+
+%has-children {
+    position: relative;
+}
+
+%sub-nav {
+    --background-color: var(--light-pink);
+
+    position: absolute;
+    left: 50%;
+    
+    opacity: 0;
+    transform: translate(-50%, var(--u4));
+    transition: .3s ease-out;
+
+    background-color: var(--background-color);
+}
+
+
+// WORDPRESS CLASSES
+.menu {
+    @extend %nav;
+}
+
+.menu-item {
+    &-has-children {
+        @extend %has-children;
+
+        .sub-menu {
+            @extend %sub-nav;
+        }
+
+        &:hover {
+            .sub-menu {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+    }
+}

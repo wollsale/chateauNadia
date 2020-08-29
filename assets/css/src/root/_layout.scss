@@ -1,0 +1,19 @@
+:root {
+    --unit : 8px;
+
+    --u: var(--unit);
+    --u2 : calc(var(--unit)*2);
+    --u3 : calc(var(--unit)*3);
+    --u4 : calc(var(--unit)*4);
+    --u5 : calc(var(--unit)*5);
+    --u6 : calc(var(--unit)*6);
+    --u7 : calc(var(--unit)*7);
+    --u8 : calc(var(--unit)*8);
+
+    --maxWidth: 1440px;
+}
+
+.full-width {
+    max-width: var(--maxWidth);
+    width: 100%;
+}

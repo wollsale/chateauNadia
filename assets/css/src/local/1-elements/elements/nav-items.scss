@@ -1,0 +1,42 @@
+%nav-items {
+    --padding: var(--u4) var(--u2);
+
+    @extend %all-caps;
+    @extend %link;
+
+    display: block;
+    padding: var(--padding);
+}
+
+%subNav-items {
+    --padding: var(--u2) 0;
+    --border-color: var(--dark-pink);
+
+    @extend %small-text;
+    
+    text-transform: none;
+    text-align: center;
+    
+    width: 200px;
+    padding: var(--padding);
+
+    &:first-of-type {
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+
+// WORDPRESS CLASSES
+.menu-item {
+    > a {
+        --color: var(--dark-gray);
+        
+        &:not(.sub-menu) {
+            @extend %nav-items;
+        }
+
+        .sub-menu & {
+            @extend %subNav-items;
+        }
+    }
+}

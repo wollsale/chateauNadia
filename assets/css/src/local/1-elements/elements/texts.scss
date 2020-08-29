@@ -1,0 +1,17 @@
+body, p, a {
+    --color: var(--dark-gray);
+
+    color: var(--color);
+}
+
+%text {
+    --fontSize : var(--fontSize-body);
+    
+    font-size: var(--fontSize);
+}
+
+%small-text {
+    --fontSize : var(--fontSize-small);
+    
+    font-size: var(--fontSize);
+}

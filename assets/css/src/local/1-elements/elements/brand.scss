@@ -1,0 +1,15 @@
+%brand-logo {
+    display: block;
+
+    > img {
+        width: 232px;
+        height: 125px;
+    }
+}
+
+
+// WORDPRESS CLASSES
+
+.custom-logo-link {
+    @extend %brand-logo;
+}

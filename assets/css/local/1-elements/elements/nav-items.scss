@@ -1,6 +1,7 @@
 %nav-items {
     --padding: var(--u4) var(--u2);
 
+    @extend %text;
     @extend %all-caps;
     @extend %link;
 
@@ -28,9 +29,7 @@
 
 // WORDPRESS CLASSES
 .menu-item {
-    > a {
-        --color: var(--dark-gray);
-        
+    > a {        
         &:not(.sub-menu) {
             @extend %nav-items;
         }

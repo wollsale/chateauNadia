@@ -1,9 +1,3 @@
-body, p, a {
-    --color: var(--dark-gray);
-
-    color: var(--color);
-}
-
 %text {
     --fontSize : var(--fontSize-body);
     
@@ -14,4 +8,11 @@ body, p, a {
     --fontSize : var(--fontSize-small);
     
     font-size: var(--fontSize);
+}
+
+%all-caps {
+    --fontSize : var(--fontSize-small);
+    
+    font-size: var(--fontSize);
+    text-transform: uppercase;
 }

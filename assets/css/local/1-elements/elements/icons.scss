@@ -10,16 +10,16 @@
 }
 
 // CLASSES
-body {background: #000;}
+
 .icon {
     @extend %icon;
     position: relative;
 
     &-instagram {
-        background-image: url("../../icons/instagram.svg");
+        background-image: url("../icons/instagram.svg");
     }
     &-facebook {
-        background-image: url("../../icons/facebook.svg");
+        background-image: url("../icons/facebook.svg");
     }
 
     &--stamp {

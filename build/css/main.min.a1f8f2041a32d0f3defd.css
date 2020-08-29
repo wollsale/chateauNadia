@@ -1,0 +1,177 @@
+/* ROOT */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+:root {
+  --lightPink: #f3eeee;
+  --darkPink: #dda193;
+  --middleGray: #555555; }
+
+:root {
+  --unit: 8px;
+  --u1: var(--unit);
+  --u2: calc(var(--unit)*2);
+  --u3: calc(var(--unit)*3);
+  --u4: calc(var(--unit)*4);
+  --u5: calc(var(--unit)*5);
+  --u6: calc(var(--unit)*6);
+  --u7: calc(var(--unit)*7);
+  --u8: calc(var(--unit)*8);
+  --maxWidth: 1440px; }
+
+.full-width {
+  max-width: var(--maxWidth);
+  width: 100%; }
+
+:root {
+  --playfair: "Playfair Display";
+  --allura: "Allura";
+  --font-title: var(--allura);
+  --font-text: var(--playfair);
+  --fontSize-body: var(--u2);
+  --fontSize-small: calc(var(--u1) * 1.75);
+  --color-text: var(--middleGray);
+  --color-title: var(--darkPink); }
+
+body, p, a {
+  font-family: var(--font-text);
+  color: var(--color-text); }
+  body h1, body h2, body h3, body h4, body h5, body h6, p h1, p h2, p h3, p h4, p h5, p h6, a h1, a h2, a h3, a h4, a h5, a h6 {
+    font-family: var(--font-title);
+    color: var(--color-title); }
+
+/* LOCAL */
+/* Elements */
+.menu-item > a:not(.sub-menu) {
+  text-decoration: none;
+  color: inherit; }
+
+.menu-item > a:not(.sub-menu) {
+  --fontSize: var(--fontSize-body);
+  font-size: var(--fontSize); }
+
+.sub-menu .menu-item > a {
+  --fontSize: var(--fontSize-small);
+  font-size: var(--fontSize); }
+
+.menu-item > a:not(.sub-menu) {
+  --fontSize: var(--fontSize-small);
+  font-size: var(--fontSize);
+  text-transform: uppercase; }
+
+.menu-item > a:not(.sub-menu) {
+  --padding: var(--u4) var(--u2);
+  display: block;
+  padding: var(--padding); }
+
+.sub-menu .menu-item > a {
+  --padding: var(--u2) 0;
+  --border-color: var(--dark-pink);
+  text-transform: none;
+  text-align: center;
+  width: 200px;
+  padding: var(--padding); }
+  .sub-menu .menu-item > a:first-of-type {
+    border-bottom: 1px solid var(--border-color); }
+
+.custom-logo-link {
+  display: block; }
+  .custom-logo-link > img {
+    width: 232px;
+    height: 125px; }
+
+.icon {
+  --size: var(--u2);
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  background-repeat: no-repeat;
+  background-size: contain; }
+
+.icon {
+  position: relative; }
+  .icon-instagram {
+    background-image: url(../../build/icons/07456def75b3ac53822c9ed2b2fd34a8.svg); }
+  .icon-facebook {
+    background-image: url(../../build/icons/6e748ec94bab876259c5996837e2cbd4.svg); }
+  .icon--stamp {
+    --background-color: var(--dark-pink); }
+    .icon--stamp::before {
+      display: block;
+      content: '';
+      width: calc(var(--size) * 2);
+      height: calc(var(--size) * 2);
+      border-radius: 50%;
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      z-index: -1;
+      background-color: var(--background-color); }
+
+.menu {
+  display: flex;
+  margin-bottom: 200px; }
+
+.menu-item-has-children {
+  position: relative; }
+
+.menu-item-has-children .sub-menu {
+  --background-color: var(--light-pink);
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, var(--u4));
+  transition: .3s ease-out;
+  background-color: var(--background-color); }
+
+.menu-item-has-children:hover .sub-menu {
+  transform: translate(-50%, 0);
+  opacity: 1; }
+

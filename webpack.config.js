@@ -9,7 +9,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // installed via npm
 
 module.exports = {
-    entry: ['./assets/js/src/app.js', './assets/css/src/app.scss'],
+    entry: ['./assets/js/app.js', './assets/css/app.scss'],
     // for the JavaScript build
     output: {
         filename: './build/js/app.min.[hash].js',

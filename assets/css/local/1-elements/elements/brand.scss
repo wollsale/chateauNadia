@@ -1,0 +1,20 @@
+%brand-logo {
+    display: flex;
+
+    > img {
+        width: auto;
+        height: calc(var(--u10) - var(--u2));
+        margin: auto;
+    }
+}
+
+
+// WORDPRESS CLASSES
+
+.brand {
+    @extend %brand-logo;
+
+    @media screen and(max-width: $tablet) {
+        display: none;
+    }
+}

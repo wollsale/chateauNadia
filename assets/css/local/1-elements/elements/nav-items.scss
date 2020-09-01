@@ -1,0 +1,59 @@
+%nav-items {
+    --padding: var(--u4) var(--u2);
+
+    @extend %text;
+    @extend %all-caps;
+    @extend %link;
+
+    display: block;
+    padding: var(--padding);
+}
+
+%subNav-items {
+    --padding: var(--u2) 0;
+    --border-color: var(--dark-pink);
+
+    @extend %small-text;
+    
+    text-transform: none;
+    text-align: center;
+    
+    width: 200px;
+    padding: var(--padding);
+
+    &:first-of-type {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    @media screen and(max-width: $tablet) {
+        --padding: var(--u4) var(--u1);
+        width: auto;
+    }
+}
+
+// WORDPRESS CLASSES
+.menu-item {
+    > a {        
+        &:not(.sub-menu) {
+            @extend %nav-items;
+            white-space: nowrap;
+        }
+
+        .sub-menu & {
+            @extend %subNav-items;
+        }
+
+        &[aria-current='page'] {
+            position: relative;
+
+            &::after {
+                display: block; content: '';
+                width: 100%; 
+                height: calc(var(--u1) / 2);
+                background: var(--darkPink);
+                position: absolute;
+                bottom: 0; left: 0;
+            }
+        } 
+    }
+}

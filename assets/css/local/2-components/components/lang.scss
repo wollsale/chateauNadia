@@ -1,0 +1,33 @@
+.lang {
+    margin-left: var(--u2);
+
+    @extend %has-children;
+
+    .lang-item:not(.current-lang) {
+        @extend %sub-nav;
+    }
+
+    .lang-item:not(:last-child) {
+        @media screen and (max-width: $tablet) {
+            margin-right: var(--u1);
+        }
+    }
+
+    &:hover {
+        .lang-item:not(.current-lang) {
+            transform: translate(-50%, var(--u3));
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        color: var(--white);
+
+        @extend %dropdown-icon;
+        right: -12px;
+        
+        @media screen and(max-width: $tablet){
+            display: none;
+        }
+    }
+}

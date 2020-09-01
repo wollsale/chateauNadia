@@ -1,0 +1,44 @@
+/* ROOT */
+@import "./root/reset";
+@import "./root/breakpoints";
+@import "./root/colors";
+@import "./root/layout";
+@import "./root/typography";
+
+
+/* LOCAL */
+@import "./local/1-elements/elements";
+@import "./local/2-components/components";
+
+
+
+// > root /
+//     colors
+//     layout
+//     typography
+//     breakpoints
+//     grids
+//     reset
+// > local /
+//     1. partials /
+//         elements
+//             *common*
+//             titles
+//             links
+//             texts
+//             nav-items
+//             *buttons*
+//             common
+//             primary
+//             secondary
+//             controllers
+//             brand
+//             *icons*
+//             common
+//         components
+//             nav
+//             headings
+//             img
+//         sequences
+//         entities
+//         pages

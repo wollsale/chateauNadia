@@ -1,0 +1,28 @@
+:root {
+    --playfair : "Playfair Display";
+    --allura : "Allura";
+
+    --font-title : var(--allura);
+    --font-text : var(--playfair);
+
+    --fontSize-body : var(--u2);
+    --fontSize-small : calc(var(--u1) * 1.75);
+
+    --color-text : var(--middleGray);
+    --color-title : var(--darkPink);
+}
+
+body, p, a {
+    font-family: var(--font-text);
+    color: var(--color-text);
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-title);
+        color: var(--color-title);
+    }
+}
+
+* {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1;
+}

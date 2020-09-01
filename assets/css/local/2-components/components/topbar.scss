@@ -1,0 +1,40 @@
+.topbar {
+    --backgroundColor : var(--lightPink);
+    &__head {
+        --backgroundColor : var(--darkPink);
+        --color-text : var(--white);
+    }
+
+    &, &__head, &__main {
+        background-color: var(--backgroundColor);
+    }
+}
+
+
+.topbar {
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--u1) var(--u4);
+        @media screen and(max-width: $mobile) {
+            padding: var(--u1) var(--u2);
+        }
+
+        .left, .right, .socials {
+            display: flex;
+
+            > *:not(:last-child) {
+                margin-right: var(--u1);
+            }
+        }
+    }
+
+    &__main {
+        @extend %full-width;
+        display: flex;
+
+        nav {
+            margin-left: auto;
+        }
+    }
+}

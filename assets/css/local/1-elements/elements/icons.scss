@@ -1,0 +1,43 @@
+%icon {
+    --size: var(--u2);
+
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+// CLASSES
+
+.icon {
+    @extend %icon;
+    position: relative;
+
+    &-instagram {
+        background-image: url("../icons/instagram.svg");
+    }
+    &-facebook {
+        background-image: url("../icons/facebook.svg");
+    }
+
+    &--stamp {
+        --background-color: var(--dark-pink);
+
+        &::before {
+            display: block;
+            content: '';
+            
+            width: calc(var(--size) * 2);
+            height: calc(var(--size) * 2);
+            border-radius: 50%;
+            
+            position: absolute;
+            top: -50%; left: -50%;
+            z-index: -1;
+
+            background-color: var(--background-color);
+        }
+    }
+}

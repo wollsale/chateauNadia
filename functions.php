@@ -12,7 +12,7 @@ function theme_styles()
     $cssFileURI = get_template_directory_uri() . '/build/css/' . basename($cssFilePath[0]);
     wp_enqueue_style('site_main_css', $cssFileURI);
     // include the javascript file
-    $jsFilePath = glob(get_template_directory() . '/build/js/app.min.*.js');
+    $jsFilePath = glob(get_template_directory() . '/build/js/app.min.js');
     $jsFileURI = get_template_directory_uri() . '/build/js/' . basename($jsFilePath[0]);
     wp_enqueue_script('site_main_js', $jsFileURI, null, null, true);
 }

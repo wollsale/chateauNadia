@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/wollsale/chateauNadia#readme",
   "devDependencies": {
+    "@babel/cli": "^7.11.5",
+    "@babel/core": "^7.11.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.11.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
@@ -33,7 +38,6 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@babel/core": "^7.11.4",
     "clean-webpack-plugin": "^3.0.0",
     "file-loader": "^6.0.0"
   }

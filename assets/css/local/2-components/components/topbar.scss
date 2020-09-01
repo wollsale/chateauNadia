@@ -1,8 +1,29 @@
 .topbar {
+    --backgroundColor : var(--lightPink);
+    &__head {
+        --backgroundColor : var(--darkPink);
+        --color-text : var(--white);
+    }
+
+    &, &__head, &__main {
+        background-color: var(--backgroundColor);
+    }
+}
+
+
+.topbar {
     &__head {
         @extend %full-width;
 
         display: flex;
         justify-content: space-between;
+
+        .left, .right, .socials {
+            display: flex;
+
+            > *:not(:last-child) {
+                margin-right: var(--u1);
+            }
+        }
     }
 }

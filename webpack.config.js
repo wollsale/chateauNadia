@@ -12,7 +12,7 @@ module.exports = {
     entry: ['./assets/js/app.js', './assets/css/app.scss'],
     // for the JavaScript build
     output: {
-        filename: './build/js/app.min.[hash].js',
+        filename: './build/js/app.min.js',
         path: path.resolve(__dirname)
     },
     module: {
@@ -48,12 +48,12 @@ module.exports = {
     plugins: [
         // extract css into dedicated file
         new MiniCssExtractPlugin({
-            filename: './build/css/main.min.[hash].css'
+            filename: './build/css/main.min.css'
         }),
         // clean out build directories on each build
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: ['./build/js/*', './build/css/*', '!*.png'],
-            //cleanStaleWebpackAssets: false,
+            cleanOnceBeforeBuildPatterns: ['./build/js/*', './build/css/*'],
+            cleanStaleWebpackAssets: false
         })
     ],
     optimization: {

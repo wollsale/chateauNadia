@@ -1,0 +1,14 @@
+.lang {
+    @extend %has-children;
+
+        .lang-item:not(.current-lang) {
+            @extend %sub-nav;
+        }
+
+        &:hover {
+            .lang-item:not(.current-lang) {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+}

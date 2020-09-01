@@ -1,0 +1,8 @@
+.topbar {
+    &__head {
+        @extend %full-width;
+
+        display: flex;
+        justify-content: space-between;
+    }
+}

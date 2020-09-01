@@ -2,3 +2,16 @@
     text-decoration: none;
     color: inherit;
 }
+
+%dropdown-icon {
+    --size: calc(var(--u1) / 2);
+
+    display: block; content: '';
+    width: var(--size); height: var(--size);
+    transform: rotate(45deg) translateY(-50%);
+    border-right: solid 1px currentColor;
+    border-bottom: solid 1px currentColor;
+
+    position: absolute;
+    right: 0; top: 50%;
+}

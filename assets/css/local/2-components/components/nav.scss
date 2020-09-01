@@ -1,12 +1,25 @@
 %nav {
     display: flex;
 
-    // TO REMOVE
-    margin-bottom: 200px;
+    @media screen and (max-width: $tablet) {
+        overflow: scroll;
+        width: 100%;
+        
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }
 
 %has-children {
-    position: relative; 
+    position: relative;
+    
+    @media screen and (max-width: $tablet) {
+        display: flex;
+    }
 }
 
 %sub-nav {
@@ -20,11 +33,21 @@
     transition: .3s ease-out;
 
     background-color: var(--background-color);
+
+    @media screen and (max-width: $tablet) {
+        opacity: 1;
+        position: relative;
+        transform: none;
+        left: auto;
+        top: auto;
+        
+        display: flex;
+    }
 }
 
 
 // WORDPRESS CLASSES
-.menu {
+nav, .menu {
     @extend %nav;
 }
 
@@ -36,10 +59,20 @@
             @extend %sub-nav;
         }
 
+        &::after {
+            @extend %dropdown-icon;
+            right: 4px;
+            @media screen and(max-width: $tablet){
+                display: none;
+            }
+        }
+
         &:hover {
-            .sub-menu {
-                transform: translate(-50%, 0);
-                opacity: 1;
+            @media screen and(min-width: calc($tablet) - 1px) {
+                .sub-menu {
+                    transform: translate(-50%, 0);
+                    opacity: 1;
+                }
             }
         }
     }

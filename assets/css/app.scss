@@ -1,5 +1,6 @@
 /* ROOT */
 @import "./root/reset";
+@import "./root/breakpoints";
 @import "./root/colors";
 @import "./root/layout";
 @import "./root/typography";
@@ -8,8 +9,6 @@
 /* LOCAL */
 @import "./local/1-elements/elements";
 @import "./local/2-components/components";
-
-
 
 
 

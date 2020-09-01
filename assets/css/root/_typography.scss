@@ -21,3 +21,8 @@ body, p, a {
         color: var(--color-title);
     }
 }
+
+* {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1;
+}

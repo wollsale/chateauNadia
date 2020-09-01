@@ -24,18 +24,36 @@
     &:first-of-type {
         border-bottom: 1px solid var(--border-color);
     }
-}
 
+    @media screen and(max-width: $tablet) {
+        --padding: var(--u4) var(--u1);
+        width: auto;
+    }
+}
 
 // WORDPRESS CLASSES
 .menu-item {
     > a {        
         &:not(.sub-menu) {
             @extend %nav-items;
+            white-space: nowrap;
         }
 
         .sub-menu & {
             @extend %subNav-items;
         }
+
+        &[aria-current='page'] {
+            position: relative;
+
+            &::after {
+                display: block; content: '';
+                width: 100%; 
+                height: calc(var(--u1) / 2);
+                background: var(--darkPink);
+                position: absolute;
+                bottom: 0; left: 0;
+            }
+        } 
     }
 }

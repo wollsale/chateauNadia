@@ -1,15 +1,20 @@
 %brand-logo {
-    display: block;
+    display: flex;
 
     > img {
-        width: 232px;
-        height: 125px;
+        width: auto;
+        height: calc(var(--u10) - var(--u2));
+        margin: auto;
     }
 }
 
 
 // WORDPRESS CLASSES
 
-.custom-logo-link {
+.brand {
     @extend %brand-logo;
+
+    @media screen and(max-width: $tablet) {
+        display: none;
+    }
 }

@@ -1,5 +1,6 @@
 %nav-items {
     --padding: var(--u4) var(--u2);
+    --hoverColor: var(--lightPinkHover);
 
     @extend %text;
     @extend %all-caps;
@@ -37,6 +38,10 @@
         &:not(.sub-menu) {
             @extend %nav-items;
             white-space: nowrap;
+        }
+
+        &:hover {
+            background-color: var(--hoverColor);
         }
 
         .sub-menu & {

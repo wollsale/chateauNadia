@@ -50,20 +50,22 @@ foreach ($users as $user) {
                     </ul>
                 </div>
             </div>
-            <div class="topbar__main">
-                <?php
-                $custom_logo_id = get_theme_mod('custom_logo');
-                $custom_logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
-                $site_url = get_home_url();
-                $site_name = get_bloginfo('name');
-                if ($custom_logo_url) : ?>
-                    <a href="<?php echo $site_url; ?>" class="brand">
-                        <h1 class="hidden"><?php echo $site_name; ?></h1>
-                        <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>">
-                    </a>
-                <?php endif; ?>
-                <nav>
-                    <?php wp_nav_menu(); ?>
-                </nav>
+            <div class="topbar__main" data-sticky="false">
+                <div class="container">
+                    <?php
+                    $custom_logo_id = get_theme_mod('custom_logo');
+                    $custom_logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
+                    $site_url = get_home_url();
+                    $site_name = get_bloginfo('name');
+                    if ($custom_logo_url) : ?>
+                        <a href="<?php echo $site_url; ?>" class="brand">
+                            <h1 class="hidden"><?php echo $site_name; ?></h1>
+                            <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>">
+                        </a>
+                    <?php endif; ?>
+                    <nav>
+                        <?php wp_nav_menu(); ?>
+                    </nav>
+                </div>
             </div>
         </div>

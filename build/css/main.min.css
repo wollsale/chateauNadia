@@ -54,6 +54,7 @@ a {
 
 :root {
   --lightPink: #f3eeee;
+  --lightPinkHover: #F0E7E7;
   --darkPink: #dda193;
   --middleGray: #555555;
   --white: #ffffff; }
@@ -72,7 +73,7 @@ a {
   --u10: calc(var(--unit)*10);
   --maxWidth: 1440px; }
 
-.topbar__main {
+.container {
   max-width: var(--maxWidth);
   width: 100%;
   margin: 0 auto; }
@@ -141,6 +142,7 @@ body, p, a {
 
 .menu-item > a:not(.sub-menu) {
   --padding: var(--u4) var(--u2);
+  --hoverColor: var(--lightPinkHover);
   display: block;
   padding: var(--padding); }
 
@@ -160,6 +162,9 @@ body, p, a {
 
 .menu-item > a:not(.sub-menu) {
   white-space: nowrap; }
+
+.menu-item > a:hover {
+  background-color: var(--hoverColor); }
 
 .menu-item > a[aria-current='page'] {
   position: relative; }
@@ -233,20 +238,17 @@ nav, .menu {
 
 .menu-item-has-children .sub-menu, .lang .lang-item:not(.current-lang) {
   --background-color: var(--light-pink);
-  position: absolute;
-  left: 50%;
-  opacity: 0;
-  transform: translate(-50%, var(--u4));
-  transition: .3s ease-out;
+  display: flex;
   background-color: var(--background-color); }
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 1023px) {
     .menu-item-has-children .sub-menu, .lang .lang-item:not(.current-lang) {
-      opacity: 1;
-      position: relative;
-      transform: none;
-      left: auto;
-      top: auto;
-      display: flex; } }
+      position: absolute;
+      left: 50%;
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, var(--u4));
+      transition: all .3s ease-out; } }
 
 .menu-item-has-children::after {
   right: 4px; }
@@ -254,10 +256,13 @@ nav, .menu {
     .menu-item-has-children::after {
       display: none; } }
 
-@media screen and (min-width: calc($tablet) - 1px) {
+@media screen and (min-width: 1023px) {
   .menu-item-has-children:hover .sub-menu {
     transform: translate(-50%, 0);
-    opacity: 1; } }
+    opacity: 1;
+    visibility: visible;
+    --background-color: var(--lightPink);
+    background-color: var(--background-color); } }
 
 .topbar {
   --backgroundColor: var(--lightPink); }
@@ -279,10 +284,17 @@ nav, .menu {
     .topbar__head .left > *:not(:last-child), .topbar__head .right > *:not(:last-child), .topbar__head .socials > *:not(:last-child) {
       margin-right: var(--u1); }
 
-.topbar__main {
+.topbar__main .container {
   display: flex; }
-  .topbar__main nav {
-    margin-left: auto; }
+
+.topbar__main nav {
+  margin-left: auto; }
+
+.topbar__main[data-sticky="true"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; }
 
 .lang {
   margin-left: var(--u2); }

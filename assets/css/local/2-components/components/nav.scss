@@ -25,23 +25,18 @@
 %sub-nav {
     --background-color: var(--light-pink);
 
-    position: absolute;
-    left: 50%;
-    
-    opacity: 0;
-    transform: translate(-50%, var(--u4));
-    transition: .3s ease-out;
-
+    display: flex;
     background-color: var(--background-color);
 
-    @media screen and (max-width: $tablet) {
-        opacity: 1;
-        position: relative;
-        transform: none;
-        left: auto;
-        top: auto;
+    @media screen and (min-width: $tablet-min) {
+        position: absolute;
+        left: 50%;
+        display: block;
         
-        display: flex;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(-50%, var(--u4));
+        transition: all .3s ease-out;
     }
 }
 
@@ -66,14 +61,20 @@ nav, .menu {
                 display: none;
             }
         }
+    }
+}
 
-        &:hover {
-            @media screen and(min-width: calc($tablet) - 1px) {
+.menu-item-has-children {
+    &:hover {
+            @media screen and(min-width: $tablet-min) {
                 .sub-menu {
                     transform: translate(-50%, 0);
                     opacity: 1;
+                    visibility: visible;
+
+                    --background-color: var(--lightPink);
+                    background-color: var(--background-color);
                 }
             }
         }
-    }
 }

@@ -23,4 +23,12 @@
 
 .container {
     @extend %full-width;
+    position: relative;
+}
+
+%full-width-padded {
+    --gutter : var(--u4);
+
+    width: calc(100% - var(--gutter));
+    margin: 0 auto;
 }

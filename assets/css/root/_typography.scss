@@ -5,8 +5,14 @@
     --font-title : var(--allura);
     --font-text : var(--playfair);
 
+    --fontSize-h1 : var(--u10);
+    --fontSize-h2 : var(--u7);
+    --fontSize-h3 : var(--u5);
+    --fontSize-h4 : var(--u3);
     --fontSize-body : var(--u2);
     --fontSize-small : calc(var(--u1) * 1.75);
+
+    --lineHeight-text : 155%;
 
     --color-text : var(--middleGray);
     --color-title : var(--darkPink);

@@ -1,0 +1,26 @@
+%button {
+    --border-color: var(--darkPink);
+    --color: currentColor;
+    --font-size : var(--fontSize-small);
+
+    display: inline-block;
+    padding: var(--u2) var(--u5);
+    
+    border: 1px solid var(--border-color);
+    color: var(--color);
+
+    @extend %all-caps;
+    font-size: var(--font-size);
+
+    &:hover {
+        background-color: var(--border-color);
+        --color: var(--white);
+    }
+}
+
+.wp-block-button__link {
+    @extend %button;
+    
+    background-color: transparent;
+    border-radius: 0;
+}

@@ -1,0 +1,13 @@
+.banner {
+    margin-left: auto;
+    @media screen and(min-width: $tablet-min) {
+        max-width: calc(100% - 300px);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+    }
+}

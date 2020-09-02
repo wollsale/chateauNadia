@@ -29,7 +29,7 @@ foreach ($users as $user) {
 }
 ?>
 
-<body>
+<body <?php body_class(); ?>>
     <header>
         <div class="topbar">
             <div class="topbar__head">

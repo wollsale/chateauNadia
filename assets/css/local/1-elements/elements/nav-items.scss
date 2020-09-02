@@ -1,6 +1,7 @@
 %nav-items {
     --padding: var(--u4) var(--u2);
     --hoverColor: var(--lightPinkHover);
+    --fontSize : var(--fontSize-small);
 
     @extend %text;
     @extend %all-caps;

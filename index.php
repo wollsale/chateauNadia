@@ -3,19 +3,21 @@
 <!-- INTRODUCTION -->
 <?php
 $content = get_the_content();
-$image = get_the_post_thumbnail($post->ID, 'large');
+$image = get_the_post_thumbnail($post->ID, 'full');
 ?>
 
 <?php if ($content) : ?>
     <div class="hero">
-        <div class="content">
-            <?php echo $content; ?>
-        </div>
-        <?php if ($image) : ?>
-            <div class="banner">
-                <?php echo $image; ?>
+        <div class="container">
+            <div class="content">
+                <?php echo $content; ?>
             </div>
-        <?php endif; ?>
+            <?php if ($image) : ?>
+                <div class="banner">
+                    <?php echo $image; ?>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
 <?php endif; ?>
 

@@ -1,0 +1,10 @@
+%titleDefault {
+    @extend %all-caps;
+    font-family: var(--font-text);
+    font-size: var(--font-size);
+}
+
+%titleHandwritten {
+    font-family: var(--font-title);
+    font-size: var(--font-size);
+}

@@ -1,8 +1,13 @@
 :root {
     --lightPink : #f3eeee;
     --lightPinkHover : #F0E7E7;
+    --lightestPink : #F7F4F5;
 
     --darkPink : #dda193;
     --middleGray : #555555;
     --white : #ffffff;
+}
+
+body {
+    background-color: var(--white);
 }

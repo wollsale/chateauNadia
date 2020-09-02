@@ -30,6 +30,13 @@
     }
 
     &__main {
+        --padding: 0;
+        @media screen and(max-width: $desktop) {
+            --padding: var(--u2);
+        }
+
+        padding: 0 var(--padding);
+
         .container {
             display: flex;
         }

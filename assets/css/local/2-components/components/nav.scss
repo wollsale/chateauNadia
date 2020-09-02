@@ -56,7 +56,8 @@ nav, .menu {
 
         &::after {
             @extend %dropdown-icon;
-            right: 4px;
+            position: absolute;
+            bottom: 16px; right: 50%;
             @media screen and(max-width: $tablet){
                 display: none;
             }

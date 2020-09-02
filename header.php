@@ -60,7 +60,7 @@ foreach ($users as $user) {
                     if ($custom_logo_url) : ?>
                         <a href="<?php echo $site_url; ?>" class="brand">
                             <h1 class="hidden"><?php echo $site_name; ?></h1>
-                            <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>">
+                            <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>" class="brand__logo">
                         </a>
                     <?php endif; ?>
                     <nav>

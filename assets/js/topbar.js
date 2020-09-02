@@ -1,12 +1,10 @@
-const sticky = (target) => {
+export const sticky = (target) => {
     const trigger = target.getBoundingClientRect().top;
     const head = document.querySelector('.topbar__head');
     let height = target.clientHeight;
 
     window.onscroll = (e) => {
         let scroll = window.scrollY;
-
-        console.log(scroll + " :: " + trigger);
 
         if (scroll >= trigger) {
             target.dataset.sticky = true;
@@ -18,4 +16,16 @@ const sticky = (target) => {
     }
 }
 
-export default sticky;
+export const logoScale = (target) => {
+    const scaleLimit = 2;
+
+    window.addEventListener('scroll', (e) => {
+        let sticky = document.querySelector('.topbar__main').dataset.sticky;
+
+        if (sticky === 'true') {
+            target.style.transform = 'scale(1)';
+        } else {
+            target.style.transform = 'scale(1.6)';
+        }
+    })
+}

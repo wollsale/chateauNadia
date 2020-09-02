@@ -24,7 +24,8 @@
         color: var(--white);
 
         @extend %dropdown-icon;
-        right: -12px;
+        position: absolute;
+        top: 50%; right: -12px;
         
         @media screen and(max-width: $tablet){
             display: none;

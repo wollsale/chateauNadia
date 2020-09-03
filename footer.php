@@ -1,20 +1,21 @@
-
-    <footer>
-    <?php
+<footer class="footer">
+    <div class="container">
+        <?php
         // wp_nav_menu([
         //     'theme_location' => 'footer',s
         //     'container' => false,
         // ])
-        // ?>
+        // 
+        ?>
 
-        
-        <?php 
+
+        <?php
         $args = array(
-         'role' => 'Administrator'
+            'role' => 'Administrator'
         );
-        
+
         $users = get_users($args);
-        
+
         foreach ($users as $user) {
             $id = $user->ID;
             $id = 'user_' . $id;
@@ -25,37 +26,44 @@
                 $address = get_field('address', $id);
                 $maps = get_field('maps', $id);
                 $mail = get_field('mail', $id);
-                $hours = get_field('hours', $id);
+                $hours = get_field('hours', $id); ?>
 
-                if($phone or $addresss or $mail) : ?>
+                <div class="row">
 
-                <ul>
-                    <?php if($phone) : ?><li><a href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></li><?php endif; ?>
-                    <?php if($address) : ?><li><a href="<?php echo $maps; ?>" target="_blank"><?php echo $address; ?></a></li><?php endif; ?>
-                    <?php if($mail) : ?><li><a href="mail:<?php echo $mail; ?>"><?php echo $mail; ?></a></li><?php endif; ?>
-                </ul>
+                    <?php if ($phone or $addresss or $mail) : ?>
 
-                <?php endif;
+                        <h3><?php pll_e('ChateauNadia'); ?></h3>
+                        <ul class="details">
+                            <?php if ($phone) : ?><li><a href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></li><?php endif; ?>
+                            <?php if ($address) : ?><li><a href="<?php echo $maps; ?>" target="_blank"><?php echo $address; ?></a></li><?php endif; ?>
+                            <?php if ($mail) : ?><li><a href="mail:<?php echo $mail; ?>"><?php echo $mail; ?></a></li><?php endif; ?>
+                            <img class="map" src="<?php echo get_template_directory_uri(); ?>/assets/icons/maps.png" alt="">
+                        </ul>
 
-                if($hours): ?>
-                    
-                <ul>
-                    <?php foreach($hours as $item):
-                        $days = $item['days'];
-                        $hours = $item['hours']; ?>
-                    
-                    <?php if($days): ?><li><span><?php echo $days ?></span><span> = <?php echo $hours ?></span></li><?php endif; ?>
-                
-                    <?php endforeach; ?>
-                
-                </ul>
-                
-                <?php endif;
-            endif;
+                    <?php endif; ?>
+                </div>
+
+                <div class="row">
+                    <?php if ($hours) : ?>
+                        <h3><?php pll_e('Hours'); ?></h3>
+                        <ul class="hours">
+                            <?php foreach ($hours as $item) :
+                                $days = $item['days'];
+                                $hours = $item['hours']; ?>
+
+                                <?php if ($days) : ?><li><span class="days"><?php echo $days ?></span><span class="hours"><?php echo $hours ?></span></li><?php endif; ?>
+
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+        <?php endif;
         }
-    ?>
+        ?>
+    </div>
 
-    </footer>
-    <?php wp_footer() ?>
+</footer>
+<?php wp_footer() ?>
 </body>
+
 </html>

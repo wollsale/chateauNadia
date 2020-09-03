@@ -10,4 +10,20 @@
         position: relative;
         z-index: 1;
     }
+
+    &.placeholder {
+        --height: 70vh;
+    }
+}
+
+%placeholder {
+    width: 100%;
+    height: var(--height);
+    position: relative;
+    z-index: 1;
+    background: var(--darkPink);   
+}
+
+.placeholder {
+    @extend %placeholder;
 }

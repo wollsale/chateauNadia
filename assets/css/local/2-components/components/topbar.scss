@@ -18,10 +18,6 @@
     &__head {
         display: flex;
         justify-content: space-between;
-        padding: var(--u1) var(--u4);
-        @media screen and(max-width: $mobile) {
-            padding: var(--u1) var(--u2);
-        }
 
         .left, .right, .socials {
             display: flex;

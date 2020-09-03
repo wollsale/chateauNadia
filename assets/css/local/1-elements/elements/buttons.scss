@@ -29,3 +29,9 @@
     background-color: transparent;
     border-radius: 0;
 }
+
+.wp-block-buttons, .wp-block-button {
+    @include mobile {
+        width: 100%;
+    }
+}

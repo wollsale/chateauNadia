@@ -41,13 +41,22 @@ foreach ($users as $user) {
                 <div class="right">
                     <?php if ($facebook or $instagram) : ?>
                         <ul class="socials">
-                            <?php if ($facebook) : ?><li><a href="<?php echo $facebook; ?>" target="_blank" class="icon icon--stamp icon-facebook"><span class="hidden"><?php echo $facebook; ?></span></a></li><?php endif; ?>
-                            <?php if ($instagram) : ?><li><a href="<?php echo $instagram; ?>" target="_blank" class="icon icon--stamp icon-instagram"><span class="hidden"><?php echo $instagram; ?></span></a></li><?php endif; ?>
+                            <?php if ($facebook) : ?><li><a href="<?php echo $facebook; ?>" target="_blank" class="icon icon-facebook"><span class="hidden"><?php echo $facebook; ?></span></a></li><?php endif; ?>
+                            <?php if ($instagram) : ?><li><a href="<?php echo $instagram; ?>" target="_blank" class="icon icon-instagram"><span class="hidden"><?php echo $instagram; ?></span></a></li><?php endif; ?>
                         </ul>
                     <?php endif; ?>
-                    <ul class="lang">
-                        <?php pll_the_languages(); ?>
-                    </ul>
+                    <div class="lang__wrapper">
+                        <p><?php
+                            $currLang = get_bloginfo('language');
+                            if ($currLang == "fr-CA") { // Replace condition with your language code.
+                                echo 'FR';
+                            } else {
+                                echo 'EN';
+                            } ?></p>
+                        <ul class="lang">
+                            <?php pll_the_languages(); ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="topbar__main" data-sticky="false">

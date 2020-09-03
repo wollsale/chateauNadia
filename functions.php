@@ -20,7 +20,6 @@ function theme_styles()
 add_action('wp_enqueue_scripts', 'theme_styles');
 
 
-
 /*
 *
 * THEME SUPPORT
@@ -88,3 +87,22 @@ function theme_types()
     ]);
 }
 add_action('init', 'theme_types');
+
+
+
+
+
+
+
+/*
+*
+* TRANSLATION POLYLANG
+*
+*/
+
+/* FOOTER */
+add_action('init', function () {
+    /* FOOTER */
+    pll_register_string('Château Nadia', 'ChateauNadia', 'Footer', false);
+    pll_register_string('Nos heures', 'Hours', 'Footer', false);
+});

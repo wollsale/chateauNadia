@@ -16,6 +16,8 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 <div class="banner">
                     <?php echo $image; ?>
                 </div>
+            <?php else : ?>
+                <div class="banner placeholder"></div>
             <?php endif; ?>
         </div>
     </div>
@@ -50,7 +52,9 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 <div class="media">
                     <a class="button" href="<?php if ($button_url) : echo $button_url;
                                             endif; ?>"><?php echo $button_title; ?></a>
-                    <?php if ($image) : ?><img src="<?php echo $image; ?>" alt=""><?php endif; ?>
+                    <?php if ($image) : ?><img src="<?php echo $image; ?>" alt="">
+                    <?php else : ?><div class="placeholder"></div>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>

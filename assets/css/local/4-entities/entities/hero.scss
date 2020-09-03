@@ -14,7 +14,11 @@
     
         .content {
             --backgroundColor: var(--lightestPink);
-            --padding: var(--u10) var(--u6);
+            --padding: var(--u6) var(--u4);
+
+            @include tablet(1) {
+                --padding: var(--u10) var(--u6);
+            }
     
             @media screen and(min-width: $tablet-min) {
                 position: absolute;

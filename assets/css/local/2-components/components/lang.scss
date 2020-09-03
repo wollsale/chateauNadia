@@ -1,34 +1,80 @@
 .lang {
-    margin-left: var(--u2);
+    &__wrapper {
+        margin-left: var(--u2);
 
-    @extend %has-children;
-
-    .lang-item:not(.current-lang) {
-        @extend %sub-nav;
-    }
-
-    .lang-item:not(:last-child) {
-        @media screen and (max-width: $tablet) {
-            margin-right: var(--u1);
-        }
-    }
-
-    &:hover {
-        .lang-item:not(.current-lang) {
-            transform: translate(-50%, var(--u3));
-            opacity: 1;
-        }
-    }
-
-    &::after {
-        color: var(--white);
-
-        @extend %dropdown-icon;
-        position: absolute;
-        top: 50%; right: -12px;
+        @extend %has-children;
         
-        @media screen and(max-width: $tablet){
-            display: none;
+        padding: calc(var(--u1) / 2) var(--u4) var(--u1) 0;
+        @media screen and(max-width: $mobile) {
+            padding: var(--u1) var(--u2);
         }
+
+        &::after {
+            color: var(--white);
+    
+            @extend %dropdown-icon;
+            position: absolute;
+            top: 45%; right: 20px;
+            
+            @media screen and(max-width: $tablet){
+                display: none;
+            }
+        }
+
+        &:hover {
+            .lang {
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+            }
+        }
+
+        p {
+            height: var(--u2);
+        }
+    }
+
+    li {
+        a {
+            display: block;
+            padding: var(--u1) var(--u2);
+            background: var(--darkPink);
+            color: var(--white);
+        }
+
+        &.current-lang {
+            font-weight: bold;
+        }
+    }
+
+    z-index: 1;
+    position: absolute;
+    top: 100%; left: calc(-1 * var(--u2));
+
+    opacity: 0;
+    transform: translateY(var(--u1));
+    visibility: hidden;
+    transition: all .1s linear;
+}
+
+
+.socials {
+    padding: var(--u1) 0 var(--u1) var(--u4);
+    height: var(--u2);
+    
+    @media screen and(max-width: $mobile) {
+        padding: var(--u1) var(--u2);
+    }
+
+    li {
+        display: block;
+        height: var(--u2); width: var(--u2);
+    }
+}
+
+.left {
+    padding: var(--u1) 0 var(--u1) var(--u4);
+    @media screen and(max-width: $mobile) {
+        padding: var(--u1) var(--u2);
     }
 }

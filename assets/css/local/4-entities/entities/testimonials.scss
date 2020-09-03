@@ -35,9 +35,24 @@
             background-size: contain;
 
             position: absolute;
+
+            @include mobile {
+                top: -100%;
+                z-index: -1;
+                opacity: 0.2;
+            }
         }
 
         &::before { top: 0; left: calc(-1.5 * var(--u10)); }
         &::after { top: 0; right: calc(-1.5 * var(--u10)); transform: scaleX(-1); }
+
+        @include mobile {
+            &::before {
+                left: 50%; transform: translate(-50%, 0)
+            }
+            &::after {
+                display: none;
+            }
+        }
     }
 }

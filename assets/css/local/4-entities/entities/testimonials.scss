@@ -2,10 +2,22 @@
     .intro {
         @extend %containerSmall;
         text-align: center;
+    }
 
-        p {
+    .slider {
+        .content {
             font-style: italic;
             margin-top: var(--u3);
+        }
+
+        footer {
+            --font-size: var(--fontSize-h3);
+            --color: var(--color-title);
+
+            @extend %titleHandwritten;
+            color: var(--color);
+
+            margin-top: var(--u5);
         }
     }
 }

@@ -145,23 +145,36 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                     </div>
                     <p><?php echo $testimonials_text; ?></p>
                 </div>
-                <ul>
-                    <?php foreach ($featured_testi as $post) :
+                <ul class="slider">
+                    <?php $i = 0;
+                    foreach ($featured_testi as $post) :
+                        $i++;
                         setup_postdata($post);
                         $title = $post->post_title;
                         $content = $post->post_content;
                     ?>
-                        <li>
-                            <?php echo $content; ?>
-                            <?php echo $title; ?>
+                        <li class="slider__item" data-slide="<?php echo $i; ?>">
+                            <blockquote>
+                                <div class="content"><?php echo $content; ?></div>
+                                <footer><?php echo $title; ?></footer>
+                            </blockquote>
                         </li>
                     <?php endforeach; ?>
                 </ul>
+                <div class="slider__bullets">
+                    <?php $i = 0;
+                    foreach ($featured_testi as $post) :
+                        $i++;
+                    ?>
+                        <div class="slider__bullet" data-slide="<?php echo $i; ?>"></div>
+                    <?php endforeach; ?>
+                </div>
+
             </section>
             <?php
             wp_reset_postdata(); ?>
         <?php elseif (sizeof($featured_testi) <= 1) : ?>
-            <section class="videos">
+            <section class="testimonials">
                 <div class="intro">
                     <?php echo $testimonials_title_default; ?>
                     <?php echo $testimonials_title_handwritten; ?>

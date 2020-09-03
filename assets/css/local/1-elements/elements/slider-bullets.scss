@@ -1,0 +1,20 @@
+.slider {
+    &__bullets {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--u8);
+    }
+
+    &__bullet {
+        --size: var(--u3);
+
+        width: var(--size);
+        height: var(--size);
+
+        border: 1px solid green;
+
+        &--is-active {
+            background: green;
+        }
+    }
+}

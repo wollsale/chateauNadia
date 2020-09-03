@@ -1,0 +1,23 @@
+.slider {
+    --easing : cubic-bezier(0.83, 0, 0.17, 1);
+    margin-top: var(--u8);
+
+    text-align: center;
+    
+    @extend %containerSmall;
+    display: flex;
+
+    overflow: hidden;
+
+    &__item {
+        @extend %containerSmall;
+        
+        flex: 0 0 100%;
+
+        text-align: center;
+        font-style: italic;
+        
+        display: inline-block;
+        transition: all .6s var(--easing);
+    }
+}

@@ -1,4 +1,7 @@
 .testimonials {
+    overflow: hidden;
+    @extend %full-width-padded;
+
     .intro {
         @extend %containerSmall;
         text-align: center;
@@ -19,5 +22,22 @@
 
             margin-top: var(--u5);
         }
+    }
+
+    .testimonial {
+        position: relative;
+
+        &::before, &::after {
+            display: block; content: '';
+            width: var(--u10); height: var(--u10);
+            background-image: url('../icons/quote.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            position: absolute;
+        }
+
+        &::before { top: 0; left: calc(-1.5 * var(--u10)); }
+        &::after { top: 0; right: calc(-1.5 * var(--u10)); transform: scaleX(-1); }
     }
 }

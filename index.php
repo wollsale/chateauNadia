@@ -153,7 +153,7 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                         $title = $post->post_title;
                         $content = $post->post_content;
                     ?>
-                        <li class="slider__item" data-slide="<?php echo $i; ?>">
+                        <li class="slider__item testimonial" data-slide="<?php echo $i; ?>">
                             <blockquote>
                                 <div class="content"><?php echo $content; ?></div>
                                 <footer><?php echo $title; ?></footer>

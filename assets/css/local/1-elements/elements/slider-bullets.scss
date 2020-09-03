@@ -6,15 +6,35 @@
     }
 
     &__bullet {
-        --size: var(--u3);
+        --size: var(--u2);
+        --color: var(--darkPink);
 
         width: var(--size);
         height: var(--size);
 
-        border: 1px solid green;
+        @include mobile {
+            width: auto;
+            height: var(--u3);
+            flex: 1 1 auto;
+            border-radius: 4px;
+        }
+
+        border: 1px solid var(--color);
+        border-radius: 50%;
+
+        cursor: pointer;
+        transition: all .1s linear;
 
         &--is-active {
-            background: green;
+            background: var(--color);
+        }
+
+        &:not(:last-child) {
+            margin-right: var(--u1);
+        }
+
+        &:hover {
+            background: var(--lightPink);
         }
     }
 }

@@ -7,8 +7,6 @@
     @extend %containerSmall;
     display: flex;
 
-    overflow: hidden;
-
     &__item {
         @extend %containerSmall;
         
@@ -19,5 +17,11 @@
         
         display: inline-block;
         transition: all .6s var(--easing);
+
+        opacity: 0;
+
+        &--is-active {
+            opacity: 1;
+        }
     }
 }

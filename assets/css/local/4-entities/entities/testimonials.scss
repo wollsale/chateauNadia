@@ -1,0 +1,11 @@
+.testimonials {
+    .intro {
+        @extend %containerSmall;
+        text-align: center;
+
+        p {
+            font-style: italic;
+            margin-top: var(--u3);
+        }
+    }
+}

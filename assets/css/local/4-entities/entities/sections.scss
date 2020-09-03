@@ -1,0 +1,9 @@
+section {
+    --section-margin: calc(var(--u10) * 2.5);
+
+        @include mobile {
+            --section-margin: var(--u10);
+        }
+
+    margin: var(--section-margin) auto;
+}

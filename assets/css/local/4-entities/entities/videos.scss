@@ -1,0 +1,22 @@
+.videos {
+    text-align: center;
+
+    .intro {
+        margin-bottom: var(--u4);
+    }
+
+    &__wrapper {
+        position: relative;
+        padding-bottom: 43%; /* 16:9 */
+        height: 0;
+        margin: 0 auto;
+    }
+    &__wrapper iframe {
+        position: absolute;
+        top: 0; left: 50%;
+        transform: translateX(-50%);
+        max-width: calc(100% - 300px);
+        width: 100%;
+        height: 100%;
+    }
+}

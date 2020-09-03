@@ -7,4 +7,26 @@
 %titleHandwritten {
     font-family: var(--font-title);
     font-size: var(--font-size);
+    transform: translateY(calc(-1 * var(--u1)));
+    line-height: var(--lineHeight-handwritten);
+}
+
+%titleHead {
+    :first-child { @extend %titleDefault; --font-size: var(--fontSize-h5); }
+    :last-child { @extend %titleHandwritten; --font-size: var(--fontSize-h2); }
+}
+
+.title-default {
+    --font-size: var(--fontSize-h5);
+    @extend %titleDefault;
+}
+
+.title-handwritten {
+    --font-size: var(--fontSize-h2);
+    @extend %titleHandwritten;
+}
+
+.title-head {
+    @extend %titleHead;
+    text-align: center;
 }

@@ -4,3 +4,30 @@ $tablet : 1024px;
 $tablet-min : 1023px;
 $desktop : 1440px;
 $desktop-min : 1439px;
+
+
+
+@mixin mobile {
+    @media (min-width: 0px) and (max-width: #{$tablet - 1px}) {
+      @content;
+    }
+  }
+
+@mixin tablet($inclusive: 0) {
+  @if $inclusive == 0 {
+    @media (min-width: #{$tablet}) and (max-width: #{$desktop - 1px}) {
+        @content;
+    }
+  }
+  @if $inclusive != 0 {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}

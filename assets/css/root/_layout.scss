@@ -13,17 +13,29 @@
     --u10 : calc(var(--unit)*10);
 
     --maxWidth: 1440px;
+    --containerSmall : calc(var(--u8) * 10);
 }
 
 %full-width {
-    max-width: var(--maxWidth);
     width: 100%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+%container {
+    @extend %full-width;
+    max-width: var(--maxWidth);
+    position: relative;
+}
+
+%containerSmall {
+    @extend %full-width;
+    max-width: var(--containerSmall);
+    position: relative;
 }
 
 .container {
-    @extend %full-width;
-    position: relative;
+    @extend %container;
 }
 
 %full-width-padded {

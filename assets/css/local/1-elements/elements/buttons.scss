@@ -16,9 +16,14 @@
         background-color: var(--border-color);
         --color: var(--white);
     }
+
+    @include mobile {
+        width: 100%;
+        text-align: center;
+    }
 }
 
-.wp-block-button__link {
+.wp-block-button__link, .button {
     @extend %button;
     
     background-color: transparent;

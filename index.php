@@ -37,19 +37,21 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         $image = $content_block['image'];
         $image = wp_get_attachment_image_src($image, 'large')[0];
     ?>
-        <section class="intro">
-            <div class="block">
+        <section class="about">
+            <div class="container">
                 <div class="content">
-                    <h2><?php if ($title_default) : echo $title_default;
-                        endif; ?></h2>
-                    <h2><?php if ($title_handwritter) : echo $title_handwritter;
-                        endif; ?></h2>
+                    <h2 class="title-default"><?php if ($title_default) : echo $title_default;
+                                                endif; ?></h2>
+                    <h2 class="title-handwritten"><?php if ($title_handwritter) : echo $title_handwritter;
+                                                    endif; ?></h2>
                     <p><?php if ($text) : echo $text;
                         endif; ?></p>
-                    <a href="<?php if ($button_url) : echo $button_url;
-                                endif; ?>"><?php echo $button_title; ?></a>
                 </div>
-                <?php if ($image) : ?><img src="<?php echo $image; ?>" alt=""><?php endif; ?>
+                <div class="media">
+                    <a class="button" href="<?php if ($button_url) : echo $button_url;
+                                            endif; ?>"><?php echo $button_title; ?></a>
+                    <?php if ($image) : ?><img src="<?php echo $image; ?>" alt=""><?php endif; ?>
+                </div>
             </div>
         </section>
 
@@ -63,11 +65,11 @@ $image = get_the_post_thumbnail($post->ID, 'full');
 
     if ($featured_vids) {
         if (sizeof($featured_vids) > 1) : ?>
-            <section class="videos">
+            <section class="videos container">
                 <?php if ($video_title_default or $video_title_handwritten) : ?>
                     <div class="intro">
-                        <?php echo $video_title_default; ?>
-                        <?php echo $video_title_handwritten; ?>
+                        <h2 class="title-default"><?php echo $video_title_default; ?></h2>
+                        <h2 class="title-handwritten"><?php echo $video_title_handwritten; ?></h2>
                     </div>
                 <?php endif; ?>
                 <ul>
@@ -76,7 +78,7 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                         $url = get_field('video_youtube_url');
                         $embed = wp_oembed_get($url);
                     ?>
-                        <li>
+                        <li class="videos__wrapper">
                             <?php echo $embed; ?>
                         </li>
                     <?php endforeach; ?>
@@ -85,11 +87,11 @@ $image = get_the_post_thumbnail($post->ID, 'full');
             <?php
             wp_reset_postdata(); ?>
         <?php elseif (sizeof($featured_vids) <= 1) : ?>
-            <section class="videos">
+            <section class="videos container">
                 <?php if ($video_title_default or $video_title_handwritten) : ?>
                     <div class="intro">
-                        <?php echo $video_title_default; ?>
-                        <?php echo $video_title_handwritten; ?>
+                        <h2 class="title-default"><?php echo $video_title_default; ?></h2>
+                        <h2 class="title-handwritten"><?php echo $video_title_handwritten; ?></h2>
                     </div>
                 <?php endif; ?>
                 <?php foreach ($featured_vids as $post) :
@@ -97,7 +99,9 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                     $url = get_field('video_youtube_url');
                     $embed = wp_oembed_get($url);
                 ?>
-                    <?php echo $embed; ?>
+                    <div class="videos__wrapper">
+                        <?php echo $embed; ?>
+                    </div>
                 <?php endforeach; ?>
             </section>
     <?php wp_reset_postdata();
@@ -113,15 +117,14 @@ $image = get_the_post_thumbnail($post->ID, 'full');
             $author = $quote->post_content;
             $content = $quote->post_title;
             ?>
-            <div>
+            <blockquote class="container">
                 <?php if ($content) : ?>
-                    <p><?php echo $content; ?></p>
+                    <p class="quote__main"><?php echo $content; ?></p>
                 <?php endif; ?>
                 <?php if ($author) : ?>
                     <?php echo $author; ?>
                 <?php endif; ?>
-            </div>
-
+            </blockquote>
         </section>
     <?php endif; ?>
 
@@ -136,8 +139,10 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         if (sizeof($featured_testi) > 1) : ?>
             <section class="testimonials">
                 <div class="intro">
-                    <h2><?php echo $testimonials_title_default; ?></h2>
-                    <h2><?php echo $testimonials_title_handwritten; ?></h2>
+                    <div class="title-head">
+                        <h2><?php echo $testimonials_title_default; ?></h2>
+                        <h2><?php echo $testimonials_title_handwritten; ?></h2>
+                    </div>
                     <p><?php echo $testimonials_text; ?></p>
                 </div>
                 <ul>

@@ -1,0 +1,35 @@
+.quote {
+    --background-color: var(--pastel);
+    --padding: calc(var(--u10) * 2);
+    --color: var(--white);
+    
+    @extend %full-width;
+
+    text-align: center;
+    
+    background-color: var(--background-color);
+    padding: var(--padding) 0;
+
+    * { color: var(--color); }
+
+    &__main {
+        --font-size: var(--fontSize-h1);
+        @extend %titleHandwritten;
+    }
+    
+    &__signature, p:not(.quote__main) {
+        @extend %titleDefault;
+        @extend %all-caps;
+        margin-top: var(--u2);
+    }
+
+    blockquote {
+        max-width: var(--containerSmall);
+
+        &::after {
+            font-size: var(--fontSize-small);
+            display: block; content: "XOXOX";
+            margin-top: var(--u2);
+        }
+    }
+}

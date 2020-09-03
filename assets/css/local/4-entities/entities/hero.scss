@@ -1,85 +1,68 @@
-.hero {
-    display: flex;
-
-    .container {
-        display: flex;
-        flex-direction: column;
-    
-        @media screen and(min-width: $tablet-min) {
-            flex-direction: row;
-        }
-    }
-
-    .content {
-        --backgroundColor: var(--lightestPink);
-        --padding: var(--u10) var(--u6);
-
-        @media screen and(min-width: $tablet-min) {
-            position: absolute;
-            left: 0; top: 50%;
-            transform: translateY(-50%);
-            max-width: 50%;
-            
-            order: 1;
-        }
-
-        @media screen and(max-width: $tablet) {
-            transform: translateY(-100px);
-        }
-
-        @extend %full-width-padded;
-        
-        order: 2;
-        display: block;
-        padding: var(--padding);
-
-        background-color: var(--backgroundColor);
-
-        z-index: 2;
-    }
-}
-
-
-.hero .content {
-    h2 {
-        --font-size: var(--fontSize-h4);
-
-        @extend %titleDefault;
-        color: var(--color);
-
-        strong {
-            --font-size: var(--fontSize-h1);
-            @extend %titleHandwritten;
-            display: block;
-            text-transform: none;
-            transform: translateY(-16px);
-        }
-    }
-
-    p {
-        font-style: italic;
-    }
-
-    .wp-block-button {
-        margin-top: var(--u6);
-    }
-}
-
-
 // HOME
 .home {
     .hero {
-        @media screen and(min-width: $tablet-min) {
-            position: relative;
-            &::after {
-                display: block; content: '';
-                width: 50%;
-                background: var(--lightPink);
+        display: flex;
     
+        .container {
+            display: flex;
+            flex-direction: column;
+        
+            @media screen and(min-width: $tablet-min) {
+                flex-direction: row;
+            }
+        }
+    
+        .content {
+            --backgroundColor: var(--lightestPink);
+            --padding: var(--u10) var(--u6);
+    
+            @media screen and(min-width: $tablet-min) {
                 position: absolute;
-                left: 0; bottom: 0; top: 0;
-                z-index: 0;
-            }    
+                left: 0; top: 50%;
+                transform: translateY(-50%);
+                max-width: 50%;
+                
+                order: 1;
+            }
+    
+            @media screen and(max-width: $tablet) {
+                margin-top: -100px;
+            }
+    
+            @extend %full-width-padded;
+            
+            order: 2;
+            display: block;
+            padding: var(--padding);
+    
+            background-color: var(--backgroundColor);
+    
+            z-index: 2;
+        }
+    }
+    
+    
+    .hero .content {
+        h2 {
+            --font-size: var(--fontSize-h4);
+    
+            @extend %titleDefault;
+            color: var(--color);
+    
+            strong {
+                --font-size: var(--fontSize-h1);
+                @extend %titleHandwritten;
+                display: block;
+                text-transform: none;
+            }
+        }
+    
+        p {
+            font-style: italic;
+        }
+    
+        .wp-block-button {
+            margin-top: var(--u6);
         }
     }
 }

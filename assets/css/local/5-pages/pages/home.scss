@@ -1,0 +1,95 @@
+.home {
+    .about {
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include tablet(1) {
+                flex-direction: row;
+            }
+
+            .media {
+                position: relative;
+                @extend %full-width-padded;
+
+                @include mobile {
+                    margin-top: var(--u3);
+                }
+
+                @include tablet(1) {
+                    order: 1;
+                    width: 60%;
+                    margin-right: auto;
+                }
+                > img {
+                    width: 100%;
+                    max-height: 400px;
+                    object-fit: cover;
+                }
+                > a {
+                    @include tablet(1) {
+                        position: absolute;
+                        right: -8px; bottom: var(--u4);
+                    }
+
+                    @include mobile {
+                        margin-bottom: var(--u4);
+                    }
+                }
+            }
+
+            .content {
+                @extend %full-width-padded;
+
+                @include tablet(1) {
+                    order: 2;
+                    width: 30%;
+                    margin-left: auto;
+
+                    text-align: right;
+                }
+
+                p {
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
+
+
+.home {
+    .hero {
+        @include tablet(1) {
+            position: relative;
+            &::after {
+                display: block; content: '';
+                width: 45%;
+                background: var(--lightPink);
+    
+                position: absolute;
+                left: 0; bottom: 0; top: 0;
+                z-index: 0;
+            }    
+        }
+    }
+
+    section.about {
+        @include tablet(1) {
+            position: relative;
+
+            &::after {
+                display: block; content: '';
+                width: 45%;
+                background: var(--lightPink);
+    
+                position: absolute;
+                left: 0; 
+                bottom: -40px;
+                top: calc(-1 * var(--section-margin));
+                z-index: -1;
+            }
+        }
+    }
+}

@@ -56,6 +56,7 @@
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
+                    <?php wp_nav_menu(array('theme_location' => 'footer')); ?>
                 </div>
         <?php endif;
         }

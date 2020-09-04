@@ -62,4 +62,19 @@
             }
         } 
     }
+
+    footer & {
+        a {
+            padding: 0 !important;
+
+            --color: var(--darkPink);
+            --font-size: var(--fontSize-small);
+            
+            font-weight: bold;
+            font-size: var(--font-size);
+            color: var(--color) !important;
+
+            &[aria-current='page']::after { display: none; }
+        }
+    }
 }

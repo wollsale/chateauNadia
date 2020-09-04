@@ -44,6 +44,11 @@
 // WORDPRESS CLASSES
 nav, .menu {
     @extend %nav;
+
+    footer & {
+        flex-direction: column;
+        margin-top: var(--u10);
+    }
 }
 
 .menu-item {

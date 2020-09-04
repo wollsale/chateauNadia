@@ -1,3 +1,84 @@
+.hero {
+    position: relative;
+    
+    .title {
+        --font-size: var(--fontSize-h2);
+        font-weight: bold;
+
+        @extend %text;
+        @extend %all-caps;
+
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        
+        background-color: var(--white);
+        padding: var(--u2) var(--u4);
+    }
+
+    .banner {
+        max-width: none;
+        max-height: 70vh;
+    }
+
+    &::before {
+        display: block; content: '';
+        width: 100%;
+        height: 60vh;
+        background-color: var(--lightPink);
+
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // HOME
 .home {
     .hero {

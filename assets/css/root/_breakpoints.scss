@@ -8,10 +8,10 @@ $desktop-min : 1439px;
 
 
 @mixin mobile {
-    @media (min-width: 0px) and (max-width: #{$tablet - 1px}) {
-      @content;
-    }
+  @media (min-width: 0px) and (max-width: #{$tablet - 1px}) {
+    @content;
   }
+}
 
 @mixin tablet($inclusive: 0) {
   @if $inclusive == 0 {

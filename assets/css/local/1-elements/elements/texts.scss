@@ -5,6 +5,7 @@
     line-height: var(--lineHeight-text);
     font-family: var(--font-text);
     color: var(--color-text);
+    font-style: italic;
 }
 
 %small-text {
@@ -30,4 +31,10 @@
 
 p {
     @extend %text;
+}
+
+.formating p {
+    &:not(:last-child) {
+        margin-bottom: var(--u2);
+    }
 }

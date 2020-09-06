@@ -1,0 +1,84 @@
+.dresses {
+    text-align: center;
+
+    .intro {
+        margin-bottom: var(--u10);
+    }
+}
+
+.dresses {
+    --gutter: var(--u4);
+    --display: 3;
+
+    --background-color: var(--lightPink);
+    --border-color: var(--darkPink);
+
+    @extend %full-width-padded;
+
+    @include mobile {
+        --display: 1;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        --padding: var(--u6) var(--u4);
+        --coverHeight: 250px;
+
+        margin-bottom: var(--gutter);
+
+        @include tablet(1) {
+            margin-right: var(--gutter);
+            
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+
+.card {
+    &--dresses {
+        cursor: pointer;
+        
+        .card__hover {
+            --easing : cubic-bezier(0.83, 0, 0.17, 1);
+
+            position: absolute;
+            top: 0; left: 0;
+
+            height: 100%;
+            width: 100%;
+
+            transform: scaleY(1);
+            transform-origin: top center;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: .6s ease-out;
+
+            img {
+                object-position: 50% 50%;
+                object-fit: cover;
+                transform: scale(1);
+                transition: 4s ease-out;
+            }
+        }
+        
+        &:hover {
+            .card__hover {
+                transform: scaleY(1);
+                opacity: 1;
+
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

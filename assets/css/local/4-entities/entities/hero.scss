@@ -1,5 +1,9 @@
 .hero {
     position: relative;
+    --height: 60vh;
+    height: var(--height);
+
+    .container { height: 100%; }
     
     .title {
         --font-size: var(--fontSize-h2);
@@ -17,15 +21,10 @@
         padding: var(--u2) var(--u4);
     }
 
-    .banner {
-        max-width: none;
-        max-height: 70vh;
-    }
-
     &::before {
         display: block; content: '';
         width: 100%;
-        height: 60vh;
+        height: calc(var(--height) - 10vh);
         background-color: var(--lightPink);
 
         position: absolute;
@@ -83,6 +82,12 @@
 .home {
     .hero {
         display: flex;
+        
+        .banner {
+            @media screen and(min-width: $tablet-min) {
+                max-width: calc(100% - 300px);
+            }
+        }
     
         .container {
             display: flex;

@@ -42,5 +42,6 @@
     --gutter : var(--u4);
 
     width: calc(100% - var(--gutter));
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }

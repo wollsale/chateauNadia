@@ -1,4 +1,3 @@
-<!-- TESTIMONIALS -->
 <?php
 $featured_testi = get_field('testimonials_selection');
 $testimonials_title_default = get_field('testimonials_title')['testimonials_default_title'];

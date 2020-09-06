@@ -1,4 +1,3 @@
-<!-- QUOTES -->
 <?php
 $quote = get_field('quote');
 if ($quote) : ?>

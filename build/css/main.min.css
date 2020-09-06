@@ -623,6 +623,13 @@ footer nav, footer .menu {
     .intro.grid .images:nth-child(6) {
       grid-row: 6; } }
 
+.videos__list {
+  display: flex; }
+
+.videos__item {
+  flex: 0 0 80%;
+  margin: 0 !important; }
+
 .hero {
   position: relative;
   --height: 60vh;

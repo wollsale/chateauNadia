@@ -19,7 +19,7 @@ if ($featured_vids) {
                         $url = get_field('video_youtube_url');
                         $embed = wp_oembed_get($url);
                     ?>
-                        <li class="videos__wrapper" class="videos__item">
+                        <li class="videos__item videos__wrapper">
                             <?php echo $embed; ?>
                         </li>
                     <?php endforeach; ?>

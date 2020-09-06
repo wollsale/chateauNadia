@@ -1,4 +1,10 @@
 .videos {
-    &__list {}
-    &__item {}
+    &__list {
+        display: flex;
+    }
+    &__item {
+        flex: 0 0 80%;
+
+        margin: 0 !important;
+    }
 }

@@ -1,10 +1,18 @@
 export const sticky = (target) => {
-    const trigger = target.getBoundingClientRect().top;
+    const spaceTop = target.getBoundingClientRect().top;
     const head = document.querySelector('.topbar__head');
     let height = target.clientHeight;
+    let trigger;
+
+    if (spaceTop <= 0) {
+        trigger = head.clientHeight;
+    } else {
+        trigger = spaceTop;
+    }
 
     window.onscroll = (e) => {
         let scroll = window.scrollY;
+        console.log(trigger)
 
         if (scroll >= trigger) {
             target.dataset.sticky = true;

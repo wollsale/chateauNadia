@@ -11,6 +11,7 @@
 
     @extend %all-caps;
     font-size: var(--font-size);
+    text-align: center;
 
     &:hover {
         background-color: var(--border-color);

@@ -3,7 +3,7 @@
     --hoverColor: var(--lightPinkHover);
     --fontSize : var(--fontSize-small);
 
-    @extend %text;
+    // @extend %text;
     @extend %all-caps;
     @extend %link;
 

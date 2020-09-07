@@ -6,6 +6,10 @@
     max-width: calc(calc(calc(100% / var(--display)) - calc(var(--gutter) / calc(var(--display) - 1))) - calc(var(--display) * 2px));
     width: 100%;
 
+    @include mobile {
+        margin-left: auto; margin-right: auto;
+    }
+
     &__cover {
         height: var(--coverHeight);
         overflow: hidden;
@@ -20,14 +24,54 @@
     &__content {
         padding: var(--padding);
     }
-
-    &__title {
-        --font-size: var(--fontSize-h3);
-        @extend %titleHandwritten;
-    }
     
     &__descr {
         @extend %small-text;
         margin-top: var(--u1);
-    } 
+    }
+}
+
+
+.card {
+    &--dresses {
+        .card__title {
+            --font-size: var(--fontSize-h3);
+            @extend %titleHandwritten;
+        }
+    }
+
+    &--blog {
+        --padding: var(--u3) var(--u4);
+        --background-color: var(--white);
+        --border-color: #eee;
+
+        max-width: calc(calc(100% / var(--display)) - calc(var(--gutter) / 2));
+
+        .card__cover {
+            --coverHeight: 400px;
+        }
+
+        .card__title {
+            --font-size: var(--fontSize-h4);
+            
+            @extend %titleDefault;
+            
+            text-transform: none;
+            font-weight: bold;
+        }
+
+        .card__button {
+            margin-top: var(--u2);
+            width: 100%;
+        }
+
+        .card__link {
+            &:hover {
+                .card__button {
+                    background-color: var(--border-color);
+                    --color: var(--white);
+                }
+            }
+        }
+    }
 }

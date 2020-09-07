@@ -1,0 +1,32 @@
+.blog {
+    --gutter: var(--u10);
+    --display: 2;
+
+    --background-color: var(--lightPink);
+    --border-color: var(--darkPink);
+
+    main {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+
+            @include mobile {
+                --display: 1;
+            }
+    
+            .card {
+                margin-bottom: var(--gutter);
+    
+                @include tablet(1) {
+                    margin-right: var(--gutter);
+                    
+                    &:nth-child(2n) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        padding-top: var(--u10);
+    }
+}

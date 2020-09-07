@@ -2,6 +2,7 @@
     @extend %all-caps;
     font-family: var(--font-text);
     font-size: var(--font-size);
+    line-height: var(--lineHeight-text);
 }
 
 %titleHandwritten {

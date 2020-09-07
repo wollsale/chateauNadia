@@ -38,6 +38,10 @@
     @extend %container;
 }
 
+.padded {
+    @extend %full-width-padded;
+}
+
 %full-width-padded {
     --gutter : var(--u4);
 

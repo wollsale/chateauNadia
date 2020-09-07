@@ -1,0 +1,8 @@
+.page-template-template_page-about {
+    .quote {
+        p {
+            text-transform: none;
+        }
+        blockquote:after { display: none; }
+    }
+}

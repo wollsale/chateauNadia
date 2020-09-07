@@ -1,29 +1,40 @@
-<?php get_header() ?>
+<?php /* Template Name: Sous-Page */
 
-<!-- HEADER -->
+get_header() ?>
+<!-- INTRODUCTION -->
 <?php
-$content = get_the_content();
-$image = get_the_post_thumbnail($post->ID, 'large');
+$title = get_the_title();
+$image = get_the_post_thumbnail($post->ID, 'full');
 ?>
-
-<?php if ($content) : ?>
+<?php if ($title) : ?>
     <div class="hero">
-        <div class="content">
-            <?php echo $content; ?>
+        <div class="container">
+            <h1 class="title"><?php echo $title; ?></h1>
+            <?php if ($image) : ?>
+                <div class="banner">
+                    <?php echo $image; ?>
+                </div>
+            <?php else : ?>
+                <div class="banner placeholder"></div>
+            <?php endif; ?>
         </div>
-        <?php if ($image) : ?>
-            <div class="banner">
-                <?php echo $image; ?>
-            </div>
-        <?php endif; ?>
     </div>
 <?php endif; ?>
-
 </header>
 
 <main>
+    <?php
+    if ($_POST['submit']) {
+        $to = 'wollsale@gmail.com';
+        $content = $_POST['contact-name'];
 
-    <?php echo do_shortcode("[ameliabooking]"); ?>
+        echo $_POST['contact-name'];
+    } ?>
+
+    <form id="formid" action="" method="POST">
+        <input type="text" name="contact-name" value="" />
+        <input type="submit" name="submit" value="submit" />
+    </form>
 
 </main>
 

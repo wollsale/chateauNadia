@@ -92,7 +92,7 @@ body {
   max-width: var(--containerSmall);
   position: relative; }
 
-.intro.grid, .home .hero .content, .testimonials, .dresses, .home .about .container .media, .home .about .container .content {
+.padded, .intro.grid, .home .hero .content, .testimonials, .dresses, .home .about .container .media, .home .about .container .content {
   --gutter: var(--u4);
   width: calc(100% - var(--gutter));
   margin-left: auto;
@@ -142,11 +142,12 @@ body, p, a {
   border-right: solid 1px currentColor;
   border-bottom: solid 1px currentColor; }
 
-.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main) {
+.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .card--blog .card__title, .hero--about .container .block-split .content p, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main) {
   font-family: var(--font-text);
-  font-size: var(--font-size); }
+  font-size: var(--font-size);
+  line-height: var(--lineHeight-text); }
 
-.title-head :last-child, .intro.grid .block .head :last-child, .title-handwritten, .card__title, .home .hero .content h2 strong, .quote__main, .testimonials .slider footer {
+.title-head :last-child, .intro.grid .block .head :last-child, .title-handwritten, .card--dresses .card__title, .home .hero .content h2 strong, .quote__main, .testimonials .slider footer {
   font-family: var(--font-title);
   font-size: var(--font-size);
   transform: translateY(calc(-1 * var(--u1)));
@@ -167,7 +168,7 @@ body, p, a {
 .title-head, .intro.grid .block .head {
   text-align: center; }
 
-p, .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .hero .title, .footer h3 {
+p, .hero .title, .footer h3 {
   --font-size: var(--font-size-body);
   font-size: var(--font-size);
   line-height: var(--lineHeight-text);
@@ -179,7 +180,7 @@ p, .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .hero .title, .
   --font-size: var(--font-size-small);
   font-size: var(--font-size); }
 
-.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main), .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .wp-block-button__link, .button, .hero .title, .footer h3, .videos .carousel__controls a {
+.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .card--blog .card__title, .hero--about .container .block-split .content p, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main), .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .wp-block-button__link, .button, .hero .title, .footer h3, .videos .carousel__controls a {
   font-size: var(--font-size);
   text-transform: uppercase; }
 
@@ -299,7 +300,8 @@ footer .menu-item a, footer .page_item a {
   padding: var(--u2) var(--u5);
   border: 1px solid var(--border-color);
   color: var(--color);
-  font-size: var(--font-size); }
+  font-size: var(--font-size);
+  text-align: center; }
   .wp-block-button__link:hover, .button:hover {
     background-color: var(--border-color);
     --color: var(--white); }
@@ -487,6 +489,10 @@ footer nav, footer .menu, footer .menu > ul {
   background-color: var(--background-color);
   max-width: calc(calc(calc(100% / var(--display)) - calc(var(--gutter) / calc(var(--display) - 1))) - calc(var(--display) * 2px));
   width: 100%; }
+  @media (min-width: 0px) and (max-width: 1023px) {
+    .card {
+      margin-left: auto;
+      margin-right: auto; } }
   .card__cover {
     height: var(--coverHeight);
     overflow: hidden; }
@@ -497,10 +503,79 @@ footer nav, footer .menu, footer .menu > ul {
       object-position: 50% 50%; }
   .card__content {
     padding: var(--padding); }
-  .card__title {
-    --font-size: var(--fontSize-h3); }
   .card__descr {
     margin-top: var(--u1); }
+
+.card--dresses .card__title {
+  --font-size: var(--fontSize-h3); }
+
+.card--blog {
+  --padding: var(--u3) var(--u4);
+  --background-color: var(--white);
+  --border-color: #eee;
+  max-width: calc(calc(100% / var(--display)) - calc(var(--gutter) / 2)); }
+  .card--blog .card__cover {
+    --coverHeight: 400px; }
+  .card--blog .card__title {
+    --font-size: var(--fontSize-h4);
+    text-transform: none;
+    font-weight: bold; }
+  .card--blog .card__button {
+    margin-top: var(--u2);
+    width: 100%; }
+  .card--blog .card__link:hover .card__button {
+    background-color: var(--border-color);
+    --color: var(--white); }
+
+.block-split {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  @media (min-width: 1024px) {
+    .block-split {
+      flex-direction: row; } }
+  .block-split > * {
+    position: relative; }
+  @media (min-width: 1024px) {
+    .block-split .media {
+      width: 35%; } }
+  .block-split .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%; }
+  .block-split .content {
+    padding: var(--u10); }
+    @media (min-width: 1024px) {
+      .block-split .content {
+        width: 65%; } }
+    .block-split .content * {
+      text-align: left; }
+
+.hero--about {
+  --height: 80vh !important; }
+  .hero--about::before {
+    --height: 60vh; }
+  .hero--about .container {
+    display: flex; }
+    .hero--about .container .block-split > * {
+      position: relative; }
+    .hero--about .container .block-split .media {
+      border: var(--u3) solid var(--white);
+      height: 90%; }
+      @media (min-width: 1024px) {
+        .hero--about .container .block-split .media {
+          width: 60%; } }
+    @media (min-width: 1024px) {
+      .hero--about .container .block-split .content {
+        width: 40%; } }
+    .hero--about .container .block-split .content p {
+      font-style: normal; }
+    .hero--about .container .block-split .content .title-head, .hero--about .container .block-split .content .intro.grid .block .head, .intro.grid .block .hero--about .container .block-split .content .head {
+      --color-title: var(--middleGray);
+      margin-bottom: var(--u3); }
+      .hero--about .container .block-split .content .title-head h2:first-child, .hero--about .container .block-split .content .intro.grid .block .head h2:first-child, .intro.grid .block .hero--about .container .block-split .content .head h2:first-child {
+        --font-size: var(--fontSize-h3); }
 
 .banner {
   margin-left: auto;
@@ -586,6 +661,12 @@ footer nav, footer .menu, footer .menu > ul {
     .intro.grid .images:last-child {
       grid-column: 3;
       grid-row: 3 / 5; } }
+  @media (min-width: 1024px) {
+    .intro.grid--min .block:first-child {
+      grid-row: 1 !important; }
+    .intro.grid--min .images:last-child {
+      grid-column: 3;
+      grid-row: 2; } }
 
 /*
 *
@@ -635,8 +716,9 @@ footer nav, footer .menu, footer .menu > ul {
   .hero .container {
     height: 100%; }
   .hero .title {
-    --font-size: var(--fontSize-h2);
+    --font-size: var(--fontSize-h3);
     font-weight: bold;
+    font-style: normal;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -780,7 +862,7 @@ section {
         padding-bottom: 49%;
         /* 16:9 */ } }
     .videos__wrapper.carousel__item {
-      padding-bottom: 18%;
+      padding-bottom: 20%;
       background: linear-gradient(102.56deg, #EC9393 0%, #ECC0C0 100%);
       transition: transform .6s ease-out; }
       .videos__wrapper.carousel__item:not(.tns-slide-active) {
@@ -998,4 +1080,31 @@ section {
       bottom: -40px;
       top: calc(-1 * var(--section-margin));
       z-index: -1; } }
+
+.page-template-template_page-about .quote p {
+  text-transform: none; }
+
+.page-template-template_page-about .quote blockquote:after {
+  display: none; }
+
+.blog {
+  --gutter: var(--u10);
+  --display: 2;
+  --background-color: var(--lightPink);
+  --border-color: var(--darkPink); }
+  .blog main {
+    padding-top: var(--u10); }
+    .blog main ul {
+      display: flex;
+      flex-wrap: wrap; }
+      @media (min-width: 0px) and (max-width: 1023px) {
+        .blog main ul {
+          --display: 1; } }
+      .blog main ul .card {
+        margin-bottom: var(--gutter); }
+        @media (min-width: 1024px) {
+          .blog main ul .card {
+            margin-right: var(--gutter); }
+            .blog main ul .card:nth-child(2n) {
+              margin-right: 0; } }
 

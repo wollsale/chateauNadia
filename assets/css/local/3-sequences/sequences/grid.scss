@@ -69,6 +69,22 @@
             }
         }
     }
+
+    &--min {
+        @include tablet(1) {
+            .block {
+                &:first-child {
+                    grid-row: 1 !important;
+                }
+            }
+            .images {
+                &:last-child {
+                    grid-column: 3;
+                    grid-row: 2;
+                }
+            }
+        }
+    }
 }
 
 

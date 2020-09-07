@@ -15,6 +15,9 @@ function theme_styles()
     $jsFilePath = glob(get_template_directory() . '/build/js/app.min.js');
     $jsFileURI = get_template_directory_uri() . '/build/js/' . basename($jsFilePath[0]);
     wp_enqueue_script('site_main_js', $jsFileURI, null, null, true);
+    // SLICK
+    wp_enqueue_style('slider_style', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css');
+    wp_enqueue_script('slider_js', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js', null, null, true);
 }
 
 add_action('wp_enqueue_scripts', 'theme_styles');
@@ -105,4 +108,8 @@ add_action('init', function () {
     /* FOOTER */
     pll_register_string('Château Nadia', 'ChateauNadia', 'Footer', false);
     pll_register_string('Nos heures', 'Hours', 'Footer', false);
+
+    /* SLIDER */
+    pll_register_string('Précédent', 'Previous', 'Slider', false);
+    pll_register_string('Suivant', 'Next', 'Slider', false);
 });

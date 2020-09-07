@@ -73,7 +73,7 @@ foreach ($users as $user) {
                         </a>
                     <?php endif; ?>
                     <nav>
-                        <?php wp_nav_menu(); ?>
+                        <?php wp_nav_menu(array('theme_location' => 'header')); ?>
                     </nav>
                 </div>
             </div>

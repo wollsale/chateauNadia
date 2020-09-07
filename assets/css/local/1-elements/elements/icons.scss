@@ -21,6 +21,13 @@
     &-facebook {
         background-image: url("../icons/facebook.svg");
     }
+    &-prev {
+        background-image: url("../icons/arrow.svg");
+        transform: rotate(180deg);
+    }
+    &-next {
+        background-image: url("../icons/arrow.svg");
+    }
 
     &--stamp {
         --background-color: var(--dark-pink);

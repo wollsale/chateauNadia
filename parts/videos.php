@@ -13,17 +13,23 @@ if ($featured_vids) {
                         <h2 class="title-handwritten"><?php echo $video_title_handwritten; ?></h2>
                     </div>
                 <?php endif; ?>
-                <ul class="videos__list">
-                    <?php foreach ($featured_vids as $post) :
-                        setup_postdata($post);
-                        $url = get_field('video_youtube_url');
-                        $embed = wp_oembed_get($url);
-                    ?>
-                        <li class="videos__item videos__wrapper">
-                            <?php echo $embed; ?>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+                <div class="carousel__wrapper">
+                    <div class="carousel">
+                        <?php foreach ($featured_vids as $post) :
+                            setup_postdata($post);
+                            $url = get_field('video_youtube_url');
+                            $embed = wp_oembed_get($url);
+                        ?>
+                            <div class="carousel__item videos__wrapper">
+                                <?php echo $embed; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="carousel__controls">
+                        <a href="#" class="carousel__control" id="prev"><span class="icon icon-prev"></span><?php pll_e('Previous'); ?></a>
+                        <a href="#" class="carousel__control" id="next"><?php pll_e('Next'); ?><span class="icon icon-next"></span></a>
+                    </div>
+                </div>
             </div>
         </section>
         <?php

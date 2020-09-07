@@ -42,7 +42,7 @@
 
 
 // WORDPRESS CLASSES
-nav, .menu {
+nav, .menu, .menu > ul {
     @extend %nav;
 
     footer & {
@@ -51,8 +51,8 @@ nav, .menu {
     }
 }
 
-.menu-item {
-    &-has-children {
+.menu-item, .page_item {
+    &-has-children, &_has_children {;
         @extend %has-children;
 
         .sub-menu {

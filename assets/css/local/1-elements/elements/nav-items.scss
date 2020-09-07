@@ -34,7 +34,7 @@
 }
 
 // WORDPRESS CLASSES
-.menu-item {
+.menu-item, .page_item {
     > a {        
         &:not(.sub-menu) {
             @extend %nav-items;

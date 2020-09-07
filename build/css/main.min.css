@@ -58,6 +58,7 @@ a {
   --lightestPink: #F7F4F5;
   --pastel: #D7BFB7;
   --darkPink: #dda193;
+  --lightGray: #ddd;
   --middleGray: #555555;
   --white: #ffffff; }
 
@@ -97,6 +98,9 @@ body {
   width: calc(100% - var(--gutter));
   margin-left: auto;
   margin-right: auto; }
+
+.flex {
+  display: flex; }
 
 :root {
   --playfair: "Playfair Display";
@@ -180,7 +184,7 @@ p, .hero .title, .footer h3 {
   --font-size: var(--font-size-small);
   font-size: var(--font-size); }
 
-.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .card--blog .card__title, .hero--about .container .block-split .content p, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main), .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .wp-block-button__link, .button, .hero .title, .footer h3, .videos .carousel__controls a {
+.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .card--blog .card__title, .hero--about .container .block-split .content p, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main), .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .wp-block-button__link, .button, .form__wrapper, .hero .title, .footer h3, .videos .carousel__controls a {
   font-size: var(--font-size);
   text-transform: uppercase; }
 
@@ -577,6 +581,37 @@ footer nav, footer .menu, footer .menu > ul {
       .hero--about .container .block-split .content .title-head h2:first-child, .hero--about .container .block-split .content .intro.grid .block .head h2:first-child, .intro.grid .block .hero--about .container .block-split .content .head h2:first-child {
         --font-size: var(--fontSize-h3); }
 
+form input, form textarea {
+  --border-color: var(--darkPink);
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--u2); }
+  form input::placeholder, form textarea::placeholder {
+    visibility: hidden; }
+  form input:focus, form input:not(:placeholder-shown), form textarea:focus, form textarea:not(:placeholder-shown) {
+    outline: none; }
+    form input:focus + label, form input:not(:placeholder-shown) + label, form textarea:focus + label, form textarea:not(:placeholder-shown) + label {
+      transform: translateY(0%) scale(0.8); }
+
+form label {
+  color: var(--darkPink);
+  pointer-events: none;
+  user-select: none; }
+
+.form__item {
+  position: relative; }
+
+.form label {
+  position: absolute;
+  top: 0;
+  left: var(--u2);
+  transform-origin: top left;
+  transform: translateY(100%);
+  transition: transform .3s ease-out; }
+
+.form input, .form textarea {
+  width: 100%; }
+
 .banner {
   margin-left: auto;
   width: 100%;
@@ -708,6 +743,65 @@ footer nav, footer .menu, footer .menu > ul {
       grid-row: 4; }
     .intro.grid .images:nth-child(6) {
       grid-row: 6; } }
+
+.form {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; }
+  .form--is-active {
+    --border-color: var(--darkPink);
+    visibility: visible; }
+
+.form__wrapper {
+  min-height: 300px; }
+
+.form__triggers {
+  width: 450px; }
+
+.forms {
+  flex: 1 0 auto;
+  position: relative; }
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: var(--u2) var(--u4); }
+  .form__item {
+    flex-basis: calc(50% - var(--u1));
+    margin-right: var(--u2);
+    margin-top: var(--u2); }
+    .form__item:nth-child(2n) {
+      margin-right: 0; }
+  .form__message, .form__action {
+    flex-basis: 100%; }
+  .form__action {
+    display: flex;
+    margin-top: var(--u2); }
+    .form__action input {
+      width: auto;
+      margin-left: auto; }
+
+.form {
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color); }
+  .form__wrapper {
+    --border-color: var(--lightGray); }
+  .form__trigger {
+    display: flex;
+    flex-direction: column;
+    color: var(--border-color);
+    padding: var(--u3); }
+    .form__trigger:first-child {
+      border-left: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color); }
+    .form__trigger:last-child {
+      border-left: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      border-top: 1px solid var(--border-color); }
 
 .hero {
   position: relative;

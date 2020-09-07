@@ -1,0 +1,46 @@
+form {
+    input, textarea {
+        --border-color: var(--darkPink);
+    
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: var(--u2);
+
+        &::placeholder {
+            visibility: hidden;
+        }
+
+        &:focus, &:not(:placeholder-shown)  {
+            outline: none;
+
+            & + label {
+                transform: translateY(0%) scale(.8);
+            }
+        }
+    }
+
+    label {
+        color: var(--darkPink);
+        pointer-events: none;
+        user-select: none;
+    }
+}
+
+
+.form {
+    &__item {
+        position: relative;
+    }
+    
+    label {
+        position: absolute;
+        top: 0; left: var(--u2);
+        transform-origin: top left;
+        transform: translateY(100%);
+        transition: transform .3s ease-out;
+    }
+
+    input, textarea {
+        width: 100%;
+    }
+}

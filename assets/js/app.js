@@ -1,5 +1,6 @@
 import { sticky, logoScale } from "./topbar.js";
 import { slider } from "./slider.js";
+import { form } from "./form.js";
 
 if (document.querySelector('.topbar__main')) {
     sticky(document.querySelector('.topbar__main'))
@@ -12,6 +13,11 @@ if (document.querySelector('.brand__logo')) {
 if (document.querySelector('.slider')) {
     slider(document.querySelector('.slider'))
 }
+
+if (document.querySelector('.form')) {
+    form();
+}
+
 
 window.addEventListener('load', function () {
     if (document.querySelector('.carousel')) {
@@ -40,3 +46,10 @@ window.addEventListener('load', function () {
         });
     }
 })
+
+const test = (() => {
+    document.querySelector('textarea').oninput = function auto_grow() {
+        document.querySelector('textarea').style.height = "5px";
+        document.querySelector('textarea').style.height = (document.querySelector('textarea').scrollHeight) + "px";
+    }
+})();

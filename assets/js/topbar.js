@@ -12,7 +12,6 @@ export const sticky = (target) => {
 
     window.onscroll = (e) => {
         let scroll = window.scrollY;
-        console.log(trigger)
 
         if (scroll >= trigger) {
             target.dataset.sticky = true;

@@ -9,6 +9,10 @@
         transform-origin: top left;
         transform: scale(1.6);
         transition: transform .3s ease-out;
+
+        @include mobile {
+            transform: none;
+        }
     }
 }
 
@@ -17,8 +21,4 @@
 
 .brand {
     @extend %brand-logo;
-
-    @media screen and(max-width: $tablet) {
-        display: none;
-    }
 }

@@ -61,18 +61,21 @@ foreach ($users as $user) {
             </div>
             <div class="topbar__main" data-sticky="false">
                 <div class="container">
-                    <?php
-                    $custom_logo_id = get_theme_mod('custom_logo');
-                    $custom_logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
-                    $site_url = get_home_url();
-                    $site_name = get_bloginfo('name');
-                    if ($custom_logo_url) : ?>
-                        <a href="<?php echo $site_url; ?>" class="brand">
-                            <h1 class="hidden"><?php echo $site_name; ?></h1>
-                            <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>" class="brand__logo">
-                        </a>
-                    <?php endif; ?>
-                    <nav>
+                    <div class="flex">
+                        <?php
+                        $custom_logo_id = get_theme_mod('custom_logo');
+                        $custom_logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
+                        $site_url = get_home_url();
+                        $site_name = get_bloginfo('name');
+                        if ($custom_logo_url) : ?>
+                            <a href="<?php echo $site_url; ?>" class="brand">
+                                <h1 class="hidden"><?php echo $site_name; ?></h1>
+                                <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>" class="brand__logo">
+                            </a>
+                        <?php endif; ?>
+                        <a href="#" class="nav-trigger">X</a>
+                    </div>
+                    <nav class="head-nav">
                         <?php wp_nav_menu(array('theme_location' => 'header')); ?>
                     </nav>
                 </div>

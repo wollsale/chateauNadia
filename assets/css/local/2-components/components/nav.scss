@@ -1,7 +1,11 @@
 %nav {
     display: flex;
+    text-align: center;
 
-    @media screen and (max-width: $tablet) {
+    @include mobile {
+        margin-top: var(--u2);
+        flex-direction: column;
+
         overflow: scroll;
         width: 100%;
         
@@ -14,21 +18,51 @@
     }
 }
 
+%nav-mobile {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    z-index: 20;
+    background: var(--lightPink);
+}
+
+.head-nav {
+    @extend %nav-mobile;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    &--is-active {
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto;
+    }
+}
+
 %has-children {
     position: relative;
-    
-    @media screen and (max-width: $tablet) {
+
+    @include mobile {
+        --hoverColor: var(--lightPinkHover);
+
+        flex-direction: column;
         display: flex;
+        
+        &:not(.lang__wrapper) {
+            background: var(--hoverColor);
+        }
     }
+
 }
 
 %sub-nav {
     --background-color: var(--light-pink);
 
     display: flex;
+    flex-direction: column;
     background-color: var(--background-color);
 
-    @media screen and (min-width: $tablet-min) {
+    @include tablet(1) {
         position: absolute;
         left: 50%;
         display: block;
@@ -38,6 +72,14 @@
         transform: translate(-50%, var(--u4));
         transition: all .3s ease-out;
     }
+}
+
+%nav-trigger {
+    margin-top: var(--u2);
+}
+
+.nav-trigger {
+    // @extend %nav-trigger;
 }
 
 
@@ -84,3 +126,14 @@ nav, .menu, .menu > ul {
             }
         }
 }
+
+
+
+/*
+*
+* ==================================================================================
+* MOBILE
+* ==================================================================================
+*
+*/
+

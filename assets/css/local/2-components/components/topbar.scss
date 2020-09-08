@@ -38,6 +38,20 @@
 
         .container {
             display: flex;
+            flex-wrap: wrap;
+
+            @include mobile {
+                nav {
+                    width: 100%;
+                }
+                .flex {
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: var(--u1) 0;
+                }
+            }
         }
         
         nav {

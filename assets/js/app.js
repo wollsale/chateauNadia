@@ -1,6 +1,7 @@
 import { sticky, logoScale } from "./topbar.js";
 import { slider } from "./slider.js";
 import { form } from "./form.js";
+import { nav } from "./nav.js";
 
 if (document.querySelector('.topbar__main')) {
     sticky(document.querySelector('.topbar__main'))
@@ -16,6 +17,10 @@ if (document.querySelector('.slider')) {
 
 if (document.querySelector('.form')) {
     form();
+}
+
+if (document.querySelector('.nav-trigger')) {
+    nav();
 }
 
 

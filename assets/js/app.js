@@ -41,7 +41,6 @@ window.addEventListener('load', function () {
         controls.forEach(control => {
             control.addEventListener('click', (e) => {
                 e.preventDefault();
-                console.log('click')
             })
         });
     }

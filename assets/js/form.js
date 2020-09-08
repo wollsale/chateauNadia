@@ -17,7 +17,6 @@ export const form = () => {
 
     const reset = () => {
         document.querySelectorAll('.' + activateClass).forEach(element => {
-            console.log(element);
             element.classList.remove(activateClass);
         });
     }
@@ -31,7 +30,6 @@ export const form = () => {
             form.classList.remove(activateClass);
 
             if (index == match) {
-                // console.log(form)
                 form.classList.add(activateClass)
             }
         });

@@ -7,6 +7,25 @@
     &--is-active {
         --border-color: var(--darkPink);
         visibility: visible;
+
+        &.form__trigger {
+            position: relative;
+
+            &::after {
+                display: block; content: '';
+                width: var(--u2);
+                height: 100%;
+                position: absolute;
+                z-index: 1;
+                right: calc(var(--u1) / -2); top: 0;
+                background: #fff;
+
+                @include mobile {
+                    border-left: none;
+                    border-right: 1px solid var(--border-color);
+                }
+            }
+        }
     }
 }
 
@@ -14,11 +33,22 @@
 .form {
     &__wrapper {
         @extend %all-caps;
-        min-height: 300px;
+        min-height: 350px;
+        
+        @include mobile {
+            flex-direction: column;
+        }
     }
 
     &__triggers {
-        width: 450px;
+        max-width: 450px;
+        width: 30%;
+
+        @include mobile {
+            max-width: none;
+            width: 100%;
+            display: flex;
+        }
     }
 }
 
@@ -34,17 +64,22 @@
     width: 100%;
 
     &__item {
-        flex-basis: calc(50% - var(--u1));
         margin-right: var(--u2);
         margin-top: var(--u2);
 
         &:nth-child(2n) {
             margin-right: 0;
         }
+
+        flex-basis: calc(50% - var(--u1));
+        @include mobile {
+            flex-basis: 100% !important;
+        }
     }
 
     &__message, &__action {
         flex-basis: 100%;
+        margin-right: 0;
     }
 
     &__action {
@@ -54,6 +89,9 @@
         input {
             width: auto;
             margin-left: auto;
+            @include mobile {
+                width: 100%;
+            }
         } 
     }
 
@@ -73,9 +111,18 @@
 
         padding: var(--u3);
 
+        @include mobile {
+            width: 50%;
+        }
+
         &:first-child {
             border-left: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
+
+            @include mobile {
+                border-left: none;
+                border-right: 1px solid var(--border-color);
+            }
         }
         &:last-child {
             border-left: 1px solid var(--border-color);

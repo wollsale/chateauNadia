@@ -753,12 +753,37 @@ form label {
   .form--is-active {
     --border-color: var(--darkPink);
     visibility: visible; }
+    .form--is-active.form__trigger {
+      position: relative; }
+      .form--is-active.form__trigger::after {
+        display: block;
+        content: '';
+        width: var(--u2);
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        right: calc(var(--u1) / -2);
+        top: 0;
+        background: #fff; }
+        @media (min-width: 0px) and (max-width: 1023px) {
+          .form--is-active.form__trigger::after {
+            border-left: none;
+            border-right: 1px solid var(--border-color); } }
 
 .form__wrapper {
-  min-height: 300px; }
+  min-height: 350px; }
+  @media (min-width: 0px) and (max-width: 1023px) {
+    .form__wrapper {
+      flex-direction: column; } }
 
 .form__triggers {
-  width: 450px; }
+  max-width: 450px;
+  width: 30%; }
+  @media (min-width: 0px) and (max-width: 1023px) {
+    .form__triggers {
+      max-width: none;
+      width: 100%;
+      display: flex; } }
 
 .forms {
   flex: 1 0 auto;
@@ -770,19 +795,26 @@ form label {
   width: 100%;
   padding: var(--u2) var(--u4); }
   .form__item {
-    flex-basis: calc(50% - var(--u1));
     margin-right: var(--u2);
-    margin-top: var(--u2); }
+    margin-top: var(--u2);
+    flex-basis: calc(50% - var(--u1)); }
     .form__item:nth-child(2n) {
       margin-right: 0; }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .form__item {
+        flex-basis: 100% !important; } }
   .form__message, .form__action {
-    flex-basis: 100%; }
+    flex-basis: 100%;
+    margin-right: 0; }
   .form__action {
     display: flex;
     margin-top: var(--u2); }
     .form__action input {
       width: auto;
       margin-left: auto; }
+      @media (min-width: 0px) and (max-width: 1023px) {
+        .form__action input {
+          width: 100%; } }
 
 .form {
   border-left: 1px solid var(--border-color);
@@ -795,9 +827,16 @@ form label {
     flex-direction: column;
     color: var(--border-color);
     padding: var(--u3); }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .form__trigger {
+        width: 50%; } }
     .form__trigger:first-child {
       border-left: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color); }
+      @media (min-width: 0px) and (max-width: 1023px) {
+        .form__trigger:first-child {
+          border-left: none;
+          border-right: 1px solid var(--border-color); } }
     .form__trigger:last-child {
       border-left: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);

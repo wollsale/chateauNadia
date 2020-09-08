@@ -8,6 +8,7 @@ form {
 
         &::placeholder {
             visibility: hidden;
+            opacity: 0;
         }
 
         &:focus, &:not(:placeholder-shown)  {

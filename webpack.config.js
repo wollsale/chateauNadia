@@ -7,6 +7,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // installed via npm
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
     entry: ['./assets/js/app.js', './assets/css/app.scss'],
@@ -31,7 +32,7 @@ module.exports = {
             // compile all .scss files to plain old css
             {
                 test: /\.(sass|scss)$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader',]
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -54,7 +55,7 @@ module.exports = {
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['./build/js/*', './build/css/*'],
             cleanStaleWebpackAssets: false
-        })
+        }),
     ],
     optimization: {
         minimizer: [

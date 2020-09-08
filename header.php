@@ -73,9 +73,9 @@ foreach ($users as $user) {
                                 <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>" class="brand__logo">
                             </a>
                         <?php endif; ?>
-                        <a href="#" class="nav-trigger">X</a>
+                        <a href="#" class="nav-trigger">Menu</a>
                     </div>
-                    <nav class="head-nav">
+                    <nav class="head-nav nav">
                         <?php wp_nav_menu(array('theme_location' => 'header')); ?>
                     </nav>
                 </div>

@@ -3,12 +3,22 @@ import { slider } from "./slider.js";
 import { form } from "./form.js";
 import { nav } from "./nav.js";
 
+if (window.matchMedia("(max-width: 1024px)").matches) {
+    console.log('nav')
+
+    if (document.querySelector('.nav-trigger')) {
+        nav();
+    }
+}
+
 if (document.querySelector('.topbar__main')) {
     sticky(document.querySelector('.topbar__main'))
 };
 
-if (document.querySelector('.brand__logo')) {
-    logoScale(document.querySelector('.brand__logo'))
+if (window.screen.width >= 1024) {
+    if (document.querySelector('.brand__logo')) {
+        logoScale(document.querySelector('.brand__logo'))
+    }
 }
 
 if (document.querySelector('.slider')) {
@@ -18,11 +28,6 @@ if (document.querySelector('.slider')) {
 if (document.querySelector('.form')) {
     form();
 }
-
-if (document.querySelector('.nav-trigger')) {
-    nav();
-}
-
 
 window.addEventListener('load', function () {
     if (document.querySelector('.carousel')) {
@@ -51,9 +56,9 @@ window.addEventListener('load', function () {
     }
 })
 
-const test = (() => {
-    document.querySelector('textarea').oninput = function auto_grow() {
-        document.querySelector('textarea').style.height = "5px";
-        document.querySelector('textarea').style.height = (document.querySelector('textarea').scrollHeight) + "px";
-    }
-})();
+// const test = (() => {
+//     document.querySelector('textarea').oninput = function auto_grow() {
+//         document.querySelector('textarea').style.height = "5px";
+//         document.querySelector('textarea').style.height = (document.querySelector('textarea').scrollHeight) + "px";
+//     }
+// })();

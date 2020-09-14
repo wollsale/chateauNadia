@@ -75,10 +75,10 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 </div>
                 <div class="form__item form__message">
                     <textarea name="message" placeholder="Votre message..."></textarea>
-                    <label for="message">Votre adresse courriel</label>
+                    <label for="message">Votre message</label>
                 </div>
                 <div class="form__action">
-                    <input type="submit" class="button" name="submit" value="submit" />
+                    <input type="submit" class="button" name="submit" value="Envoyer" />
                 </div>
             </form>
 
@@ -99,12 +99,12 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                     <label for="email">Votre adresse courriel</label>
                     <input type="text" name="email" />
                 </div>
-                <div class="form__item">
-                    <label for="message">Votre adresse courriel</label>
+                <div class="form__item form__message">
+                    <label for="message">Votre message</label>
                     <textarea name="message"></textarea>
                 </div>
                 <div class="form__action">
-                    <input type="submit" class="button" name="submit" value="submit" />
+                    <input type="submit" class="button" name="submit" value="Envoyer" />
                 </div>
             </form>
         </div>

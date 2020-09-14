@@ -1132,6 +1132,8 @@ footer.footer {
   margin-top: calc(var(--u10) * 2.5);
   background-color: var(--background-color);
   padding: var(--u10) 0; }
+  .home footer.footer {
+    margin-top: 0; }
   @media (min-width: 1024px) and (max-width: 1439px) {
     footer.footer {
       padding-left: var(--u2);

@@ -1,7 +1,7 @@
-<?php
-// query the user media
-$username = "wollsale";
-$instaResult = file_get_contents('https://www.instagram.com/wollsale/?__a=1/media/');
-$insta = json_decode($instaResult);
-
-var_dump($insta);
+<div class="container">
+    <div class="title-head">
+        <h2><?php pll_e('Suivez-nous'); ?></h2>
+        <h2><?php pll_e('Sur insagram'); ?></h2>
+    </div>
+    <?php echo do_shortcode('[instagram-feed]'); ?>
+</div>

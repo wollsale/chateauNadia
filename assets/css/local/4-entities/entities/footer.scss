@@ -4,6 +4,10 @@ footer.footer {
     margin-top: calc(var(--u10) * 2.5);
     background-color: var(--background-color);
 
+    .home & {
+        margin-top: 0;
+    }
+
     padding: var(--u10) 0;
 
     @include tablet {

@@ -26,7 +26,10 @@
                 $address = get_field('address', $id);
                 $maps = get_field('maps', $id);
                 $mail = get_field('mail', $id);
-                $hours = get_field('hours', $id); ?>
+                $hours = get_field('hours', $id);
+                $facebook = get_field('facebook', $id);
+                $instagram = get_field('instagram', $id);
+        ?>
 
                 <div class="row">
 
@@ -57,6 +60,12 @@
                         </ul>
                     <?php endif; ?>
                     <?php wp_nav_menu(array('theme_location' => 'footer')); ?>
+                    <?php if ($facebook or $instagram) : ?>
+                        <ul class="socials">
+                            <?php if ($facebook) : ?><li><a href="<?php echo $facebook; ?>" target="_blank" class="icon icon-facebook"><span class="hidden"><?php echo $facebook; ?></span></a></li><?php endif; ?>
+                            <?php if ($instagram) : ?><li><a href="<?php echo $instagram; ?>" target="_blank" class="icon icon-instagram"><span class="hidden"><?php echo $instagram; ?></span></a></li><?php endif; ?>
+                        </ul>
+                    <?php endif; ?>
                 </div>
         <?php endif;
         }

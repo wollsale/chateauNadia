@@ -92,3 +92,28 @@ footer.footer {
         }
     }
 }
+
+
+.footer {
+    .menu {
+        text-align: left;
+        
+        li {
+            margin: 0 !important;
+
+            a {
+                padding: var(--u1) 0 !important;
+            }
+        }
+    }
+
+    .socials {
+        display: flex;
+        padding: 0;
+        margin-top: var(--u2);
+        
+        li {
+            margin-right: var(--u1);
+        }
+    }
+}

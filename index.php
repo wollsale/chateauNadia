@@ -69,6 +69,9 @@ $image = get_the_post_thumbnail($post->ID, 'full');
 
     <!-- TESTIMONIALS -->
     <?php include 'parts/testimonials.php'; ?>
+
+    <!-- INSTAGRAM -->
+    <?php include 'parts/instagram.php'; ?>
 </main>
 
 

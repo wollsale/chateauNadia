@@ -24,7 +24,7 @@ export const sticky = (target) => {
 }
 
 export const logoScale = (target) => {
-    const scaleLimit = 2;
+    const scale = getComputedStyle(target).getPropertyValue('--scale');
 
     window.addEventListener('scroll', (e) => {
         let sticky = document.querySelector('.topbar__main').dataset.sticky;
@@ -32,7 +32,7 @@ export const logoScale = (target) => {
         if (sticky === 'true') {
             target.style.transform = 'scale(1)';
         } else {
-            target.style.transform = 'scale(1.6)';
+            target.style.transform = 'scale(' + scale + ')';
         }
     })
 }

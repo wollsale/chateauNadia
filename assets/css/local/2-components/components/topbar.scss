@@ -28,6 +28,16 @@
         }
     }
 
+    &__cta {
+        text-transform: uppercase;
+        display: flex;
+
+        &::before {
+            display: block; content: '|';
+            margin-right: var(--u2);
+        }
+    }
+
     &__main {
         --padding: 0;
         @media screen and(max-width: $desktop) {

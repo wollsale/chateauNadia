@@ -7,7 +7,7 @@
         margin: auto;
 
         transform-origin: top left;
-        transform: scale(1.6);
+        transform: scale(var(--scale));
         transition: transform .3s ease-out;
 
         @include mobile {

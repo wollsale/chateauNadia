@@ -1,6 +1,7 @@
 .hero {
     position: relative;
     --height: 60vh;
+    min-height: 580px;
     height: var(--height);
 
     .container { height: 100%; }

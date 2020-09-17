@@ -10,6 +10,8 @@
 </head>
 
 <?php
+$starry = get_field('starry_background');
+
 $args = array(
     'role' => 'Administrator'
 );
@@ -29,7 +31,10 @@ foreach ($users as $user) {
 }
 ?>
 
-<body <?php body_class(); ?>>
+<body <?php
+        if ($starry) : body_class('starry');
+        else : body_class();
+        endif; ?>>
     <header>
         <div class="topbar">
             <div class="topbar__head">
@@ -37,6 +42,16 @@ foreach ($users as $user) {
                     <?php if ($phone) : ?>
                         <a href="tel:<?php echo $phone; ?>" target="_blank">TEL: <?php echo $phone; ?></a>
                     <?php endif; ?>
+                    <!-- prise-de-rendez-vous -->
+                    <?php
+                    $currLang = get_bloginfo('language');
+
+                    if ($currLang == "fr-CA") {
+                        $url = get_site_url() . '/prise-de-rendez-vous';
+                    } else {
+                        $url = get_site_url() . '/appointment';
+                    } ?></p>
+                    <a class="topbar__cta" href="<?php echo $url; ?>"><?php pll_e('Prendre rendez-vous'); ?></a>
                 </div>
                 <div class="right">
                     <?php if ($facebook or $instagram) : ?>
@@ -70,7 +85,7 @@ foreach ($users as $user) {
                         if ($custom_logo_url) : ?>
                             <a href="<?php echo $site_url; ?>" class="brand">
                                 <h1 class="hidden"><?php echo $site_name; ?></h1>
-                                <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>" class="brand__logo">
+                                <img src="<?php echo $custom_logo_url; ?>" alt="<?php echo $site_name; ?>" class="brand__logo" style="--scale:2;">
                             </a>
                         <?php endif; ?>
                         <a href="#" class="nav-trigger">Menu</a>

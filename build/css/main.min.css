@@ -110,7 +110,7 @@ body {
   --allura: "Allura";
   --font-title: var(--allura);
   --font-text: var(--playfair);
-  --fontSize-h1: var(--u10);
+  --fontSize-h1: var(--u8);
   --fontSize-h2: var(--u7);
   --fontSize-h3: var(--u5);
   --fontSize-h4: var(--u3);
@@ -265,8 +265,8 @@ footer .menu-item a, footer .page_item a {
     margin: auto;
     -webkit-transform-origin: top left;
             transform-origin: top left;
-    -webkit-transform: scale(1.6);
-            transform: scale(1.6);
+    -webkit-transform: scale(var(--scale));
+            transform: scale(var(--scale));
     -webkit-transition: -webkit-transform .3s ease-out;
     transition: -webkit-transform .3s ease-out;
     transition: transform .3s ease-out;
@@ -508,6 +508,15 @@ body .topbar__main > .container {
       display: flex; }
       .topbar__head .left > *:not(:last-child), .topbar__head .right > *:not(:last-child), .topbar__head .socials > *:not(:last-child) {
         margin-right: var(--u1); }
+  .topbar__cta {
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .topbar__cta::before {
+      display: block;
+      content: '|';
+      margin-right: var(--u2); }
   .topbar__main {
     --padding: 0;
     padding: 0 var(--padding); }
@@ -1052,6 +1061,7 @@ form label {
 .hero {
   position: relative;
   --height: 60vh;
+  min-height: 580px;
   height: var(--height); }
   .hero .container {
     height: 100%; }
@@ -1590,10 +1600,10 @@ section {
   -webkit-transform-origin: top right;
           transform-origin: top right; }
 
-.page-template-template_sous-page {
+body.starry {
   background-image: url(../../build/icons/d5cfedb0ec084f63e15ad40cabde632c.png);
   background-size: contain; }
-  .page-template-template_sous-page .hero::before {
+  body.starry .hero::before {
     background-image: url(../../build/icons/5eecd18500eae3b7582083646a594c7c.png);
     background-size: contain; }
 

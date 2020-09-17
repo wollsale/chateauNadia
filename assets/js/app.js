@@ -56,6 +56,26 @@ window.addEventListener('load', function () {
     }
 })
 
+window.addEventListener('load', function () {
+    if (document.querySelector('.hero-slider')) {
+        var slider = tns({
+            container: '.hero-slider',
+            items: 1,
+            autoplay: true,
+            controls: false,
+            nav: false,
+            navAsThumbnails: true,
+            autoplayButton: false,
+            autoplayButtonOutput: false,
+            autoplayHoverPause: false
+        });
+
+        document.querySelector('.hero-slider').addEventListener('click', (e) => {
+            slider.goTo('next');
+        })
+    }
+})
+
 // const test = (() => {
 //     document.querySelector('textarea').oninput = function auto_grow() {
 //         document.querySelector('textarea').style.height = "5px";

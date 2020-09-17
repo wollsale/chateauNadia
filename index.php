@@ -4,6 +4,7 @@
 <?php
 $content = get_the_content();
 $image = get_the_post_thumbnail($post->ID, 'full');
+$slider = get_field('hero_slider');
 ?>
 
 <?php if ($content) : ?>
@@ -12,7 +13,9 @@ $image = get_the_post_thumbnail($post->ID, 'full');
             <div class="content">
                 <?php echo $content; ?>
             </div>
-            <?php if ($image) : ?>
+            <?php if ($slider) : ?>
+                <?php include 'parts/slider.php'; ?>
+            <?php elseif ($image) : ?>
                 <div class="banner">
                     <?php echo $image; ?>
                 </div>
@@ -71,7 +74,7 @@ $image = get_the_post_thumbnail($post->ID, 'full');
     <?php include 'parts/testimonials.php'; ?>
 
     <!-- INSTAGRAM -->
-    <?php include 'parts/instagram.php'; ?>
+    <?php// include 'parts/instagram.php'; ?>
 
     <!-- FRONTEND -->
     <img class="blob" src="<?php echo get_template_directory_uri(); ?>/assets/icons/blob_1.png" alt="">

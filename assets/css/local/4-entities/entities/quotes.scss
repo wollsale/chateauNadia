@@ -10,7 +10,7 @@
     background-color: var(--background-color);
     padding: var(--padding) 0;
 
-    * { color: var(--color); }
+    * { color: var(--color); font-style: normal; }
 
     &__main {
         --font-size: var(--fontSize-h1);

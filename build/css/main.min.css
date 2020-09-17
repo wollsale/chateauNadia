@@ -1126,7 +1126,7 @@ form label {
       .home .hero .content {
         position: absolute;
         left: 0;
-        top: 50%;
+        top: 55%;
         -webkit-transform: translateY(-50%);
                 transform: translateY(-50%);
         max-width: 50%;
@@ -1248,6 +1248,7 @@ section {
   .videos .intro {
     margin-bottom: var(--u4); }
   .videos__wrapper {
+    max-width: 70%;
     position: relative;
     padding-bottom: 62%;
     /* 16:9 */
@@ -1255,7 +1256,7 @@ section {
     margin: 0 auto; }
     @media (min-width: 1024px) {
       .videos__wrapper {
-        padding-bottom: 49%;
+        padding-bottom: 45%;
         /* 16:9 */ } }
     .videos__wrapper.carousel__item {
       padding-bottom: 20%;
@@ -1316,7 +1317,8 @@ section {
   background-color: var(--background-color);
   padding: var(--padding) 0; }
   .quote * {
-    color: var(--color); }
+    color: var(--color);
+    font-style: normal; }
   .quote__main {
     --font-size: var(--fontSize-h1); }
   .quote__signature, .quote p:not(.quote__main) {
@@ -1494,7 +1496,8 @@ section {
 
 @media (min-width: 1024px) {
   .home .hero {
-    position: relative; }
+    position: relative;
+    --height: 75vh; }
     .home .hero::after {
       display: block;
       content: '';
@@ -1519,6 +1522,59 @@ section {
       bottom: -40px;
       top: calc(-1 * var(--section-margin));
       z-index: -1; } }
+
+.home .testimonials {
+  position: relative;
+  overflow: visible; }
+  .home .testimonials::before {
+    display: block;
+    content: '';
+    width: calc(40% + var(--gutter));
+    height: calc(100% + calc(var(--section-margin) * 1.4));
+    background: #faf8f8;
+    position: absolute;
+    top: calc(var(--section-margin) * -1);
+    right: calc(var(--gutter) * -1);
+    z-index: 0; }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .home .testimonials::before {
+        display: none; } }
+
+.quote__blob {
+  display: none; }
+
+.home .quote {
+  position: relative; }
+  .home .quote__blob {
+    display: block;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: top left;
+            transform-origin: top left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: multiply; }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .home .quote__blob {
+        display: none; } }
+
+.home .instagram {
+  position: relative;
+  overflow: visible; }
+  .home .instagram::before {
+    display: block;
+    content: '';
+    width: 45%;
+    height: 760px;
+    background: var(--lightPink);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0; }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .home .instagram::before {
+        display: none; } }
 
 .page-template-template_page-about .quote p {
   text-transform: none; }

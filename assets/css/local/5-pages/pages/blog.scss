@@ -24,6 +24,13 @@
                         margin-right: 0;
                     }
                 }
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 24px 16px -16px #ddd;
+                }
+
+                transition: .3s ease-out;
             }
         }
 

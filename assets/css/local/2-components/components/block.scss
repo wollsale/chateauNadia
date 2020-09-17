@@ -27,9 +27,11 @@
         .content {
             @include tablet(1) {
                 width: 65%;
+                padding: var(--u10);
             }
 
-            padding: var(--u10);
+            padding: var(--u2);
+
             * { text-align: left; }
         }
     }
@@ -44,6 +46,11 @@
 
     .container {
         display: flex;
+        flex-direction: column;
+
+        @include tablet(1) {
+            flex-direction: row;
+        }
 
         .block-split {
             > * {

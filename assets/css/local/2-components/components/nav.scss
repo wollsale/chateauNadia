@@ -152,4 +152,14 @@ body {
         width: 100%;
         overflow: hidden;
     }
+
+    .topbar__main {
+        > .container {
+            height: 100%;
+
+            &.open {
+                // pointer-events: default;
+            }
+        }
+    }
 }

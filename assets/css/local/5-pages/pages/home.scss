@@ -28,6 +28,9 @@
                     object-fit: cover;
                 }
                 > a {
+                    background-color: var(--darkPink);
+                    color: #fff;
+
                     @include tablet(1) {
                         position: absolute;
                         right: -8px; bottom: var(--u4);

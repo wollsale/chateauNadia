@@ -10,7 +10,7 @@
                 <?php while (have_posts()) :
                     the_post();
                     $title = get_the_title();
-                    $thumbnail = get_the_post_thumbnail($post->ID, 'thumbnail'); ?>
+                    $thumbnail = get_the_post_thumbnail($post->ID, 'medium'); ?>
                     <li class="card card--blog">
                         <a href="<?php echo get_permalink($post->ID) ?>" target="_blank" class="card__link">
                             <div class="card__cover">

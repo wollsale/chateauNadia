@@ -5,6 +5,7 @@ export const nav = () => {
     let space = document.querySelector('.head-nav').getBoundingClientRect().top;
     let height = document.querySelector('.topbar__main .container .flex').clientHeight;
     let body = document.querySelector('body');
+    let container = topbar.querySelector('.container');
 
 
     topbar.style.height = height + "px";
@@ -16,6 +17,7 @@ export const nav = () => {
             e.preventDefault();
 
             nav.classList.contains('head-nav--is-active') ? nav.classList.remove('head-nav--is-active') : nav.classList.add('head-nav--is-active')
+            nav.classList.contains('head-nav--is-active') ? container.classList.add('open') : container.classList.remove('open')
 
             body.classList.contains('no-scroll') ? body.classList.remove('no-scroll') : body.classList.add('no-scroll');
         })

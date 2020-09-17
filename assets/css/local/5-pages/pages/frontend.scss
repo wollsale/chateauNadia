@@ -1,0 +1,18 @@
+.blob {
+    position: absolute;
+    top: 0; right: 0;
+    z-index: -1;
+    
+    transform: scale(.75);
+    transform-origin: top right;
+}
+
+.page-template-template_sous-page {
+    .hero::before {
+        background-image: url('../icons/header_stars.png');
+        background-size: contain;
+    }
+
+    background-image: url('../icons/body_stars.png');
+    background-size: contain;
+}

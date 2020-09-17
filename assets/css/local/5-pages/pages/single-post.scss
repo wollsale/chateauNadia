@@ -3,6 +3,10 @@
     width: 100%;
     margin: var(--u10) auto;
 
+    @include mobile {
+        padding: 0 var(--u2);
+    }
+
     h2 {
         font-size: var(--fontSize-h2);
         margin-bottom: var(--u2);

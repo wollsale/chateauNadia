@@ -5,12 +5,15 @@ get_header() ?>
 <?php
 $title = get_the_title();
 $image = get_the_post_thumbnail($post->ID, 'full');
+$slider = get_field('hero_slider');
 ?>
 <?php if ($title) : ?>
     <div class="hero">
         <div class="container">
             <h1 class="title"><?php echo $title; ?></h1>
-            <?php if ($image) : ?>
+            <?php if ($slider) : ?>
+                <?php include 'parts/slider.php'; ?>
+            <?php elseif ($image) : ?>
                 <div class="banner">
                     <?php echo $image; ?>
                 </div>

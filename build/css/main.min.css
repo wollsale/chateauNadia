@@ -691,6 +691,10 @@ body .topbar__main > .container {
       .block-split .content {
         width: 65%;
         padding: var(--u10); } }
+    .block-split .content p {
+      margin-top: var(--u3); }
+      .block-split .content p strong, .block-split .content p em {
+        color: var(--darkPink); }
     .block-split .content * {
       text-align: left; }
 

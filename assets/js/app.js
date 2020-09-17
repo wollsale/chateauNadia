@@ -67,7 +67,9 @@ window.addEventListener('load', function () {
             navAsThumbnails: true,
             autoplayButton: false,
             autoplayButtonOutput: false,
-            autoplayHoverPause: false
+            autoplayHoverPause: false,
+            mode: 'gallery',
+            speed: 800
         });
 
         document.querySelector('.hero-slider').addEventListener('click', (e) => {

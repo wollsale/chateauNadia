@@ -30,6 +30,14 @@
                 padding: var(--u10);
             }
 
+            p {
+                margin-top: var(--u3);
+
+                strong, em {
+                    color: var(--darkPink);
+                }
+            }
+
             padding: var(--u2);
 
             * { text-align: left; }

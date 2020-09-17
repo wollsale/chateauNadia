@@ -74,7 +74,7 @@ $slider = get_field('hero_slider');
     <?php include 'parts/testimonials.php'; ?>
 
     <!-- INSTAGRAM -->
-    <?php// include 'parts/instagram.php'; ?>
+    <?php include 'parts/instagram.php'; ?>
 
     <!-- FRONTEND -->
     <img class="blob" src="<?php echo get_template_directory_uri(); ?>/assets/icons/blob_1.png" alt="">

@@ -26,7 +26,8 @@
 
         <?php if (have_posts()) : ?>
             <ul class="dresses__list">
-                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                <?php while ($the_query->have_posts()) : $the_query->the_post();
+                    $hover = get_field('dress_visible_image'); ?>
                     <li class="dresses__item card card--dresses">
                         <div class="card__cover">
                             <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
@@ -37,9 +38,15 @@
                                 <?php the_content(); ?>
                             </div>
                         </div>
-                        <div class="card__cover card__hover">
-                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
-                        </div>
+                        <?php if ($hover) : ?>
+                            <div class="card__cover card__hover">
+                                <img src="<?php echo get_field('dress_visible_image')['url']; ?>" alt="">
+                            </div>
+                        <?php else : ?>
+                            <div class="card__cover card__hover">
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+                            </div>
+                        <?php endif; ?>
                     </li>
                 <?php endwhile;
                 wp_reset_postdata(); ?>

@@ -21,6 +21,12 @@
     &-facebook {
         background-image: url("../icons/facebook.svg");
     }
+    &-instagram-dark {
+        background-image: url("../icons/instagram_dark.svg");
+    }
+    &-facebook-dark {
+        background-image: url("../icons/facebook_dark.svg");
+    }
     &-prev {
         background-image: url("../icons/arrow.svg");
         transform: rotate(180deg);
@@ -45,6 +51,39 @@
             z-index: -1;
 
             background-color: var(--background-color);
+        }
+    }
+}
+
+
+.icon-before {
+    display: flex;
+
+    &::before {
+        display: block; content: '';
+        --size: var(--u2);
+
+        width: var(--size); height: var(--size);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        margin-right: var(--u1);
+    }
+
+    &.icon-phone {
+        &::before {
+            background-image: url("../icons/phone.svg");
+        }
+    }
+    &.icon-address {
+        &::before {
+            background-image: url("../icons/pin.svg");   
+        }
+    }
+    &.icon-mail {
+        &::before {
+            background-image: url("../icons/mail.svg");   
         }
     }
 }

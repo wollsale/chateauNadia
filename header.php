@@ -4,9 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php bloginfo('name');
-            wp_title();  ?></title>
+
+    <!-- META -->
     <?php wp_head() ?>
+    <!-- Description -->
+    <meta name="description" content="<?php if (is_single()) {
+                                            single_post_title('', true);
+                                        } else {
+                                            bloginfo('name');
+                                            echo " - ";
+                                            bloginfo('description');
+                                        } ?>" />
+    <!-- image -->
+    <?php $thumbnail = get_the_post_thumbnail_url($post->ID, 'medium'); ?>
+    <meta property="og:image" content="<?php if ($thumbnail) : echo $thumbnail;
+                                        endif; ?>">
+    <meta name="twitter:image" content="<?php if ($thumbnail) : echo $thumbnail;
+                                        endif; ?>">
 </head>
 
 <?php

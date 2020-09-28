@@ -2,6 +2,7 @@ import { sticky, logoScale } from "./topbar.js";
 import { slider } from "./slider.js";
 import { form } from "./form.js";
 import { nav } from "./nav.js";
+import { buttonHover } from "./button.js";
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
     console.log('nav')
@@ -28,6 +29,10 @@ if (document.querySelector('.slider')) {
 if (document.querySelector('.form')) {
     form();
 }
+
+// if (document.querySelector('.wp-block-button__link')) {
+//     buttonHover(document.querySelector('.wp-block-button__link'));
+// }
 
 window.addEventListener('load', function () {
     if (document.querySelector('.carousel')) {

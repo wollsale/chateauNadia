@@ -108,6 +108,8 @@ add_action('init', function () {
     /* FOOTER */
     pll_register_string('Château Nadia', 'ChateauNadia', 'Footer', false);
     pll_register_string('Nos heures', 'Hours', 'Footer', false);
+    pll_register_string('Copyright', 'Copyright', 'Footer', false);
+    pll_register_string('MadeBy', 'MadeBy', 'Footer', false);
 
     /* SLIDER */
     pll_register_string('Précédent', 'Previous', 'Slider', false);

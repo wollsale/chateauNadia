@@ -8,8 +8,6 @@ footer.footer {
         margin-top: 0;
     }
 
-    padding: var(--u10) 0;
-
     @include tablet {
         padding-left: var(--u2);
         padding-right: var(--u2);
@@ -18,13 +16,13 @@ footer.footer {
     .container {
         display: flex;
         flex-direction: column;
-        
-        padding-left: var(--u2);
-        padding-right: var(--u2);
+
+        padding: var(--u10) var(--u2);
+    
         
         @include tablet(1) {
             flex-direction: row;
-            padding: 0;
+            padding: var(--u10) 0;
         }
 
         .row {
@@ -57,6 +55,7 @@ footer.footer {
         @extend %text;
 
         margin-bottom: var(--u4);
+        font-style: normal;
 
         &::after {
             display: block; content: '';
@@ -70,6 +69,10 @@ footer.footer {
                 width: 100%;
             }
         }
+    }
+
+    a {
+        color: var(--darkPink);
     }
 
     .map {
@@ -90,6 +93,10 @@ footer.footer {
                 }
             }
         }
+    }
+
+    .hour {
+        color: var(--darkPink);
     }
 }
 
@@ -114,6 +121,55 @@ footer.footer {
         
         li {
             margin-right: var(--u1);
+        }
+    }
+}
+
+
+.footer {
+    background-image: url('../icons/footer.png');
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: bottom 50px right;
+}
+
+
+.footer {
+    &__bottom {
+        display: flex;
+
+        @include mobile {
+            flex-direction: column;
+            align-content: center;
+        }
+
+        background-color: var(--darkPink);
+
+        padding: var(--u1) var(--u8);
+        justify-content: space-between;
+
+        * {
+            font-size: 14px;
+            color: white !important;
+            font-style: italic;
+        }
+
+        .agency {
+            a {
+                display: flex;
+                align-content: center;
+                @include tablet(1) {
+                    justify-content: flex-end;
+                }
+            }
+
+            &__logo {
+                width: 30%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center center;
+                margin-left: var(--u1);
+            }
         }
     }
 }

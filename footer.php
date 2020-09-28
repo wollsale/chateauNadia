@@ -37,10 +37,10 @@
 
                         <h3><?php pll_e('ChateauNadia'); ?></h3>
                         <ul class="details">
-                            <?php if ($phone) : ?><li><a href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></li><?php endif; ?>
-                            <?php if ($address) : ?><li><a href="<?php echo $maps; ?>" target="_blank"><?php echo $address; ?></a></li><?php endif; ?>
-                            <?php if ($mail) : ?><li><a href="mail:<?php echo $mail; ?>"><?php echo $mail; ?></a></li><?php endif; ?>
-                            <img class="map" src="<?php echo get_template_directory_uri(); ?>/assets/icons/maps.png" alt="">
+                            <?php if ($phone) : ?><li><a class="icon-before icon-phone" href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></li><?php endif; ?>
+                            <?php if ($address) : ?><li><a class="icon-before icon-address" href="<?php echo $maps; ?>" target="_blank"><?php echo $address; ?></a></li><?php endif; ?>
+                            <?php if ($mail) : ?><li><a class="icon-before icon-mail" href="mail:<?php echo $mail; ?>"><?php echo $mail; ?></a></li><?php endif; ?>
+                            <img class="map" src="<?php echo get_template_directory_uri(); ?>/assets/icons/map.png" alt="">
                         </ul>
 
                     <?php endif; ?>
@@ -54,7 +54,7 @@
                                 $days = $item['days'];
                                 $hours = $item['hours']; ?>
 
-                                <?php if ($days) : ?><li><span class="days"><?php echo $days ?></span><span class="hours"><?php echo $hours ?></span></li><?php endif; ?>
+                                <?php if ($days) : ?><li><span class="days"><?php echo $days ?></span><span class="hour"><?php echo $hours ?></span></li><?php endif; ?>
 
                             <?php endforeach; ?>
                         </ul>
@@ -62,14 +62,24 @@
                     <?php wp_nav_menu(array('theme_location' => 'footer')); ?>
                     <?php if ($facebook or $instagram) : ?>
                         <ul class="socials">
-                            <?php if ($facebook) : ?><li><a href="<?php echo $facebook; ?>" target="_blank" class="icon icon-facebook"><span class="hidden"><?php echo $facebook; ?></span></a></li><?php endif; ?>
-                            <?php if ($instagram) : ?><li><a href="<?php echo $instagram; ?>" target="_blank" class="icon icon-instagram"><span class="hidden"><?php echo $instagram; ?></span></a></li><?php endif; ?>
+                            <?php if ($facebook) : ?><li><a href="<?php echo $facebook; ?>" target="_blank" class="icon icon-facebook-dark"><span class="hidden"><?php echo $facebook; ?></span></a></li><?php endif; ?>
+                            <?php if ($instagram) : ?><li><a href="<?php echo $instagram; ?>" target="_blank" class="icon icon-instagram-dark"><span class="hidden"><?php echo $instagram; ?></span></a></li><?php endif; ?>
                         </ul>
                     <?php endif; ?>
                 </div>
         <?php endif;
         }
         ?>
+    </div>
+
+    <div class="footer__bottom">
+        <div class="copyright">
+            <?php pll_e('Copyright'); ?>
+        </div>
+
+        <div class="agency">
+            <a href="https://www.lux-agence.com/" target="_blank"><?php pll_e('MadeBy'); ?><img class="agency__logo" src="<?php echo get_template_directory_uri(); ?>/assets/icons/agency.png" alt=""></a>
+        </div>
     </div>
 
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">

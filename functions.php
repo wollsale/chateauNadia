@@ -122,3 +122,21 @@ add_action('init', function () {
     /* HEADER CTA */
     pll_register_string('Prendre rendez-vous', 'Prendre rendez-vous', 'Topbar', false);
 });
+
+
+
+
+
+
+
+/*
+*
+* MAILER
+*
+*/
+
+function wpse27856_set_content_type()
+{
+    return "text/html";
+}
+add_filter('wp_mail_content_type', 'wpse27856_set_content_type');

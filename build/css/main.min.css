@@ -432,6 +432,39 @@ footer .menu-item a, footer .page_item a {
   .slider__bullet:hover {
     background: var(--lightPink); }
 
+.form__file {
+  background: var(--lightestPink);
+  padding: var(--u4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+input[type=file] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+  input[type=file] + label {
+    position: relative;
+    text-align: center;
+    background: var(--darkPink);
+    color: var(--lightPink);
+    padding: var(--u2) var(--u4);
+    pointer-events: auto;
+    -webkit-transform: none !important;
+            transform: none !important;
+    cursor: pointer; }
+  input[type=file]:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px; }
+
 nav, .menu, .menu > ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1082,7 +1115,7 @@ form label {
       .form__item {
         -ms-flex-preferred-size: 100% !important;
             flex-basis: 100% !important; } }
-  .form__message, .form__action {
+  .form__message, .form__action, .form__file {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
     margin-right: 0; }

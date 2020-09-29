@@ -3,6 +3,7 @@ import { slider } from "./slider.js";
 import { form } from "./form.js";
 import { nav } from "./nav.js";
 import { buttonHover } from "./button.js";
+import { file } from "./file.js";
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
     console.log('nav')
@@ -28,6 +29,10 @@ if (document.querySelector('.slider')) {
 
 if (document.querySelector('.form')) {
     form();
+}
+
+if (document.querySelector('input[type="file"]')) {
+    file();
 }
 
 // if (document.querySelector('.wp-block-button__link')) {

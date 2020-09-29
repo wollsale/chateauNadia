@@ -28,8 +28,7 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         <?php
 
         if ($_POST['submit_contact']) {
-            // $to = get_option('admin_email');
-            $to = "wollsale@gmail.com";
+            $to = get_option('admin_email');
 
             // MAIL
             $name = $_POST['contact-first-name'] . ' ' . $_POST['contact-last-name'];
@@ -38,26 +37,46 @@ $image = get_the_post_thumbnail($post->ID, 'full');
             $message = $_POST['message'];
 
             $body .= "<h3>Vous avez un nouveau message!</h3>";
-            $body .= "<br/><br/><strong>Nom : </strong>$name\r\n<br/><strong>Email : </strong>$email\r\n<br/><strong>Téléphone : </strong>$phone";
+            $body .= "<br/><h3>Informations :</h3><br/><strong>Nom : </strong>$name\r\n<br/><strong>Email : </strong>$email\r\n<br/><strong>Téléphone : </strong>$phone";
             $body .= "\r\n\r\n";
-            $body .= "<br/><br/><strong>Message : </strong><br/>$message";
+            $body .= "<br/><br/><h3>Message :</h3><br/>$message";
 
             $subject = "Chateau Nadia : Nouveau message de $name";
-            $attachment = $_FILES['file']['tmp_name'];
             $headers = array('Content-Type: text/html; charset=UTF-8;Reply-To: {$name} <{$email}>');
 
+            wp_mail($to, $subject, $body, $headers);
+        } else if ($_POST['submit_job']) {
+            $to = get_option('admin_email');
 
-            wp_mail($to, $subject, $body, $headers, $attachment);
+            // MAIL
+            $name = $_POST['contact-first-name'] . ' ' . $_POST['contact-last-name'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $message = $_POST['message'];
+
+            $body .= "<h3>Vous avez un nouveau message!</h3>";
+            $body .= "<br/><h3>Informations :</h3><br/><strong>Nom : </strong>$name\r\n<br/><strong>Email : </strong>$email\r\n<br/><strong>Téléphone : </strong>$phone";
+            $body .= "\r\n\r\n";
+            $body .= "<br/><br/><h3>Message :</h3><br/>$message";
+
+            // $attachment = $_FILES['file']['tmp_name'];
+            $attachments = $_FILES['file']['tmp_name'];
+
+            $subject = "Chateau Nadia : Nouveau message de $name";
+            $headers = array('Content-Type: text/html; charset=UTF-8;Reply-To: {$name} <{$email}>');
+
+            wp_mail($to, $subject, $body, $headers, $attachments);
         }
 
         ?>
+
         <div class="form__triggers">
             <a href="#" class="form__trigger form--is-active" data-form="1">Nous joindre</a>
             <a href="#" class="form__trigger" data-form="2">Rejoindre l'équipe</a>
         </div>
 
         <div class="forms">
-            <form action="" method="POST" class="form form--is-active" data-form="1" enctype="multipart/form-data">
+            <form action="" method="POST" class="form form--is-active" data-form="1">
                 <div class="form__item">
                     <input type="text" name="contact-first-name" placeholder="Jane Doe" />
                     <label for="contact-first-name">Votre prénom</label>
@@ -77,17 +96,13 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 <div class="form__item form__message">
                     <textarea name="message" placeholder="Votre message..."></textarea>
                     <label for="message">Votre message</label>
-                </div>
-                <div class="form__item form__message">
-                    <input type="file" id="file" name="file" accept=".doc, .docx, .gif, .html, .jpeg, .jpg, .odt, .pdf, .png, .ppt, .pptx, .rtf, .tiff, .txt, .xls, .xlsx, .zip">
-                    <label for="file">Votre CV</label>
                 </div>
                 <div class="form__action">
                     <input type="submit" class="button" name="submit_contact" value="Envoyer" />
                 </div>
             </form>
 
-            <form action="" method="POST" class="form" data-form="2">
+            <form action="" method="POST" class="form" data-form="2" enctype="multipart/form-data">
                 <div class="form__item">
                     <input type="text" name="contact-first-name" placeholder="Jane Doe" />
                     <label for="contact-first-name">Votre prénom</label>
@@ -108,8 +123,12 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                     <textarea name="message" placeholder="Votre message..."></textarea>
                     <label for="message">Votre message</label>
                 </div>
+                <div class="form__item form__file">
+                    <input type="file" id="file" name="file[]" accept=".doc, .docx, .jpeg, .jpg, .odt, .pdf, .png, .ppt, .pptx, .rtf, .txt, .xls, .xlsx, .zip" data-multiple-caption="{count} fichiers sélectionnés" multiple>
+                    <label for="file">Ajouter votre CV</label>
+                </div>
                 <div class="form__action">
-                    <input type="submit" class="button" name="submit_contact" value="Envoyer" />
+                    <input type="submit" class="button" name="submit_job" value="Envoyer" />
                 </div>
             </form>
         </div>

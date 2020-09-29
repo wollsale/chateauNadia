@@ -39,8 +39,6 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         $firstName = $lastName = $email = $phone = $message = $success = "";
 
         if ($_POST['submit_contact']) {
-            $to = get_option('admin_email');
-
             // first-name validation
             if (empty($_POST["contact-first-name"])) {
                 $firstName_error = "Name is required";
@@ -95,8 +93,11 @@ $image = get_the_post_thumbnail($post->ID, 'full');
             $body .= "\r\n\r\n";
             $body .= "<br/><br/><h3>Message :</h3><br/>$message";
 
+            $to = get_option('admin_email');
             $subject = "Nouveau message de votre site web";
             $headers = array('Content-Type: text/html; charset=UTF-8;Reply-To: {$name} <{$email}>');
+
+            $honeyPot = $_POST['newsletter'];
 
             //if all the errors are empty, only then send the message
             if ($firstName_error == '' and $lastName_error == '' and $email_error == '' and $phone_error == '' and $message_error == '') {
@@ -176,6 +177,7 @@ $image = get_the_post_thumbnail($post->ID, 'full');
 
             $subject = "Nouveau message de votre site web";
             $headers = array('Content-Type: text/html; charset=UTF-8;Reply-To: {$name} <{$email}>');
+            $honeyPot = $_POST['newsletter'];
 
             //if all the errors are empty, only then send the message
             if ($firstName_error == '' and $lastName_error == '' and $email_error == '' and $phone_error == '' and $message_error == '') {

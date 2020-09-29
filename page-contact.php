@@ -27,32 +27,144 @@ $image = get_the_post_thumbnail($post->ID, 'full');
 
         <?php
 
+        function test_input($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+
+        $lastName_error = $firstName_error = $email_error = $phone_error = "";
+        $firstName = $lastName = $email = $phone = $message = $success = "";
+
         if ($_POST['submit_contact']) {
             $to = get_option('admin_email');
 
-            // MAIL
-            $name = $_POST['contact-first-name'] . ' ' . $_POST['contact-last-name'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $message = $_POST['message'];
+            // first-name validation
+            if (empty($_POST["contact-first-name"])) {
+                $firstName_error = "Name is required";
+            } else {
+                $firstName = test_input($_POST["contact-first-name"]);
+                if (!preg_match("/^[a-zA-Z ]*$/", $firstName)) {
+                    $firstName_error = "Only letters and white space allowed";
+                }
+            }
+
+            // last-name validation
+            if (empty($_POST["contact-last-name"])) {
+                $lastName_error = "Last Name is required";
+            } else {
+                $lastName = test_input($_POST["contact-last-name"]);
+                if (!preg_match("/^[a-zA-Z ]*$/", $lastName)) {
+                    $lastName_error = "Only letters and white space allowed";
+                }
+            }
+
+            // phone validation
+            if (empty($_POST["phone"])) {
+                $phone_error = "Phone number is required";
+            } else {
+                $phone = test_input($_POST["phone"]);
+                if (!preg_match("/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i", $phone)) {
+                    $phone_error = "Invalid phone number";
+                }
+            }
+
+            // email validation
+            if (empty($_POST["email"])) {
+                $email_error = "email number is required";
+            } else {
+                $email = test_input($_POST["email"]);
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $email_error = "Invalid email format";
+                }
+            }
+
+            // message validation
+            if (empty($_POST["message"])) {
+                $message_error = "message number is required";
+            } else {
+                $message = test_input($_POST["message"]);
+            }
+
+            $name = $firstName . ' ' . $lastName;
 
             $body .= "<h3>Vous avez un nouveau message!</h3>";
             $body .= "<br/><h3>Informations :</h3><br/><strong>Nom : </strong>$name\r\n<br/><strong>Email : </strong>$email\r\n<br/><strong>Téléphone : </strong>$phone";
             $body .= "\r\n\r\n";
             $body .= "<br/><br/><h3>Message :</h3><br/>$message";
 
-            $subject = "Chateau Nadia : Nouveau message de $name";
+            $subject = "Nouveau message de votre site web";
             $headers = array('Content-Type: text/html; charset=UTF-8;Reply-To: {$name} <{$email}>');
 
-            wp_mail($to, $subject, $body, $headers);
+            //if all the errors are empty, only then send the message
+            if ($firstName_error == '' and $lastName_error == '' and $email_error == '' and $phone_error == '' and $message_error == '') {
+                $message_body = '';
+                unset($_POST['submit_contact']);
+                foreach ($_POST as $key => $value) {
+                    $message_body .= "$key: $value\n";
+                }
+
+                if (!$honeyPot) {
+                    $firstName = $lastName = $email = $phone = $message = "";
+                    $success = true;
+                    wp_mail($to, $subject, $body, $headers);
+                } else {
+                    return;
+                }
+            }
         } else if ($_POST['submit_job']) {
             $to = get_option('admin_email');
 
-            // MAIL
-            $name = $_POST['contact-first-name'] . ' ' . $_POST['contact-last-name'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $message = $_POST['message'];
+            // first-name validation
+            if (empty($_POST["contact-first-name"])) {
+                $firstName_error = "Name is required";
+            } else {
+                $firstName = test_input($_POST["contact-first-name"]);
+                if (!preg_match("/^[a-zA-Z ]*$/", $firstName)) {
+                    $firstName_error = "Only letters and white space allowed";
+                }
+            }
+
+            // last-name validation
+            if (empty($_POST["contact-last-name"])) {
+                $lastName_error = "Last Name is required";
+            } else {
+                $lastName = test_input($_POST["contact-last-name"]);
+                if (!preg_match("/^[a-zA-Z ]*$/", $lastName)) {
+                    $lastName_error = "Only letters and white space allowed";
+                }
+            }
+
+            // phone validation
+            if (empty($_POST["phone"])) {
+                $phone_error = "Phone number is required";
+            } else {
+                $phone = test_input($_POST["phone"]);
+                if (!preg_match("/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i", $phone)) {
+                    $phone_error = "Invalid phone number";
+                }
+            }
+
+            // email validation
+            if (empty($_POST["email"])) {
+                $email_error = "email number is required";
+            } else {
+                $email = test_input($_POST["email"]);
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $email_error = "Invalid email format";
+                }
+            }
+
+            // message validation
+            if (empty($_POST["message"])) {
+                $message_error = "message number is required";
+            } else {
+                $message = test_input($_POST["message"]);
+            }
+
+            $name = $firstName . ' ' . $lastName;
 
             $body .= "<h3>Vous avez un nouveau message!</h3>";
             $body .= "<br/><h3>Informations :</h3><br/><strong>Nom : </strong>$name\r\n<br/><strong>Email : </strong>$email\r\n<br/><strong>Téléphone : </strong>$phone";
@@ -62,10 +174,24 @@ $image = get_the_post_thumbnail($post->ID, 'full');
             // $attachment = $_FILES['file']['tmp_name'];
             $attachments = $_FILES['file']['tmp_name'];
 
-            $subject = "Chateau Nadia : Nouveau message de $name";
+            $subject = "Nouveau message de votre site web";
             $headers = array('Content-Type: text/html; charset=UTF-8;Reply-To: {$name} <{$email}>');
 
-            wp_mail($to, $subject, $body, $headers, $attachments);
+            //if all the errors are empty, only then send the message
+            if ($firstName_error == '' and $lastName_error == '' and $email_error == '' and $phone_error == '' and $message_error == '') {
+                $message_body = '';
+                unset($_POST['submit_job']);
+                foreach ($_POST as $key => $value) {
+                    $message_body .= "$key: $value\n";
+                }
+                if (!$honeyPot) {
+                    $firstName = $lastName = $email = $phone = $message = "";
+                    $success = true;
+                    wp_mail($to, $subject, $body, $headers, $attachments);
+                } else {
+                    return;
+                }
+            }
         }
 
         ?>
@@ -76,52 +202,84 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         </div>
 
         <div class="forms">
+            <?php if ($success) : ?>
+                <div class="success modal">
+                    <button class="modal__close">&times;</button>
+                    <h2>Message envoyé !</h2>
+                    <a href="<?= get_home_url(); ?>" class="button">Retour à l'accueil</a>
+                </div>
+                <div class="overlay"></div>
+            <?php endif; ?>
             <form action="" method="POST" class="form form--is-active" data-form="1">
                 <div class="form__item">
-                    <input type="text" name="contact-first-name" placeholder="Jane Doe" />
+                    <input type="text" name="contact-first-name" placeholder="Jane Doe" value="<?= $firstName; ?>" />
                     <label for="contact-first-name">Votre prénom</label>
+                    <?php if ($firstName_error) : ?>
+                        <span class="error"><?= $firstName_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="contact-last-name" placeholder="John Doe" />
+                    <input type="text" name="contact-last-name" placeholder="John Doe" value="<?= $lastName; ?>" />
                     <label for="contact-last-name">Votre nom de famille</label>
+                    <?php if ($lastName_error) : ?>
+                        <span class="error"><?= $lastName_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="phone" placeholder="1234567890" />
+                    <input type="text" name="phone" placeholder="1234567890" value="<?= $phone; ?>" />
                     <label for="phone"># de téléphone</label>
+                    <?php if ($phone_error) : ?>
+                        <span class="error"><?= $phone_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="email" placeholder="your@email.com" />
+                    <input type="text" name="email" placeholder="your@email.com" value="<?= $email; ?>" />
                     <label for="email">Votre adresse courriel</label>
+                    <?php if ($email_error) : ?>
+                        <span class="error"><?= $email_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item form__message">
-                    <textarea name="message" placeholder="Votre message..."></textarea>
+                    <textarea name="message" placeholder="Votre message..."><?= $message; ?></textarea>
                     <label for="message">Votre message</label>
+                    <?php if ($message_error) : ?>
+                        <span class="error"><?= $message_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__action">
                     <input type="submit" class="button" name="submit_contact" value="Envoyer" />
+                </div>
+                <div class="form__item trick">
+                    <input type="checkbox" name="newsletter" />
+                    <label for="contact-first-name">Newsletter</label>
                 </div>
             </form>
 
             <form action="" method="POST" class="form" data-form="2" enctype="multipart/form-data">
                 <div class="form__item">
-                    <input type="text" name="contact-first-name" placeholder="Jane Doe" />
+                    <input type="text" name="contact-first-name" placeholder="Jane Doe" value="<?= $firstName; ?>" />
                     <label for="contact-first-name">Votre prénom</label>
+                    <span class="error"><?= $firstName_error; ?></span>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="contact-last-name" placeholder="John Doe" />
+                    <input type="text" name="contact-last-name" placeholder="John Doe" value="<?= $lastName; ?>" />
                     <label for="contact-last-name">Votre nom de famille</label>
+                    <span class="error"><?= $lastName_error; ?></span>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="phone" placeholder="1234567890" />
+                    <input type="text" name="phone" placeholder="1234567890" value="<?= $phone; ?>" />
                     <label for="phone"># de téléphone</label>
+                    <span class="error"><?= $phone_error; ?></span>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="email" placeholder="your@email.com" />
+                    <input type="text" name="email" placeholder="your@email.com" value="<?= $email; ?>" />
                     <label for="email">Votre adresse courriel</label>
+                    <span class="error"><?= $email_error; ?></span>
                 </div>
                 <div class="form__item form__message">
-                    <textarea name="message" placeholder="Votre message..."></textarea>
+                    <textarea name="message" placeholder="Votre message..."><?= $message; ?></textarea>
                     <label for="message">Votre message</label>
+                    <span class="error"><?= $message_error; ?></span>
                 </div>
                 <div class="form__item form__file">
                     <input type="file" id="file" name="file[]" accept=".doc, .docx, .jpeg, .jpg, .odt, .pdf, .png, .ppt, .pptx, .rtf, .txt, .xls, .xlsx, .zip" data-multiple-caption="{count} fichiers sélectionnés" multiple>
@@ -129,6 +287,10 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 </div>
                 <div class="form__action">
                     <input type="submit" class="button" name="submit_job" value="Envoyer" />
+                </div>
+                <div class="form__item trick">
+                    <input type="checkbox" name="newsletter" />
+                    <label for="contact-first-name">Newsletter</label>
                 </div>
             </form>
         </div>

@@ -55,6 +55,10 @@
 .forms {
     flex: 1 0 auto;
     position: relative;
+
+    .trick {
+        display: none;
+    }
 }
 
 

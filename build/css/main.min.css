@@ -59,6 +59,7 @@ a {
   --lightestPink: #F7F4F5;
   --pastel: #D7BFB7;
   --darkPink: #dda193;
+  --error: #af6858;
   --lightGray: #ddd;
   --middleGray: #555555;
   --white: #ffffff; }
@@ -896,6 +897,59 @@ form label {
 .form input, .form textarea {
   width: 100%; }
 
+span.error {
+  font-size: var(--fontSize-small) !important;
+  text-transform: none;
+  color: var(--error);
+  letter-spacing: 2%;
+  display: inline-block;
+  background: var(--lightPink);
+  padding: 4px; }
+
+.modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  min-width: 500px;
+  background: var(--lightPink);
+  padding: var(--u4);
+  z-index: 100; }
+  .modal h2 {
+    font-size: var(--fontSize-h2);
+    text-align: center;
+    text-transform: none;
+    color: var(--darkPink);
+    margin: var(--u4) auto; }
+  .modal__close {
+    margin-left: auto;
+    background: none;
+    border: 0;
+    font-size: var(--fontSize-h4);
+    color: var(--darkPink);
+    cursor: pointer; }
+    .modal__close:hover {
+      background: var(--lightestPink); }
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 90; }
+
 .banner {
   margin-left: auto;
   width: 100%;
@@ -1095,6 +1149,8 @@ form label {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   position: relative; }
+  .forms .trick {
+    display: none; }
 
 .form {
   display: -webkit-box;

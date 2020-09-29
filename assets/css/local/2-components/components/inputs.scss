@@ -45,3 +45,16 @@ form {
         width: 100%;
     }
 }
+
+
+span.error {
+    font-size: var(--fontSize-small) !important;
+    text-transform: none;
+
+    color: var(--error);
+    letter-spacing: 2%;
+
+    display: inline-block;
+    background: var(--lightPink);
+    padding: 4px;
+}

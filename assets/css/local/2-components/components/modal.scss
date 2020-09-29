@@ -1,0 +1,45 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 500px;
+    background: var(--lightPink);
+    padding: var(--u4);
+
+    z-index: 100;
+
+    h2 {
+        font-size: var(--fontSize-h2);
+        text-align: center;
+        text-transform: none;
+        color: var(--darkPink);
+
+        margin: var(--u4) auto;
+    }
+
+    &__close {
+        margin-left:  auto;
+        background: none;
+        border: 0;
+        font-size: var(--fontSize-h4);
+        color: var(--darkPink);
+        cursor: pointer;
+
+        &:hover {
+            background: var(--lightestPink);
+        }
+    }
+}
+
+.overlay {
+    width: 100%; height: 100%;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: rgba(#000, .6);
+
+    z-index: 90;
+}

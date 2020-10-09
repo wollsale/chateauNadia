@@ -256,7 +256,7 @@ footer .menu-item a, footer .page_item a {
   footer .menu-item a[aria-current='page']::after, footer .page_item a[aria-current='page']::after {
     display: none; }
 
-.menu-item:last-child a, .page_item:last-child a {
+.topbar .menu-item:last-child a, .topbar .page_item:last-child a {
   background: #f0c2ba;
   color: white; }
 

@@ -261,27 +261,37 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 <div class="form__item">
                     <input type="text" name="contact-first-name" placeholder="Jane Doe" value="<?= $firstName; ?>" />
                     <label for="contact-first-name">Votre prénom</label>
-                    <span class="error"><?= $firstName_error; ?></span>
+                    <?php if ($firstName_error) : ?>
+                        <span class="error"><?= $firstName_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item">
                     <input type="text" name="contact-last-name" placeholder="John Doe" value="<?= $lastName; ?>" />
                     <label for="contact-last-name">Votre nom de famille</label>
-                    <span class="error"><?= $lastName_error; ?></span>
+                    <?php if ($lastName_error) : ?>
+                        <span class="error"><?= $lastName_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item">
                     <input type="text" name="phone" placeholder="1234567890" value="<?= $phone; ?>" />
                     <label for="phone"># de téléphone</label>
-                    <span class="error"><?= $phone_error; ?></span>
+                    <?php if ($phone_error) : ?>
+                        <span class="error"><?= $phone_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item">
                     <input type="text" name="email" placeholder="your@email.com" value="<?= $email; ?>" />
                     <label for="email">Votre adresse courriel</label>
-                    <span class="error"><?= $email_error; ?></span>
+                    <?php if ($email_error) : ?>
+                        <span class="error"><?= $email_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item form__message">
                     <textarea name="message" placeholder="Votre message..."><?= $message; ?></textarea>
                     <label for="message">Votre message</label>
-                    <span class="error"><?= $message_error; ?></span>
+                    <?php if ($message_error) : ?>
+                        <span class="error"><?= $message_error; ?></span>
+                    <?php endif; ?>
                 </div>
                 <div class="form__item form__file">
                     <input type="file" id="file" name="file[]" accept=".doc, .docx, .jpeg, .jpg, .odt, .pdf, .png, .ppt, .pptx, .rtf, .txt, .xls, .xlsx, .zip" data-multiple-caption="{count} fichiers sélectionnés" multiple>

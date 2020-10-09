@@ -1867,12 +1867,17 @@ body {
     padding-bottom: var(--u8);
     text-align: center;
     border-bottom: 1px solid var(--lightPink); }
+  .post-content h2, .post-content h3, .post-content h4 {
+    font-family: var(--playfair); }
   .post-content h2 {
     font-size: var(--fontSize-h2);
-    margin-bottom: var(--u2); }
+    margin-bottom: var(--u4); }
   .post-content h3 {
     font-size: var(--fontSize-h3);
-    margin-bottom: var(--u2); }
+    margin-bottom: var(--u4);
+    color: var(--middleGray); }
+  .post-content h4 {
+    color: var(--middleGray); }
   .post-content p {
     font-style: normal;
     margin-bottom: var(--u2); }

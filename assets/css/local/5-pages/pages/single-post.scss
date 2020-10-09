@@ -14,14 +14,20 @@
         text-align: center;
         border-bottom: 1px solid var(--lightPink);
     }
-
+    h2, h3, h4 {
+        font-family: var(--playfair);
+    }
     h2 {
         font-size: var(--fontSize-h2);
-        margin-bottom: var(--u2);
+        margin-bottom: var(--u4);
     }
     h3 {
         font-size: var(--fontSize-h3);
-        margin-bottom: var(--u2);
+        margin-bottom: var(--u4);
+        color: var(--middleGray);
+    }
+    h4 {
+        color: var(--middleGray);
     }
     p {
         font-style: normal;

@@ -7,7 +7,6 @@ $image = get_the_post_thumbnail($post->ID, 'full');
 <?php if ($title) : ?>
     <div class="hero">
         <div class="container">
-            <h1 class="title"><?php echo $title; ?></h1>
             <?php if ($image) : ?>
                 <div class="banner">
                     <?php echo $image; ?>
@@ -27,6 +26,7 @@ $content = get_the_content();
 if ($content) : ?>
     <main>
         <div class="container post-content">
+            <h1><?php echo $title; ?></h1>
             <?php echo $content; ?>
         </div>
     </main>

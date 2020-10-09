@@ -7,6 +7,14 @@
         padding: 0 var(--u2);
     }
 
+    h1 {
+        font-size: var(--fontSize-h1);
+        margin-bottom: var(--u8);
+        padding-bottom: var(--u8);
+        text-align: center;
+        border-bottom: 1px solid var(--lightPink);
+    }
+
     h2 {
         font-size: var(--fontSize-h2);
         margin-bottom: var(--u2);

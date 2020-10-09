@@ -77,4 +77,11 @@
             &[aria-current='page']::after { display: none; }
         }
     }
+
+    &:last-child {
+        a {
+            background: #f0c2ba;
+            color: white;
+        }
+    }
 }

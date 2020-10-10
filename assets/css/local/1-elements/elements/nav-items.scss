@@ -78,7 +78,7 @@
         }
     }
 
-    .topbar &:last-child {
+    .topbar .menu > &:last-child {
         a {
             background: #f0c2ba;
             color: white;

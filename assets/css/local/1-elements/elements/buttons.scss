@@ -71,6 +71,16 @@
     border-radius: 0;
 }
 
+input[type='submit'] {
+    font-family: var(--playfair);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--darkPink) !important;
+        color: var(--white);
+    }
+}
+
 .wp-block-buttons, .wp-block-button {
     @include mobile {
         width: 100%;

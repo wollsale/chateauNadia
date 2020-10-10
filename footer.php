@@ -50,13 +50,22 @@
                     <?php if ($hours) : ?>
                         <h3><?php pll_e('Hours'); ?></h3>
                         <ul class="hours">
-                            <?php foreach ($hours as $item) :
-                                $days = $item['days'];
+                            <?php $i = 0;
+                            foreach ($hours as $item) :
+                                $days = [
+                                    pll__('Lundi au Mercredi'),
+                                    pll__('Jeudi au Vendredi'),
+                                    pll__('Samedi'),
+                                    pll__('Dimanche'),
+                                ];
                                 $hours = $item['hours']; ?>
 
-                                <?php if ($days) : ?><li><span class="days"><?php echo $days ?></span><span class="hour"><?php echo $hours ?></span></li><?php endif; ?>
+                                <?php if ($days) : ?>
+                                    <li><span class="days"><?php echo $days[$i] ?></span><span class="hour"><?php echo $hours ?></span></li>
+                                <?php endif; ?>
 
-                            <?php endforeach; ?>
+                            <?php $i++;
+                            endforeach; ?>
                         </ul>
                     <?php endif; ?>
                     <?php wp_nav_menu(array('theme_location' => 'footer')); ?>

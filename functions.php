@@ -103,29 +103,7 @@ add_action('init', 'theme_types');
 *
 */
 
-/* FOOTER */
-add_action('init', function () {
-    /* FOOTER */
-    pll_register_string('Château Nadia', 'ChateauNadia', 'Footer', false);
-    pll_register_string('Nos heures', 'Hours', 'Footer', false);
-    pll_register_string('Copyright', 'Copyright', 'Footer', false);
-    pll_register_string('MadeBy', 'MadeBy', 'Footer', false);
-
-    /* SLIDER */
-    pll_register_string('Précédent', 'Previous', 'Slider', false);
-    pll_register_string('Suivant', 'Next', 'Slider', false);
-
-    /* INSTAGRAM */
-    pll_register_string('Suivez-nous', 'Suivez-nous', 'Instagram', false);
-    pll_register_string('Sur instagram', 'Sur instagram', 'Instagram', false);
-
-    /* HEADER CTA */
-    pll_register_string('Prendre rendez-vous', 'Prendre rendez-vous', 'Topbar', false);
-});
-
-
-
-
+include 'translate.php';
 
 
 

@@ -1,4 +1,4 @@
-<?php /* Template Name: Sous-Page */
+<?php /* Template Name: Contact */
 
 get_header() ?>
 <!-- INTRODUCTION -->
@@ -41,47 +41,47 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         if ($_POST['submit_contact']) {
             // first-name validation
             if (empty($_POST["contact-first-name"])) {
-                $firstName_error = "Name is required";
+                $firstName_error = pll__('form-error-firstName-missing');
             } else {
                 $firstName = test_input($_POST["contact-first-name"]);
                 if (!preg_match("/^[a-zA-Z ]*$/", $firstName)) {
-                    $firstName_error = "Only letters and white space allowed";
+                    $firstName_error = pll__('form-error-firstName-unmatch');
                 }
             }
 
             // last-name validation
             if (empty($_POST["contact-last-name"])) {
-                $lastName_error = "Last Name is required";
+                $lastName_error = pll__('form-error-lastName-missing');
             } else {
                 $lastName = test_input($_POST["contact-last-name"]);
                 if (!preg_match("/^[a-zA-Z ]*$/", $lastName)) {
-                    $lastName_error = "Only letters and white space allowed";
+                    $lastName_error = pll__('form-error-lastName-unmatch');
                 }
             }
 
             // phone validation
             if (empty($_POST["phone"])) {
-                $phone_error = "Phone number is required";
+                $phone_error = pll__('form-error-phone-missing');
             } else {
                 $phone = test_input($_POST["phone"]);
                 if (!preg_match("/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i", $phone)) {
-                    $phone_error = "Invalid phone number";
+                    $phone_error = pll__('form-error-phone-unmatch');
                 }
             }
 
             // email validation
             if (empty($_POST["email"])) {
-                $email_error = "email number is required";
+                $email_error = pll__('form-error-email-missing');
             } else {
                 $email = test_input($_POST["email"]);
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $email_error = "Invalid email format";
+                    $email_error = pll__('form-error-email-unmatch');
                 }
             }
 
             // message validation
             if (empty($_POST["message"])) {
-                $message_error = "message number is required";
+                $message_error = pll__('form-error-message-missing');
             } else {
                 $message = test_input($_POST["message"]);
             }
@@ -120,47 +120,47 @@ $image = get_the_post_thumbnail($post->ID, 'full');
 
             // first-name validation
             if (empty($_POST["contact-first-name"])) {
-                $firstName_error = "Name is required";
+                $firstName_error = pll__('form-error-firstName-missing');
             } else {
                 $firstName = test_input($_POST["contact-first-name"]);
                 if (!preg_match("/^[a-zA-Z ]*$/", $firstName)) {
-                    $firstName_error = "Only letters and white space allowed";
+                    $firstName_error = pll__('form-error-firstName-unmatch');
                 }
             }
 
             // last-name validation
             if (empty($_POST["contact-last-name"])) {
-                $lastName_error = "Last Name is required";
+                $lastName_error = pll__('form-error-lastName-missing');
             } else {
                 $lastName = test_input($_POST["contact-last-name"]);
                 if (!preg_match("/^[a-zA-Z ]*$/", $lastName)) {
-                    $lastName_error = "Only letters and white space allowed";
+                    $lastName_error = pll__('form-error-lastName-unmatch');
                 }
             }
 
             // phone validation
             if (empty($_POST["phone"])) {
-                $phone_error = "Phone number is required";
+                $phone_error = pll__('form-error-phone-missing');
             } else {
                 $phone = test_input($_POST["phone"]);
                 if (!preg_match("/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i", $phone)) {
-                    $phone_error = "Invalid phone number";
+                    $phone_error = pll__('form-error-phone-unmatch');
                 }
             }
 
             // email validation
             if (empty($_POST["email"])) {
-                $email_error = "email number is required";
+                $email_error = pll__('form-error-email-missing');
             } else {
                 $email = test_input($_POST["email"]);
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $email_error = "Invalid email format";
+                    $email_error = pll__('form-error-email-unmatch');
                 }
             }
 
             // message validation
             if (empty($_POST["message"])) {
-                $message_error = "message number is required";
+                $message_error = pll__('form-error-message-missing');
             } else {
                 $message = test_input($_POST["message"]);
             }
@@ -199,57 +199,57 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         ?>
 
         <div class="form__triggers">
-            <a href="#" class="form__trigger form--is-active" data-form="1">Nous joindre</a>
-            <a href="#" class="form__trigger" data-form="2">Rejoindre l'équipe</a>
+            <a href="#" class="form__trigger form--is-active" data-form="1"><?php pll_e('form-1-name') ?></a>
+            <a href="#" class="form__trigger" data-form="2"><?php pll_e('form-2-name') ?></a>
         </div>
 
         <div class="forms">
             <?php if ($success) : ?>
                 <div class="success modal">
                     <button class="modal__close">&times;</button>
-                    <h2>Message envoyé !</h2>
-                    <a href="<?= get_home_url(); ?>" class="button">Retour à l'accueil</a>
+                    <h2><?php pll_e('success-message') ?></h2>
+                    <a href="<?= get_home_url(); ?>" class="button"><?php pll_e('success-button') ?></a>
                 </div>
                 <div class="overlay"></div>
             <?php endif; ?>
             <form action="" method="POST" class="form form--is-active" data-form="1">
                 <div class="form__item">
-                    <input type="text" name="contact-first-name" placeholder="Jane Doe" value="<?= $firstName; ?>" />
-                    <label for="contact-first-name">Votre prénom</label>
+                    <input type="text" name="contact-first-name" placeholder="<?php pll_e('firstName-placeholder') ?>" value="<?= $firstName; ?>" />
+                    <label for="contact-first-name"><?php pll_e('firstName-label') ?></label>
                     <?php if ($firstName_error) : ?>
                         <span class="error"><?= $firstName_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="contact-last-name" placeholder="John Doe" value="<?= $lastName; ?>" />
-                    <label for="contact-last-name">Votre nom de famille</label>
+                    <input type="text" name="contact-last-name" placeholder="<?php pll_e('lastName-placeholder') ?>" value="<?= $lastName; ?>" />
+                    <label for="contact-last-name"><?php pll_e('lastName-label') ?></label>
                     <?php if ($lastName_error) : ?>
                         <span class="error"><?= $lastName_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="phone" placeholder="1234567890" value="<?= $phone; ?>" />
-                    <label for="phone"># de téléphone</label>
+                    <input type="text" name="phone" placeholder="<?php pll_e('phone-placeholder') ?>" value="<?= $phone; ?>" />
+                    <label for="phone"><?php pll_e('phone-label') ?></label>
                     <?php if ($phone_error) : ?>
                         <span class="error"><?= $phone_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="email" placeholder="your@email.com" value="<?= $email; ?>" />
-                    <label for="email">Votre adresse courriel</label>
+                    <input type="text" name="email" placeholder="<?php pll_e('email-placeholder') ?>" value="<?= $email; ?>" />
+                    <label for="email"><?php pll_e('email-label') ?></label>
                     <?php if ($email_error) : ?>
                         <span class="error"><?= $email_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item form__message">
-                    <textarea name="message" placeholder="Votre message..."><?= $message; ?></textarea>
-                    <label for="message">Votre message</label>
+                    <textarea name="message" placeholder="<?php pll_e('message-placeholder') ?>"><?= $message; ?></textarea>
+                    <label for="message"><?php pll_e('message-label') ?></label>
                     <?php if ($message_error) : ?>
                         <span class="error"><?= $message_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__action">
-                    <input type="submit" class="button" name="submit_contact" value="Envoyer" />
+                    <input type="submit" class="button" name="submit_contact" value="<?php pll_e('form-button') ?>" />
                 </div>
                 <div class="form__item trick">
                     <input type="checkbox" name="newsletter" />
@@ -259,46 +259,46 @@ $image = get_the_post_thumbnail($post->ID, 'full');
 
             <form action="" method="POST" class="form" data-form="2" enctype="multipart/form-data">
                 <div class="form__item">
-                    <input type="text" name="contact-first-name" placeholder="Jane Doe" value="<?= $firstName; ?>" />
-                    <label for="contact-first-name">Votre prénom</label>
+                    <input type="text" name="contact-first-name" placeholder="<?php pll_e('firstName-placeholder') ?>" value="<?= $firstName; ?>" />
+                    <label for="contact-first-name"><?php pll_e('firstName-label') ?></label>
                     <?php if ($firstName_error) : ?>
                         <span class="error"><?= $firstName_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="contact-last-name" placeholder="John Doe" value="<?= $lastName; ?>" />
-                    <label for="contact-last-name">Votre nom de famille</label>
+                    <input type="text" name="contact-last-name" placeholder="<?php pll_e('lastName-placeholder') ?>" value="<?= $lastName; ?>" />
+                    <label for="contact-last-name"><?php pll_e('lastName-label') ?></label>
                     <?php if ($lastName_error) : ?>
                         <span class="error"><?= $lastName_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="phone" placeholder="1234567890" value="<?= $phone; ?>" />
-                    <label for="phone"># de téléphone</label>
+                    <input type="text" name="phone" placeholder="<?php pll_e('phone-placeholder') ?>" value="<?= $phone; ?>" />
+                    <label for="phone"><?php pll_e('phone-label') ?></label>
                     <?php if ($phone_error) : ?>
                         <span class="error"><?= $phone_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item">
-                    <input type="text" name="email" placeholder="your@email.com" value="<?= $email; ?>" />
-                    <label for="email">Votre adresse courriel</label>
+                    <input type="text" name="email" placeholder="<?php pll_e('email-placeholder') ?>" value="<?= $email; ?>" />
+                    <label for="email"><?php pll_e('email-label') ?></label>
                     <?php if ($email_error) : ?>
                         <span class="error"><?= $email_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item form__message">
-                    <textarea name="message" placeholder="Votre message..."><?= $message; ?></textarea>
-                    <label for="message">Votre message</label>
+                    <textarea name="message" placeholder="<?php pll_e('message-placeholder') ?>"><?= $message; ?></textarea>
+                    <label for="message"><?php pll_e('message-label') ?></label>
                     <?php if ($message_error) : ?>
                         <span class="error"><?= $message_error; ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="form__item form__file">
-                    <input type="file" id="file" name="file[]" accept=".doc, .docx, .jpeg, .jpg, .odt, .pdf, .png, .ppt, .pptx, .rtf, .txt, .xls, .xlsx, .zip" data-multiple-caption="{count} fichiers sélectionnés" multiple>
-                    <label for="file">Ajouter votre CV</label>
+                    <input type="file" id="file" name="file[]" accept=".doc, .docx, .jpeg, .jpg, .odt, .pdf, .png, .ppt, .pptx, .rtf, .txt, .xls, .xlsx, .zip" data-multiple-caption="{count} <?php pll_e('file-selected') ?>" multiple>
+                    <label for="file"><?php pll_e('file-label') ?></label>
                 </div>
                 <div class="form__action">
-                    <input type="submit" class="button" name="submit_job" value="Envoyer" />
+                    <input type="submit" class="button" name="submit_job" value="<?php pll_e('form-button') ?>" />
                 </div>
                 <div class="form__item trick">
                     <input type="checkbox" name="newsletter" />

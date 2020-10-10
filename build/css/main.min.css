@@ -404,6 +404,13 @@ footer .menu-item a, footer .page_item a {
   background-color: transparent;
   border-radius: 0; }
 
+input[type='submit'] {
+  font-family: var(--playfair);
+  cursor: pointer; }
+  input[type='submit']:hover {
+    background-color: var(--darkPink) !important;
+    color: var(--white); }
+
 @media (min-width: 0px) and (max-width: 1023px) {
   .wp-block-buttons, .wp-block-button {
     width: 100%; } }

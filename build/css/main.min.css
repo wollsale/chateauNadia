@@ -1234,6 +1234,10 @@ span.error {
   --height: 60vh;
   min-height: 580px;
   height: var(--height); }
+  .page-template-template_page-about .hero {
+    height: auto !important; }
+    .page-template-template_page-about .hero::before {
+      height: 100% !important; }
   .hero .container {
     height: 100%; }
   .hero .title {

@@ -4,6 +4,14 @@
     min-height: 580px;
     height: var(--height);
 
+    .page-template-template_page-about & {
+        height: auto !important;
+
+        &::before {
+            height: 100% !important;
+        }
+    }
+
     .container { height: 100%; }
     
     .title {

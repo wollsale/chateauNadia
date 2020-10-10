@@ -1,4 +1,6 @@
-<?php get_header() ?>
+<?php /* Template Name: Page Mariage */
+
+get_header() ?>
 <!-- INTRODUCTION -->
 <?php
 $title = get_the_title();

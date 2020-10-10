@@ -22,9 +22,19 @@
         .left, .right, .socials {
             display: flex;
 
+            @include mobile {
+                justify-content: center;
+            }
+        }
+
+        .left, .socials {
             > *:not(:last-child) {
                 margin-right: var(--u1);
             }
+        }
+
+        @include mobile {
+            flex-direction: column;
         }
     }
 

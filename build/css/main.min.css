@@ -618,8 +618,19 @@ body .topbar__main > .container {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
-      .topbar__head .left > *:not(:last-child), .topbar__head .right > *:not(:last-child), .topbar__head .socials > *:not(:last-child) {
-        margin-right: var(--u1); }
+      @media (min-width: 0px) and (max-width: 1023px) {
+        .topbar__head .left, .topbar__head .right, .topbar__head .socials {
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center; } }
+    .topbar__head .left > *:not(:last-child), .topbar__head .socials > *:not(:last-child) {
+      margin-right: var(--u1); }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .topbar__head {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column; } }
   .topbar__cta {
     text-transform: uppercase;
     display: -webkit-box;
@@ -679,6 +690,9 @@ body .topbar__main > .container {
   .lang__wrapper {
     margin-left: var(--u2);
     padding: calc(var(--u1) / 2) var(--u4) var(--u1) 0; }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .lang__wrapper {
+        margin-left: 0; } }
     @media screen and (max-width: 768px) {
       .lang__wrapper {
         padding: var(--u1) var(--u2); } }
@@ -697,6 +711,10 @@ body .topbar__main > .container {
       visibility: visible; }
     .lang__wrapper p {
       height: var(--u2); }
+      @media (min-width: 0px) and (max-width: 1023px) {
+        .lang__wrapper p {
+          -webkit-transform: translateY(-6px);
+                  transform: translateY(-6px); } }
   .lang li a {
     display: block;
     padding: var(--u1) var(--u2);
@@ -1753,6 +1771,9 @@ section {
 .home .testimonials {
   position: relative;
   overflow: visible; }
+  @media (min-width: 0px) and (max-width: 1023px) {
+    .home .testimonials {
+      overflow: hidden; } }
   .home .testimonials::before {
     display: block;
     content: '';

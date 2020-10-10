@@ -105,6 +105,10 @@
         position: relative;
         overflow: visible;
 
+        @include mobile{
+            overflow: hidden;
+        }
+
         &::before {
             @include mobile{
                 display: none;

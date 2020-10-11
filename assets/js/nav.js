@@ -1,4 +1,6 @@
 export const nav = () => {
+    console.log("nav()");
+
     let trigger = document.querySelectorAll('.nav-trigger');
     let nav = document.querySelector('.head-nav');
     let topbar = document.querySelector('.topbar__main');

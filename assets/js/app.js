@@ -7,12 +7,18 @@ import { file } from "./file.js";
 import { modal } from "./modal.js";
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
-    console.log('nav')
-
     if (document.querySelector('.nav-trigger')) {
         nav();
     }
 }
+
+window.addEventListener('resize', () => {
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+        if (document.querySelector('.nav-trigger')) {
+            nav();
+        }
+    }
+})
 
 if (document.querySelector('.topbar__main')) {
     sticky(document.querySelector('.topbar__main'))

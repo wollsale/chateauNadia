@@ -1455,7 +1455,11 @@ footer.footer {
           -ms-flex-direction: column;
               flex-direction: column;
       -ms-flex-line-pack: center;
-          align-content: center; } }
+          align-content: center; }
+      .footer__bottom > * {
+        margin-bottom: var(--u1);
+        margin-top: var(--u1);
+        line-height: 130%; } }
   .footer__bottom * {
     font-size: 14px;
     color: white !important;

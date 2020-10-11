@@ -141,6 +141,12 @@ footer.footer {
         @include mobile {
             flex-direction: column;
             align-content: center;
+            
+            > * {
+                margin-bottom: var(--u1);
+                margin-top: var(--u1);
+                line-height: 130%;
+            }
         }
 
         background-color: var(--darkPink);

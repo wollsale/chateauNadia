@@ -214,6 +214,9 @@ p, .hero .title, .footer h3 {
   --fontSize: var(--fontSize-small);
   display: block;
   padding: var(--padding); }
+  @media screen and (max-width: 1440px) {
+    .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu) {
+      --font-size: 14px; } }
 
 .sub-menu .menu-item > a, .sub-menu .page_item > a {
   --padding: var(--u2) 0;

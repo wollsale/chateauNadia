@@ -3,6 +3,10 @@
     --hoverColor: var(--lightPinkHover);
     --fontSize : var(--fontSize-small);
 
+    @media screen and (max-width: 1440px) {
+        --font-size: 14px;
+    }
+
     // @extend %text;
     @extend %all-caps;
     @extend %link;

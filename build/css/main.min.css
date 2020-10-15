@@ -1025,6 +1025,11 @@ span.error {
     .slider__item--is-active {
       opacity: 1; }
 
+.tns-slider {
+  height: 100%; }
+  .tns-slider > img {
+    height: 100%; }
+
 /*
 *
 * IMAGES AND ASPECT RATIO
@@ -1859,7 +1864,7 @@ body {
     -o-object-position: center;
        object-position: center;
     width: 100%;
-    height: var(--height); }
+    height: 100%; }
 
 .page-template-template_page-about .quote p {
   text-transform: none; }

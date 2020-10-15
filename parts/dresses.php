@@ -8,12 +8,12 @@
         <!-- Block #1 -->
         <div class="intro">
             <div class="title-head">
-                <h2><?php if ($title_default) : echo $title_default;
-                    endif; ?></h2>
-                <h2><?php if ($title_handwritter) : echo $title_handwritter;
-                    endif; ?></h2>
+                <h2 data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out"><?php if ($title_default) : echo $title_default;
+                                                                                            endif; ?></h2>
+                <h2 data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out"><?php if ($title_handwritter) : echo $title_handwritter;
+                                                                                            endif; ?></h2>
             </div>
-            <div class="content">
+            <div class="content" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                 <?php if ($text) : echo $text;
                 endif; ?>
             </div>
@@ -28,7 +28,7 @@
             <ul class="dresses__list">
                 <?php while ($the_query->have_posts()) : $the_query->the_post();
                     $hover = get_field('dress_visible_image'); ?>
-                    <li class="dresses__item card card--dresses">
+                    <li class="dresses__item card card--dresses" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <div class="card__cover">
                             <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
                         </div>

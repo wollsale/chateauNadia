@@ -7,7 +7,7 @@ $title = get_the_title();
 $image = get_the_post_thumbnail($post->ID, 'full');
 ?>
 <?php if ($title) : ?>
-    <div class="hero">
+    <div class="hero" data-sal="fade" data-sal-duration="1000" data-delay="1000">
         <div class="container">
             <h1 class="title"><?php echo $title; ?></h1>
             <?php if ($image) : ?>

@@ -9,10 +9,12 @@ if ($quote) : ?>
         ?>
         <blockquote class="container">
             <?php if ($content) : ?>
-                <p class="quote__main"><?php echo $content; ?></p>
+                <p class="quote__main" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out"><?php echo $content; ?></p>
             <?php endif; ?>
             <?php if ($author) : ?>
-                <?php echo $author; ?>
+                <div data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
+                    <?php echo $author; ?>
+                </div>
             <?php endif; ?>
         </blockquote>
     </section>

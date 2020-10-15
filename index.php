@@ -8,7 +8,7 @@ $slider = get_field('hero_slider');
 ?>
 
 <?php if ($content) : ?>
-    <div class="hero">
+    <div class="hero" data-sal="fade" data-sal-duration="1000" data-delay="1000">
         <div class="container">
             <div class="content">
                 <?php echo $content; ?>
@@ -44,7 +44,7 @@ $slider = get_field('hero_slider');
     ?>
         <section class="about">
             <div class="container">
-                <div class="content">
+                <div class="content" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                     <h2 class="title-default"><?php if ($title_default) : echo $title_default;
                                                 endif; ?></h2>
                     <h2 class="title-handwritten"><?php if ($title_handwritter) : echo $title_handwritter;
@@ -52,7 +52,7 @@ $slider = get_field('hero_slider');
                     <p><?php if ($text) : echo $text;
                         endif; ?></p>
                 </div>
-                <div class="media">
+                <div class="media" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                     <a class="button" href="<?php if ($button_url) : echo $button_url;
                                             endif; ?>"><?php echo $button_title; ?></a>
                     <?php if ($image) : ?><img src="<?php echo $image; ?>" alt="">

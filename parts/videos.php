@@ -8,12 +8,12 @@ if ($featured_vids) {
         <section class="videos">
             <div class="container">
                 <?php if ($video_title_default or $video_title_handwritten) : ?>
-                    <div class="intro">
+                    <div class="intro" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <h2 class="title-default"><?php echo $video_title_default; ?></h2>
                         <h2 class="title-handwritten"><?php echo $video_title_handwritten; ?></h2>
                     </div>
                 <?php endif; ?>
-                <div class="carousel__wrapper">
+                <div class="carousel__wrapper" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                     <div class="carousel">
                         <?php foreach ($featured_vids as $post) :
                             setup_postdata($post);
@@ -38,7 +38,7 @@ if ($featured_vids) {
         <section class="videos">
             <div class="container">
                 <?php if ($video_title_default or $video_title_handwritten) : ?>
-                    <div class="intro">
+                    <div class="intro" data-sal="slide-up" data-sal-duration="800" data-sal-delay="400" data-sal-easing="ease-out">
                         <h2 class="title-default"><?php echo $video_title_default; ?></h2>
                         <h2 class="title-handwritten"><?php echo $video_title_handwritten; ?></h2>
                     </div>
@@ -48,7 +48,7 @@ if ($featured_vids) {
                     $url = get_field('video_youtube_url');
                     $embed = wp_oembed_get($url);
                 ?>
-                    <div class="videos__wrapper">
+                    <div class="videos__wrapper" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <?php echo $embed; ?>
                     </div>
                 <?php endforeach; ?>

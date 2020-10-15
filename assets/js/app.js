@@ -105,3 +105,10 @@ window.addEventListener('load', function () {
 //         document.querySelector('textarea').style.height = (document.querySelector('textarea').scrollHeight) + "px";
 //     }
 // })();
+
+
+import sal from 'sal.js'
+sal({
+    threshold: .1,
+    once: true,
+});

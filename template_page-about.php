@@ -12,7 +12,7 @@ if ($block_1) :
     $image = $block_1['image'];
     $image = wp_get_attachment_image_src($image, 'large')[0];
 ?>
-    <div class="hero hero--about">
+    <div class="hero hero--about" data-sal="fade" data-sal-duration="1000" data-delay="1000">
         <div class="container">
             <div class="block-split">
                 <div class="media">
@@ -52,7 +52,7 @@ if ($block_1) :
         <section>
             <div class="container">
                 <div class="block-split">
-                    <div class="content">
+                    <div class="content" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <div class="title-head">
                             <?php if ($title_default) : echo '<h2>' . $title_default . '</h2>';
                             endif; ?>
@@ -62,7 +62,7 @@ if ($block_1) :
                         <p><?php if ($text) : echo $text;
                             endif; ?></p>
                     </div>
-                    <div class="media">
+                    <div class="media" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <img src=" <?php if ($image) : echo $image;
                                     endif; ?>" />
                     </div>
@@ -82,15 +82,17 @@ if ($block_1) :
     ?>
         <section class="quote">
             <blockquote class="container">
-                <h2 class="quote__main">
+                <h2 class="quote__main" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                     <?php if ($title_default) : echo $title_default;
                     endif; ?>
                     <?php if ($title_handwritten) : ?> <span>
                         <?php echo $title_handwritten;
                     endif; ?> </span>
                 </h2>
-                <p><?php if ($text) : echo $text;
-                    endif; ?></p>
+                <div data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
+                    <?php if ($text) : echo $text;
+                    endif; ?>
+                </div>
             </blockquote>
         </section>
     <?php endif; ?>
@@ -109,11 +111,11 @@ if ($block_1) :
         <section>
             <div class="container">
                 <div class="block-split">
-                    <div class="media">
+                    <div class="media" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <img src=" <?php if ($image) : echo $image;
                                     endif; ?>" />
                     </div>
-                    <div class="content">
+                    <div class="content" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <div class="title-head">
                             <?php if ($title_default) : echo '<h2>' . $title_default . '</h2>';
                             endif; ?>

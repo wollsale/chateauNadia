@@ -13,34 +13,10 @@
 @import "./local/4-entities/entities";
 @import "./local/5-pages/pages";
 
+@import '../../node_modules/sal.js/dist/sal.css';
 
-// > root /
-//     colors
-//     layout
-//     typography
-//     breakpoints
-//     grids
-//     reset
-// > local /
-//     1. partials /
-//         elements
-//             *common*
-//             titles
-//             links
-//             texts
-//             nav-items
-//             *buttons*
-//             common
-//             primary
-//             secondary
-//             controllers
-//             brand
-//             *icons*
-//             common
-//         components
-//             nav
-//             headings
-//             img
-//         sequences
-//         entities
-//         pages
+
+
+:root {
+    --sal-duration: 800;
+}

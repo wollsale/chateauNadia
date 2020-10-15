@@ -16,7 +16,7 @@ if ($intro_block_1 or $intro_block_2) : ?>
             $button_url = $intro_block_1['button_url'];
         ?>
             <!-- Block #1 -->
-            <div class="block formating">
+            <div class="block formating" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                 <div class="head">
                     <h2><?php if ($title_default) : echo $title_default;
                         endif; ?></h2>
@@ -42,7 +42,7 @@ if ($intro_block_1 or $intro_block_2) : ?>
                 $button_url = $intro_block_2['url'];
             ?>
         <!-- Block #2 -->
-        <div class="block">
+        <div class="block" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
             <div class="head">
                 <h2><?php if ($title_default) : echo $title_default;
                     endif; ?></h2>
@@ -66,7 +66,7 @@ if ($intro_block_1 or $intro_block_2) : ?>
     $size = 'full';
     if ($images) : ?>
         <?php foreach ($images as $image) : ?>
-            <div class="images" style="--aspect-ratio: 1/1;" class="images">
+            <div class="images" style="--aspect-ratio: 1/1;" class="images" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                 <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
             </div>
         <?php endforeach; ?>

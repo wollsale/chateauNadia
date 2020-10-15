@@ -7,14 +7,14 @@ $testimonials_text = get_field('testimonials_text');
 if ($featured_testi) {
     if (sizeof($featured_testi) > 1) : ?>
         <section class="testimonials">
-            <div class="intro">
+            <div class="intro" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                 <div class="title-head">
                     <h2><?php echo $testimonials_title_default; ?></h2>
                     <h2><?php echo $testimonials_title_handwritten; ?></h2>
                 </div>
                 <p><?php echo $testimonials_text; ?></p>
             </div>
-            <ul class="slider">
+            <ul class="slider" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                 <?php $i = 0;
                 foreach ($featured_testi as $post) :
                     $i++;
@@ -35,7 +35,7 @@ if ($featured_testi) {
                 foreach ($featured_testi as $post) :
                     $i++;
                 ?>
-                    <div class="slider__bullet" data-slide="<?php echo $i; ?>"></div>
+                    <div class="slider__bullet" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out" data-slide="<?php echo $i; ?>"></div>
                 <?php endforeach; ?>
             </div>
 

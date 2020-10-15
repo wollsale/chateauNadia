@@ -3,7 +3,7 @@
 
 <main>
 
-    <div class="container padded">
+    <div class="container padded" data-sal="fade" data-sal-duration="1000" data-delay="1000">
         <?php
         if (have_posts()) : ?>
             <ul>

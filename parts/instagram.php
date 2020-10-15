@@ -1,4 +1,4 @@
-<div class="instagram">
+<div class="instagram" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
     <div class="container">
         <div class="title-head">
             <h2><?php pll_e('Suivez-nous'); ?></h2>

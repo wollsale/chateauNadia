@@ -6,11 +6,6 @@ import { buttonHover } from "./button.js";
 import { file } from "./file.js";
 import { modal } from "./modal.js";
 
-var elem = document.createElement('div');
-elem.style.cssText = 'position:absolute;bottom:0;left:0;z-index:100;background:#000;color:#fff;padding:20px;opacity:0.5;';
-elem.innerHTML = "v.02";
-document.body.appendChild(elem);
-
 if (window.matchMedia("(max-width: 1280px)").matches) {
     const trigger = document.querySelector('.nav-trigger');
     const nav = document.querySelector('.head-nav');

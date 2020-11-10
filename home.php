@@ -12,7 +12,7 @@
                     $title = get_the_title();
                     $thumbnail = get_the_post_thumbnail($post->ID, 'large'); ?>
                     <li class="card card--blog">
-                        <a href="<?php echo get_permalink($post->ID) ?>" target="_blank" class="card__link">
+                        <a href="<?php echo get_permalink($post->ID) ?>" class="card__link">
                             <div class="card__cover">
                                 <?php if ($thumbnail) : ?><div class="banner"><?php echo $thumbnail; ?></div><?php endif; ?>
                             </div>

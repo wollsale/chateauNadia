@@ -1,24 +1,69 @@
 import { sticky, logoScale } from "./topbar.js";
 import { slider } from "./slider.js";
 import { form } from "./form.js";
-import { nav } from "./nav.js";
+// import { nav } from "./nav.js";
 import { buttonHover } from "./button.js";
 import { file } from "./file.js";
 import { modal } from "./modal.js";
 
+var elem = document.createElement('div');
+elem.style.cssText = 'position:absolute;bottom:0;left:0;z-index:100;background:#000;color:#fff;padding:20px;opacity:0.5;';
+elem.innerHTML = "v.02";
+document.body.appendChild(elem);
+
 if (window.matchMedia("(max-width: 1280px)").matches) {
-    if (document.querySelector('.nav-trigger')) {
-        nav();
+    const trigger = document.querySelector('.nav-trigger');
+    const nav = document.querySelector('.head-nav');
+    const topbar = document.querySelector('.topbar__main');
+    const body = document.querySelector('body');
+    const container = topbar.querySelector('.container');
+
+    const styleMenu = () => {
+        let space = 0;
+
+        if (document.querySelector('.topbar__main').getAttribute('data-sticky') === 'true') {
+            space = document.querySelector('.topbar__main').clientHeight;
+        } else {
+            space = document.querySelector('.topbar').clientHeight;
+        }
+
+        nav.style.top = space + 'px';
+        nav.style.height = window.innerHeight - space + "px";
+
+        console.log("styled")
     }
+
+    // TRIGGER
+    styleMenu();
+
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        styleMenu();
+
+        nav.setAttribute('data-state', nav.getAttribute('data-state') === 'open' ? 'close' : 'open');
+
+        if (!body.classList.contains('no-scroll')) {
+            body.classList.add('no-scroll')
+        } else {
+            body.classList.remove('no-scroll')
+        }
+    })
 }
 
-window.addEventListener('resize', () => {
-    if (window.matchMedia("(max-width: 1280px)").matches) {
-        if (document.querySelector('.nav-trigger')) {
-            nav();
-        }
-    }
-})
+// window.onload = function () {
+//     if (window.matchMedia("(max-width: 1280px)").matches) {
+//         nav();
+//         console.log('ok')
+//     }
+// };
+
+// window.addEventListener('resize', () => {
+//     if (window.matchMedia("(max-width: 1280px)").matches) {
+//         if (document.querySelector('.nav-trigger')) {
+//             nav();
+//         }
+//     }
+// })
 
 if (document.querySelector('.topbar__main')) {
     sticky(document.querySelector('.topbar__main'))

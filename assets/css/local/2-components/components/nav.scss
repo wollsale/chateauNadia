@@ -33,16 +33,19 @@
     @extend %nav-mobile;
 
     @media screen and (max-width: 1280px) {
-        visibility: hidden;
+        position: absolute;
         opacity: 0;
         pointer-events: none;
+        transform: translateY(24px);
+        transition: all .3s ease-out;
 
-        &--is-active, &[data-state="open"] {
+        &[data-state="open"] {
             display: inherit !important;
             visibility: visible !important;
             opacity: 1 !important;
             pointer-events: auto;
             position: fixed;
+            transform: translateY(0);
         }
     }
 }
@@ -174,7 +177,7 @@ body {
     display: none;
 
     @include mobile {
-        display: none;
+        display: inherit;
     }
 }
 

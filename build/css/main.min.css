@@ -516,15 +516,21 @@ nav, .menu, .menu > ul {
 
 @media screen and (max-width: 1280px) {
   .head-nav {
-    visibility: hidden;
+    position: absolute;
     opacity: 0;
-    pointer-events: none; }
-    .head-nav--is-active, .head-nav[data-state="open"] {
+    pointer-events: none;
+    -webkit-transform: translateY(24px);
+            transform: translateY(24px);
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out; }
+    .head-nav[data-state="open"] {
       display: inherit !important;
       visibility: visible !important;
       opacity: 1 !important;
       pointer-events: auto;
-      position: fixed; } }
+      position: fixed;
+      -webkit-transform: translateY(0);
+              transform: translateY(0); } }
 
 .menu-item-has-children, .menu-item_has_children, .page_item-has-children, .page_item_has_children, .lang__wrapper {
   position: relative; }
@@ -613,7 +619,7 @@ body .topbar__main > .container {
   display: none; }
   @media (min-width: 0px) and (max-width: 1023px) {
     .head-nav.mobile-nav {
-      display: none; } }
+      display: inherit; } }
 
 .head-nav.desktop-nav {
   display: inherit; }

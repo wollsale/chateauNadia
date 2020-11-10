@@ -1252,7 +1252,8 @@ span.error {
     padding: var(--u3); }
     @media (min-width: 0px) and (max-width: 1023px) {
       .form__trigger {
-        width: 50%; } }
+        width: 50%;
+        text-align: center; } }
     .form__trigger:first-child {
       border-left: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color); }

@@ -1,5 +1,6 @@
 export const form = () => {
     const triggers = document.querySelectorAll('.form__trigger');
+    const formWrapper = document.querySelector('.forms');
     const forms = document.querySelectorAll('.form');
     const activateClass = 'form--is-active';
 
@@ -31,6 +32,7 @@ export const form = () => {
 
             if (index == match) {
                 form.classList.add(activateClass)
+                formWrapper.style.height = form.clientHeight + "px";
             }
         });
     }

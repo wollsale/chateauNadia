@@ -60,4 +60,8 @@ add_action('init', function () {
     pll_register_string('Fichiers', 'file-label', 'Formulaire', false);
     /* button */
     pll_register_string('Envoyer', 'form-button', 'Formulaire', false);
+
+
+    /* TEST */
+    pll_register_string('testing', 'test', 'Test', false);
 });

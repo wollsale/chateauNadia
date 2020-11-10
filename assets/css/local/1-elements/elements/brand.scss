@@ -1,10 +1,11 @@
 %brand-logo {
     display: flex;
+    justify-content: center;
+    align-items: center;
 
     > img {
         width: auto;
         height: calc(var(--u10) - var(--u2));
-        margin: auto;
 
         transform-origin: top left;
         transform: scale(var(--scale));

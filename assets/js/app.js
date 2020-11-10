@@ -6,14 +6,14 @@ import { buttonHover } from "./button.js";
 import { file } from "./file.js";
 import { modal } from "./modal.js";
 
-if (window.matchMedia("(max-width: 1024px)").matches) {
+if (window.matchMedia("(max-width: 1280px)").matches) {
     if (document.querySelector('.nav-trigger')) {
         nav();
     }
 }
 
 window.addEventListener('resize', () => {
-    if (window.matchMedia("(max-width: 1024px)").matches) {
+    if (window.matchMedia("(max-width: 1280px)").matches) {
         if (document.querySelector('.nav-trigger')) {
             nav();
         }

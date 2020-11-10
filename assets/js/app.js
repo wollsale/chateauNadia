@@ -107,8 +107,8 @@ window.addEventListener('load', function () {
 // })();
 
 
-import sal from 'sal.js'
-sal({
-    threshold: .1,
-    once: true,
-});
+// import sal from 'sal.js'
+// sal({
+//     threshold: .1,
+//     once: true,
+// });

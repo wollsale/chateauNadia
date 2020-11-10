@@ -29,7 +29,7 @@
                 }
                 > a {
                     background-color: var(--darkPink);
-                    color: #fff;
+                    color: #fff !important;
 
                     @include tablet(1) {
                         position: absolute;

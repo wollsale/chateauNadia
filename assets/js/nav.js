@@ -45,6 +45,7 @@ export const nav = () => {
         el.addEventListener('click', (e) => {
             e.preventDefault();
 
+            styleMenu();
             toggleMenu();
 
             if (!body.classList.contains('no-scroll')) {

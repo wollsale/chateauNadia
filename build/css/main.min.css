@@ -1745,7 +1745,7 @@ section {
          object-fit: cover; }
     .home .about .container .media > a {
       background-color: var(--darkPink);
-      color: #fff; }
+      color: #fff !important; }
       @media (min-width: 1024px) {
         .home .about .container .media > a {
           position: absolute;

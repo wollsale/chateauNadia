@@ -167,3 +167,20 @@ body {
 #menu_trigger:checked + label {
     background: red;
 }
+
+
+.head-nav.mobile-nav {
+    display: none;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.head-nav.desktop-nav {
+    display: inherit;
+    
+    @include mobile {
+        display: none;
+    }
+}

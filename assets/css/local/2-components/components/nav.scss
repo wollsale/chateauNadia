@@ -163,3 +163,7 @@ body {
         }
     }
 }
+
+#menu_trigger:checked + label {
+    background: red;
+}

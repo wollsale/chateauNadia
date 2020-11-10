@@ -605,6 +605,9 @@ body.no-scroll {
 body .topbar__main > .container {
   height: 100%; }
 
+#menu_trigger:checked + label {
+  background: red; }
+
 .topbar {
   --backgroundColor: var(--lightPink); }
   .topbar__head {

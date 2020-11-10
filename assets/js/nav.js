@@ -1,42 +1,57 @@
 export const nav = () => {
-    let trigger = document.querySelectorAll('.nav-trigger');
-    let nav = document.querySelector('.head-nav');
-    let topbar = document.querySelector('.topbar__main');
-    let space = document.querySelector('.head-nav').getBoundingClientRect().top;
-    let height = document.querySelector('.topbar__main .container .flex').clientHeight;
-    let body = document.querySelector('body');
-    let container = topbar.querySelector('.container');
+    const trigger = document.querySelectorAll('.nav-trigger');
+    const nav = document.querySelector('.head-nav');
+    const topbar = document.querySelector('.topbar__main');
+    const body = document.querySelector('body');
+    const container = topbar.querySelector('.container');
 
-    // SET
-    topbar.style.height = height + "px";
-    nav.style.top = space + 'px';
-    nav.style.height = window.innerHeight - space + "px";
+    const menuIsOpen = function () {
+        return nav.classList.contains("head-nav--is-active");
+    };
 
-    // INIT
-    nav.classList.remove('head-nav--is-active')
-    container.classList.remove('open')
-    body.classList.remove('no-scroll')
+    const styleMenu = () => {
+        const space = document.querySelector('.head-nav').getBoundingClientRect().top;
+        const height = document.querySelector('.topbar__main .container .flex').clientHeight;
+
+        topbar.style.height = height + "px";
+        nav.style.top = space + 'px';
+        nav.style.height = window.innerHeight - space + "px";
+    }
+
+    const openMenu = () => {
+        nav.classList.add('head-nav--is-active')
+        container.classList.add('open')
+    }
+
+    const closeMenu = () => {
+        nav.classList.remove('head-nav--is-active')
+        container.classList.remove('open')
+    }
+
+    const toggleMenu = () => {
+
+        if (nav.classList.contains('head-nav--is-active')) {
+            closeMenu()
+        } else {
+            openMenu()
+        }
+    }
+
 
     // TRIGGER
-    // trigger.forEach(el => {
-    //     el.addEventListener('click', (e) => {
-    //         e.preventDefault();
+    styleMenu();
 
-    //         if (!nav.classList.contains('head-nav--is-active')) {
-    //             nav.classList.add('head-nav--is-active')
-    //             container.classList.add('open')
-    //             console.log('open nav')
-    //         } else {
-    //             nav.classList.remove('head-nav--is-active')
-    //             container.classList.remove('open')
-    //             console.log('close nav')
-    //         }
+    trigger.forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
 
-    //         if (!body.classList.contains('no-scroll')) {
-    //             body.classList.add('no-scroll')
-    //         } else {
-    //             body.classList.remove('no-scroll')
-    //         }
-    //     })
-    // });
+            toggleMenu();
+
+            if (!body.classList.contains('no-scroll')) {
+                body.classList.add('no-scroll')
+            } else {
+                body.classList.remove('no-scroll')
+            }
+        })
+    });
 }

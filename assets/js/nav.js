@@ -5,38 +5,18 @@ export const nav = () => {
     const body = document.querySelector('body');
     const container = topbar.querySelector('.container');
 
-    const menuIsOpen = function () {
-        return nav.classList.contains("head-nav--is-active");
-    };
-
     const styleMenu = () => {
-        const space = document.querySelector('.head-nav').getBoundingClientRect().top;
-        const height = document.querySelector('.topbar__main .container .flex').clientHeight;
+        let space = 0;
 
-        topbar.style.height = height + "px";
+        if (document.querySelector('.topbar__main').getAttribute('data-sticky') === 'true') {
+            space = document.querySelector('.topbar__main').clientHeight;
+        } else {
+            space = document.querySelector('.topbar').clientHeight;
+        }
+
         nav.style.top = space + 'px';
         nav.style.height = window.innerHeight - space + "px";
     }
-
-    const openMenu = () => {
-        nav.classList.add('head-nav--is-active')
-        container.classList.add('open')
-    }
-
-    const closeMenu = () => {
-        nav.classList.remove('head-nav--is-active')
-        container.classList.remove('open')
-    }
-
-    const toggleMenu = () => {
-
-        if (nav.classList.contains('head-nav--is-active')) {
-            closeMenu()
-        } else {
-            openMenu()
-        }
-    }
-
 
     // TRIGGER
     styleMenu();
@@ -46,7 +26,8 @@ export const nav = () => {
             e.preventDefault();
 
             styleMenu();
-            toggleMenu();
+
+            nav.setAttribute('data-state', nav.getAttribute('data-state') === 'open' ? 'close' : 'open');
 
             if (!body.classList.contains('no-scroll')) {
                 body.classList.add('no-scroll')

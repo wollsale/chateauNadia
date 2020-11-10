@@ -519,7 +519,8 @@ nav, .menu, .menu > ul {
     visibility: hidden;
     opacity: 0;
     pointer-events: none; }
-    .head-nav--is-active {
+    .head-nav--is-active, .head-nav[data-state="open"] {
+      display: inherit !important;
       visibility: visible !important;
       opacity: 1 !important;
       pointer-events: auto;

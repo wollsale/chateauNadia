@@ -37,7 +37,8 @@
         opacity: 0;
         pointer-events: none;
 
-        &--is-active {
+        &--is-active, &[data-state="open"] {
+            display: inherit !important;
             visibility: visible !important;
             opacity: 1 !important;
             pointer-events: auto;

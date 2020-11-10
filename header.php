@@ -103,7 +103,7 @@ foreach ($users as $user) {
                             </a>
                         <?php endif; ?>
                         <a href="#" class="nav-trigger">Menu</a>
-                        <nav class="head-nav nav mobile-nav">
+                        <nav class="head-nav nav mobile-nav" data-state="close">
                             <?php wp_nav_menu(array('theme_location' => 'header')); ?>
                         </nav>
                     </div>

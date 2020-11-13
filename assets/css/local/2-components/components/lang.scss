@@ -25,8 +25,17 @@
             }
         }
 
-        &:hover {
-            .lang {
+        @include tablet(1) {
+            &:hover {
+                .lang {
+                    opacity: 1;
+                    transform: translateY(0);
+                    visibility: visible;
+                }
+            }
+        }
+        @include mobile {
+            .lang[data-state="open"] {
                 opacity: 1;
                 transform: translateY(0);
                 visibility: visible;

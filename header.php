@@ -75,14 +75,16 @@ foreach ($users as $user) {
                         </ul>
                     <?php endif; ?>
                     <div class="lang__wrapper">
-                        <p><?php
+                        <p data-show data-target="lang">
+                            <?php
                             $currLang = get_bloginfo('language');
                             if ($currLang == "fr-CA") { // Replace condition with your language code.
                                 echo 'FR';
                             } else {
                                 echo 'EN';
-                            } ?></p>
-                        <ul class="lang">
+                            } ?>
+                        </p>
+                        <ul class="lang" data-id="lang" data-state="hidden">
                             <?php pll_the_languages(); ?>
                         </ul>
                     </div>

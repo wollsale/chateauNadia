@@ -34,11 +34,19 @@
                     @include tablet(1) {
                         position: absolute;
                         right: -8px; bottom: var(--u4);
+                        z-index: 2;
                     }
 
                     @include mobile {
                         margin-bottom: var(--u4);
                     }
+                }
+
+                .tns-outer {
+                    max-width: none;
+                    // MAX HEIGHT SLIDER
+                    // max-height: 400px;
+                    // overflow: hidden;
                 }
             }
 
@@ -55,6 +63,28 @@
 
                 p {
                     font-style: italic;
+                }
+            }
+
+            &.flex-reverse {
+                .media {
+                    order: 2;
+                    @include tablet(1) {
+                        margin-left: auto;
+                        margin-right: 0;
+                    }
+                    > a {
+                        @include tablet(1) {
+                            position: absolute;
+                            left: -8px; bottom: var(--u4); right: auto;
+                        }
+                    }
+                }
+                .content {
+                    @include tablet(1) {
+                        order: 1;
+                        text-align: left;
+                    }
                 }
             }
         }

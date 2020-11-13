@@ -35,6 +35,21 @@
 
         @include mobile {
             flex-direction: column;
+
+            .right {
+                justify-content: space-between;
+                > * {
+                    padding: var(--u2);
+                }
+            }
+
+            .socials {
+                height: auto;
+            }
+
+            .lang li a {
+                padding: var(--u2) var(--u3);
+            }
         }
     }
 

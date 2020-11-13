@@ -24,8 +24,6 @@ if (window.matchMedia("(max-width: 1280px)").matches) {
 
         nav.style.top = space + 'px';
         nav.style.height = window.innerHeight - space + "px";
-
-        console.log("styled")
     }
 
     // TRIGGER
@@ -145,3 +143,38 @@ sal({
     threshold: .1,
     once: true,
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LANG SWITCHER MOBILE */
+window.addEventListener('load', function () {
+    const triggers = document.querySelectorAll("[data-show]");
+    const show = (el) => {
+        const target = document.querySelectorAll("[data-id='" + el.dataset.target + "']")
+
+        target.forEach(item => {
+            console.log(item)
+            item.setAttribute('data-state', item.getAttribute('data-state') === 'open' ? 'close' : 'open');
+        });
+    }
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            show(trigger);
+        })
+    });
+})

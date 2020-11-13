@@ -98,6 +98,7 @@
 .home {
     .hero {
         display: flex;
+        --height: auto;
         
         .banner {
             @media screen and(min-width: $tablet-min) {

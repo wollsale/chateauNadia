@@ -33,3 +33,30 @@
         height: 100%;
     }
 }
+
+
+/*
+*
+* SLIDER HERO
+*
+*/
+
+.hero-slider {
+    overflow: hidden;
+}
+.js-heroslider {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+
+    transition: transform .3s ease-out;
+
+    li { width: 100%; }
+
+    img {
+        width: 100%; min-width: 100%;
+        height: var(--height);
+        object-fit: cover;
+    }
+}

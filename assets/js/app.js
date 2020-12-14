@@ -5,6 +5,7 @@ import { form } from "./form.js";
 import { buttonHover } from "./button.js";
 import { file } from "./file.js";
 import { modal } from "./modal.js";
+import { heroslider } from "./heroslider.js";
 
 if (window.matchMedia("(max-width: 1280px)").matches) {
     const trigger = document.querySelector('.nav-trigger');
@@ -88,54 +89,62 @@ if (document.querySelector('.modal')) {
 //     buttonHover(document.querySelector('.wp-block-button__link'));
 // }
 
-window.addEventListener('load', function () {
-    if (document.querySelector('.carousel')) {
-        var carousel = tns({
-            container: '.carousel',
-            "startIndex": 1,
-            "loop": true,
-            items: 1,
-            "center": true,
-            gutter: "100px",
-            rewind: 'true',
-            touch: true,
-            controls: true,
-            nav: false,
-            controlsContainer: document.querySelector('.carousel__controls'),
-            prevButton: document.getElementById('#prev'),
-            nextButton: document.getElementById('#next'),
-        });
+// window.addEventListener('load', function () {
+//     if (document.querySelector('.carousel')) {
+//         var carousel = tns({
+//             container: '.carousel',
+//             "startIndex": 1,
+//             "loop": true,
+//             items: 1,
+//             "center": true,
+//             gutter: "100px",
+//             rewind: 'true',
+//             touch: true,
+//             controls: true,
+//             nav: false,
+//             controlsContainer: document.querySelector('.carousel__controls'),
+//             prevButton: document.getElementById('#prev'),
+//             nextButton: document.getElementById('#next'),
+//         });
 
-        const controls = document.querySelectorAll('.carousel__control');
-        controls.forEach(control => {
-            control.addEventListener('click', (e) => {
-                e.preventDefault();
-            })
-        });
-    }
-})
+//         const controls = document.querySelectorAll('.carousel__control');
+//         controls.forEach(control => {
+//             control.addEventListener('click', (e) => {
+//                 e.preventDefault();
+//             })
+//         });
+//     }
+// })
 
-window.addEventListener('load', function () {
-    if (document.querySelector('.hero-slider')) {
-        var slider = tns({
-            container: '.hero-slider',
-            items: 1,
-            autoplay: true,
-            controls: false,
-            nav: false,
-            navAsThumbnails: true,
-            autoplayButton: false,
-            autoplayButtonOutput: false,
-            autoplayHoverPause: false,
-            mode: 'gallery',
-            speed: 800
-        });
+// window.addEventListener('load', function () {
+//     if (document.querySelector('.hero-slider')) {
+//         var heroslider = tns({
+//             container: '.hero-slider',
+//             items: 1,
+//             autoplay: true,
+//             controls: false,
+//             nav: false,
+//             loop: true,
+//             navAsThumbnails: true,
+//             autoplayButton: false,
+//             autoplayButtonOutput: false,
+//             autoplayHoverPause: false,
+//             mode: 'carousel',
+//             speed: 800
+//         });
 
-        document.querySelector('.hero-slider').addEventListener('click', (e) => {
-            slider.goTo('next');
-        })
-    }
-})
+//         document.querySelector('.hero-slider').addEventListener('click', (e) => {
+//             heroslider.goTo('next');
+//         })
+//     }
+// })
+
+
+if (document.querySelectorAll('.js-heroslider')) {
+    document.querySelectorAll('.js-heroslider').forEach(element => {
+        heroslider(element);
+    });
+}
 
 
 import sal from 'sal.js'

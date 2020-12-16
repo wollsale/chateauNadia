@@ -24,7 +24,7 @@ export const heroslider = (target) => {
 
 
     setInterval(function () {
-        console.log('SI ' + i);
+        // console.log('SI ' + i);
         setFocus(i);
         setTransform(i);
         i < images.length - 1 ? i++ : i = 0;
@@ -33,13 +33,13 @@ export const heroslider = (target) => {
 
 
     target.addEventListener('click', (e) => {
-        console.log('CLI ' + i);
+        // console.log('CLI ' + i);
         e.preventDefault();
         i < images.length - 1 ? i++ : i = 0;
         setFocus(i);
         setTransform(i);
 
-        console.log('CLI POST ' + i);
+        // console.log('CLI POST ' + i);
     })
 
     const setTransform = (i) => {

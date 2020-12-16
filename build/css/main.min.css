@@ -2070,6 +2070,41 @@ body.starry {
     background-image: url(../../build/icons/5eecd18500eae3b7582083646a594c7c.png);
     background-size: contain; }
 
+main.error-404 {
+  height: calc(100vh - 160px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: var(--white); }
+  @media (min-width: 1024px) {
+    main.error-404 {
+      height: calc(100vh - 110px); } }
+  main.error-404::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    background: var(--lightPink);
+    z-index: 0; }
+  main.error-404 .content {
+    margin: auto;
+    text-align: center;
+    padding: 120px 240px;
+    position: relative;
+    z-index: 1;
+    background: var(--lightestPink); }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      main.error-404 .content {
+        padding: 60px; } }
+    main.error-404 .content h1 {
+      font-size: 64px;
+      margin-bottom: 16px; }
+    main.error-404 .content p {
+      margin-bottom: 32px; }
+
 :root {
   --sal-duration: 800; }
 

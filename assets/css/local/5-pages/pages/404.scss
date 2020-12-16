@@ -1,0 +1,41 @@
+main.error-404 {
+    height: calc(100vh - 160px);
+
+    @include tablet(1) {
+        height: calc(100vh - 110px);
+    }
+
+    display: flex;
+    background: var(--white);
+
+    &::before {
+        display: block; content: '';
+        position: absolute;
+        left: 0; right: 50%;
+        top: 0; bottom: 0;
+        background: var(--lightPink);
+        z-index: 0;
+    }
+
+    .content {
+        margin: auto;
+        text-align: center;
+        padding: 120px 240px;
+        position: relative;
+        z-index: 1;
+
+        @include mobile {
+            padding: 60px;
+        }
+
+        background: var(--lightestPink);
+
+        h1 {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }  
+        p {
+            margin-bottom: 32px;
+        }
+    } 
+} 

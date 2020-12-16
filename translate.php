@@ -61,7 +61,8 @@ add_action('init', function () {
     /* button */
     pll_register_string('Envoyer', 'form-button', 'Formulaire', false);
 
-
-    /* TEST */
-    pll_register_string('testing', 'test', 'Test', false);
+    /* 404 */
+    pll_register_string('Oups', 'error-title', '404', false);
+    pll_register_string('Message erreur', 'error-message', '404', false);
+    pll_register_string('Bouton erreur', 'error-button', '404', false);
 });

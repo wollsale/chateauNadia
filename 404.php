@@ -11,3 +11,5 @@ get_header() ?>
         <a href="<?php echo get_home_url(); ?>" class="button"><?php pll_e('error-button', '404'); ?></a>
     </div>
 </main>
+
+<?php get_footer() ?>

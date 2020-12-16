@@ -2104,6 +2104,8 @@ main.error-404 {
       margin-bottom: 16px; }
     main.error-404 .content p {
       margin-bottom: 32px; }
+  main.error-404 + footer {
+    margin-top: 0; }
 
 :root {
   --sal-duration: 800; }

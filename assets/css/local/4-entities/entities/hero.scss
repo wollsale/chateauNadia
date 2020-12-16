@@ -1,7 +1,7 @@
 .hero {
     position: relative;
     --height: 60vh;
-    min-height: 580px;
+    //min-height: 580px;
     height: var(--height);
 
     .page-template-template_page-about & {
@@ -43,6 +43,8 @@
     }
 
     @include mobile {
+        --height: 50vh;
+
         h1, h2 {
             text-align: center;
         }

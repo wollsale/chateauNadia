@@ -1337,7 +1337,6 @@ span.error {
 .hero {
   position: relative;
   --height: 60vh;
-  min-height: 580px;
   height: var(--height); }
   .page-template-template_page-about .hero {
     height: auto !important; }
@@ -1368,8 +1367,10 @@ span.error {
     left: 0;
     z-index: 0; }
   @media (min-width: 0px) and (max-width: 1023px) {
-    .hero h1, .hero h2 {
-      text-align: center; } }
+    .hero {
+      --height: 50vh; }
+      .hero h1, .hero h2 {
+        text-align: center; } }
 
 .home .hero {
   display: -webkit-box;

@@ -6,7 +6,7 @@ if (sizeof($slider) >= 1) : ?>
             <?php foreach ($slider as $slide) :
                 $url = strval($slide['url']);
             ?>
-                <img src="<?php echo $url; ?>">
+                <img src="<?php echo wp_get_attachment_image($slide['ID'], 'full'); ?>">
             <?php endforeach; ?>
         </div>
     </div>

@@ -8,22 +8,35 @@
     }
 
     h1 {
-        font-size: var(--fontSize-h1);
-        margin-bottom: var(--u8);
-        padding-bottom: var(--u8);
+        font-size: var(--fontSize-h2);
+        @include mobile {
+            font-size: var(--fontSize-h3);
+        }
+        margin-bottom: var(--u6);
+        padding-bottom: var(--u6);
         text-align: center;
         border-bottom: 1px solid var(--lightPink);
     }
     h2, h3, h4 {
         font-family: var(--playfair);
+        line-height: 150%;
     }
     h2 {
-        font-size: var(--fontSize-h2);
+        font-size: var(--fontSize-h3);
         margin-bottom: var(--u4);
+        margin-top: var(--u8);
+        line-height: 135%;
+        @include mobile {
+            font-size: var(--fontSize-h4);
+        }
     }
     h3 {
         font-size: var(--fontSize-h3);
+        @include mobile {
+            font-size: var(--fontSize-h4);
+        }
         margin-bottom: var(--u4);
+        margin-top: var(--u8);
         color: var(--middleGray);
     }
     h4 {

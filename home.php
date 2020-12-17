@@ -18,7 +18,7 @@
                             </div>
                             <div class="card__content">
                                 <?php if ($title) : ?><h2 class="card__title"><?php echo $title; ?></h2><?php endif; ?>
-                                <span class="button card__button">Lire l'article au complet</span>
+                                <span class="button card__button"><?php pll_e('article-button'); ?></span>
                             </div>
                         </a>
                     </li>

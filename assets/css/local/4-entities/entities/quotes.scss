@@ -15,6 +15,9 @@
     &__main {
         --font-size: var(--fontSize-h1);
         @extend %titleHandwritten;
+        @include mobile {
+            --font-size: var(--fontSize-h3);
+        }
     }
     
     &__signature, p:not(.quote__main) {

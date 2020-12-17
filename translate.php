@@ -65,4 +65,7 @@ add_action('init', function () {
     pll_register_string('Oups', 'error-title', '404', false);
     pll_register_string('Message erreur', 'error-message', '404', false);
     pll_register_string('Bouton erreur', 'error-button', '404', false);
+
+    /* Blogue */
+    pll_register_string('Bouton article', 'article-button', 'Blogue', false);
 });

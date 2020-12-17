@@ -1662,6 +1662,9 @@ section {
     font-style: normal; }
   .quote__main {
     --font-size: var(--fontSize-h1); }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .quote__main {
+        --font-size: var(--fontSize-h3); } }
   .quote__signature, .quote p:not(.quote__main) {
     margin-top: var(--u2); }
   .quote blockquote {
@@ -2017,20 +2020,33 @@ body {
     .post-content {
       padding: 0 var(--u2); } }
   .post-content h1 {
-    font-size: var(--fontSize-h1);
-    margin-bottom: var(--u8);
-    padding-bottom: var(--u8);
+    font-size: var(--fontSize-h2);
+    margin-bottom: var(--u6);
+    padding-bottom: var(--u6);
     text-align: center;
     border-bottom: 1px solid var(--lightPink); }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .post-content h1 {
+        font-size: var(--fontSize-h3); } }
   .post-content h2, .post-content h3, .post-content h4 {
-    font-family: var(--playfair); }
+    font-family: var(--playfair);
+    line-height: 150%; }
   .post-content h2 {
-    font-size: var(--fontSize-h2);
-    margin-bottom: var(--u4); }
+    font-size: var(--fontSize-h3);
+    margin-bottom: var(--u4);
+    margin-top: var(--u8);
+    line-height: 135%; }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .post-content h2 {
+        font-size: var(--fontSize-h4); } }
   .post-content h3 {
     font-size: var(--fontSize-h3);
     margin-bottom: var(--u4);
+    margin-top: var(--u8);
     color: var(--middleGray); }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .post-content h3 {
+        font-size: var(--fontSize-h4); } }
   .post-content h4 {
     color: var(--middleGray); }
   .post-content p {

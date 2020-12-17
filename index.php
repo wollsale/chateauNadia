@@ -39,8 +39,8 @@ $slider = get_field('hero_slider');
         $text = $content_block['content'];
         $button_title = $content_block['button_title'];
         $button_url = $content_block['button_url'];
-        $image = $content_block['image'];
-        $image = wp_get_attachment_image_src($image, 'large')[0];
+        // $image = $content_block['image'];
+        $image = wp_get_attachment_image(get_field('first_block')['image'], 'large');
     ?>
         <section class="about">
             <div class="container">
@@ -55,7 +55,7 @@ $slider = get_field('hero_slider');
                 <div class="media" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                     <a class="button" href="<?php if ($button_url) : echo $button_url;
                                             endif; ?>"><?php echo $button_title; ?></a>
-                    <?php if ($image) : ?><img src="<?php echo $image; ?>" alt="">
+                    <?php if ($image) :  echo $image; ?>
                     <?php else : ?><div class="placeholder"></div>
                     <?php endif; ?>
                 </div>
@@ -109,6 +109,40 @@ $slider = get_field('hero_slider');
             </section>
         <?php endif; ?>
         <!-- END BLOCK #2 -->
+
+        <!-- Block #1 -->
+        <?php
+        $content_block = get_field('third_block');
+
+        if ($content_block) :
+            $title_default = $content_block['default'];
+            $title_handwritten = $content_block['handwritten'];
+            $text = $content_block['content'];
+            $button_title = $content_block['button_title'];
+            $button_url = $content_block['button_url'];
+            // $image = $content_block['image'];
+            $image = wp_get_attachment_image(get_field('third_block')['image'], 'large');
+        ?>
+            <section class="about">
+                <div class="container">
+                    <div class="content" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
+                        <h2 class="title-default"><?php if ($title_default) : echo $title_default;
+                                                    endif; ?></h2>
+                        <h2 class="title-handwritten"><?php if ($title_handwritten) : echo $title_handwritten;
+                                                        endif; ?></h2>
+                        <p><?php if ($text) : echo $text;
+                            endif; ?></p>
+                    </div>
+                    <div class="media" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
+                        <a class="button" href="<?php if ($button_url) : echo $button_url;
+                                                endif; ?>"><?php echo $button_title; ?></a>
+                        <?php if ($image) : ?><?php echo $image; ?>
+                    <?php else : ?><div class="placeholder"></div>
+                    <?php endif; ?>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
 
     <?php endif; ?>
 

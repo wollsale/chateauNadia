@@ -33,6 +33,24 @@
             }
         }
 
+        .left {
+            @media screen and (max-width: 425px) {
+                flex-direction: column;
+                align-items: center;
+
+                .topbar__cta {
+                    padding: var(--u1) var(--u2);
+                    background: rgba(#fff, .2);
+                    border-radius: 4px;
+                    margin-top: var(--u2);
+                }
+
+                .topbar__cta::before {
+                    display: none;
+                }
+            }
+        } 
+
         @include mobile {
             flex-direction: column;
 
@@ -74,7 +92,7 @@
         .container {
             display: flex;
 
-            @media screen and (max-width: 1280px) {
+            @media screen and (max-width: 1080px) {
                 flex-wrap: wrap;
                 nav {
                     width: 100%;

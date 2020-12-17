@@ -6,5 +6,9 @@
         blockquote:after { display: none; }
     }
 
-    
+    .hero--about {
+        .content p {
+            text-transform: none !important;
+        }
+    }
 }

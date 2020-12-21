@@ -87,7 +87,7 @@ $slider = get_field('hero_slider');
                         <?php else : ?>
                             <!-- if single image -->
                             <?php if (count($images) == 1) : ?>
-                                <img src="<?php echo $images[0]['url']; ?>" alt="">
+                                <?php echo wp_get_attachment_image($images[0]['ID'], 'large'); ?>
                                 <!-- if multiple images -->
                             <?php elseif (count($images) > 1) : ?>
                                 <?php $slider = $images; ?>

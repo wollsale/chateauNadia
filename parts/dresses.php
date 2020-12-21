@@ -30,7 +30,8 @@
                     $hover = get_field('dress_visible_image'); ?>
                     <li class="dresses__item card card--dresses" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
                         <div class="card__cover">
-                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+                            <?php $img_id = get_post_thumbnail_id(get_the_ID()); ?>
+                            <?php echo wp_get_attachment_image($img_id, 'large'); ?>
                         </div>
                         <div class="card__content">
                             <h3 class="card__title"><?php the_title(); ?></h3>

@@ -21,8 +21,21 @@
     --sal-duration: 800;
 }
 
-// Other
+// _FIXES
 .floater-rdv::before {
     padding: 8px 16px;
     border-radius: 40px;
+}
+
+.am-select-any-employee-option {
+    display: none;
+}
+.am-select-employee-option::placeholder {
+    content: "test" !important;
+}
+.el-button--primary {
+    background: var(--darkPink) !important;
+    border: none !important;
+    
+    span { color: white !important; }
 }

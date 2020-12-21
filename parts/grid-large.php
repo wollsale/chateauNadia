@@ -67,7 +67,7 @@ if ($intro_block_1 or $intro_block_2) : ?>
     if ($images) : ?>
         <?php foreach ($images as $image) : ?>
             <div class="images" style="--aspect-ratio: 1/1;" class="images" data-sal="slide-up" data-sal-duration="800" data-sal-easing="ease-out">
-                <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                <?php echo wp_get_attachment_image($image['ID'], 'large') ?>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

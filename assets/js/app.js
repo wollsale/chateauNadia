@@ -44,20 +44,6 @@ if (window.matchMedia("(max-width: 1280px)").matches) {
     })
 }
 
-// window.onload = function () {
-//     if (window.matchMedia("(max-width: 1280px)").matches) {
-//         nav();
-//         console.log('ok')
-//     }
-// };
-
-// window.addEventListener('resize', () => {
-//     if (window.matchMedia("(max-width: 1280px)").matches) {
-//         if (document.querySelector('.nav-trigger')) {
-//             nav();
-//         }
-//     }
-// })
 
 if (document.querySelector('.topbar__main')) {
     sticky(document.querySelector('.topbar__main'))
@@ -85,10 +71,6 @@ if (document.querySelector('.modal')) {
     modal(document.querySelector('.modal'));
 }
 
-// if (document.querySelector('.wp-block-button__link')) {
-//     buttonHover(document.querySelector('.wp-block-button__link'));
-// }
-
 window.addEventListener('load', function () {
     if (document.querySelector('.carousel')) {
         var carousel = tns({
@@ -115,29 +97,6 @@ window.addEventListener('load', function () {
         });
     }
 })
-
-// window.addEventListener('load', function () {
-//     if (document.querySelector('.hero-slider')) {
-//         var heroslider = tns({
-//             container: '.hero-slider',
-//             items: 1,
-//             autoplay: true,
-//             controls: false,
-//             nav: false,
-//             loop: true,
-//             navAsThumbnails: true,
-//             autoplayButton: false,
-//             autoplayButtonOutput: false,
-//             autoplayHoverPause: false,
-//             mode: 'carousel',
-//             speed: 800
-//         });
-
-//         document.querySelector('.hero-slider').addEventListener('click', (e) => {
-//             heroslider.goTo('next');
-//         })
-//     }
-// })
 
 
 if (document.querySelectorAll('.js-heroslider')) {
@@ -187,3 +146,7 @@ window.addEventListener('load', function () {
         })
     });
 })
+
+
+
+console.log(document.querySelector(".el-input__inner"))

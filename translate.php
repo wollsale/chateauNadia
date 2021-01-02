@@ -3,14 +3,14 @@
 /* FOOTER */
 add_action('init', function () {
     /* FOOTER */
-    pll_register_string('Château Nadia', 'ChateauNadia', 'Footer', false);
-    pll_register_string('Nos heures', 'Hours', 'Footer', false);
-    pll_register_string('Copyright', 'Copyright', 'Footer', false);
-    pll_register_string('MadeBy', 'MadeBy', 'Footer', false);
-    pll_register_string('Lundi au Mercredi', 'Lundi au Mercredi', 'Footer', false);
-    pll_register_string('Jeudi au Vendredi', 'Jeudi au Vendredi', 'Footer', false);
-    pll_register_string('Samedi', 'Samedi', 'Footer', false);
-    pll_register_string('Dimanche', 'Dimanche', 'Footer', false);
+    // pll_register_string('Château Nadia', 'ChateauNadia', 'Footer', false);
+    // pll_register_string('Nos heures', 'Hours', 'Footer', false);
+    // pll_register_string('Copyright', 'Copyright', 'Footer', false);
+    // pll_register_string('MadeBy', 'MadeBy', 'Footer', false);
+    // pll_register_string('Lundi au Mercredi', 'Lundi au Mercredi', 'Footer', false);
+    // pll_register_string('Jeudi au Vendredi', 'Jeudi au Vendredi', 'Footer', false);
+    // pll_register_string('Samedi', 'Samedi', 'Footer', false);
+    // pll_register_string('Dimanche', 'Dimanche', 'Footer', false);
 
     /* SLIDER */
     pll_register_string('Précédent', 'Previous', 'Slider', false);

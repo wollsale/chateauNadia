@@ -102,6 +102,23 @@ footer.footer {
 
 
 .footer {
+    .trophee {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include tablet(1) {
+            > img {
+                margin-left: auto;
+                margin-bottom: auto;
+                max-width: 200px;
+            }
+        }
+    }
+}
+
+
+.footer {
     .menu {
         text-align: left;
         

@@ -10,7 +10,7 @@ function theme_styles()
     //wp_enqueue_style('main', get_template_directory_uri() . '/assets/style/app.css');
     $cssFilePath = glob(get_template_directory() . '/build/css/main.min.*');
     $cssFileURI = get_template_directory_uri() . '/build/css/' . basename($cssFilePath[0]);
-    wp_enqueue_style('site_main_css', $cssFileURI);
+    wp_enqueue_style('site_main_css', $cssFileURI, null, null, false);
     // include the javascript file
     $jsFilePath = glob(get_template_directory() . '/build/js/app.min.js');
     $jsFileURI = get_template_directory_uri() . '/build/js/' . basename($jsFilePath[0]);

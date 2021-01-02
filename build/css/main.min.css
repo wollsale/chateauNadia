@@ -1525,6 +1525,22 @@ footer.footer {
 .footer .hour {
   color: var(--darkPink); }
 
+.footer .trophee {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  @media (min-width: 1024px) {
+    .footer .trophee > img {
+      margin-left: auto;
+      margin-bottom: auto;
+      max-width: 200px; } }
+
 .footer .menu {
   text-align: left; }
   .footer .menu li {

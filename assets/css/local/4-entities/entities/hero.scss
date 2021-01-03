@@ -29,6 +29,15 @@
         
         background-color: var(--white);
         padding: var(--u2) var(--u4);
+
+        @include mobile {
+            width: 80%;
+            --font-size: var(--fontSize-h4);
+        }
+        @include mobileLarge {
+            width: auto;
+            --font-size: var(--fontSize-h4);
+        }
     }
 
     &::before {

@@ -1372,6 +1372,14 @@ span.error {
     z-index: 2;
     background-color: var(--white);
     padding: var(--u2) var(--u4); }
+    @media (min-width: 0px) and (max-width: 1023px) {
+      .hero .title {
+        width: 80%;
+        --font-size: var(--fontSize-h4); } }
+    @media (min-width: 411px) and (max-width: 1023px) {
+      .hero .title {
+        width: auto;
+        --font-size: var(--fontSize-h4); } }
   .hero::before {
     display: block;
     content: '';

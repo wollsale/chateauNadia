@@ -440,6 +440,8 @@ input[type='submit'] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  .page-template-template_appointment .floatingButton {
+    display: none; }
   @media (min-width: 0px) and (max-width: 1023px) {
     .floatingButton {
       bottom: 8px;

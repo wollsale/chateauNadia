@@ -98,6 +98,10 @@ input[type='submit'] {
     bottom: 48px; right: 48px;
     z-index: 100;
 
+    .page-template-template_appointment & {
+        display: none;
+    }
+
     @include mobile {
         bottom: 8px;
         right: 8px; left: 8px;

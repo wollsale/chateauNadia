@@ -192,7 +192,7 @@ p, .hero .title, .footer h3 {
   --font-size: var(--font-size-small);
   font-size: var(--font-size); }
 
-.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .card--blog .card__title, .hero--about .container .block-split .content p, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main), .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .wp-block-button__link, .button, .form__wrapper, .hero .title, .footer h3, .videos .carousel__controls a {
+.title-head :first-child, .intro.grid .block .head :first-child, .title-default, .card--blog .card__title, .hero--about .container .block-split .content p, .home .hero .content h2, .quote__signature, .quote p:not(.quote__main), .menu-item > a:not(.sub-menu), .page_item > a:not(.sub-menu), .wp-block-button__link, .button, .floatingButton, .form__wrapper, .hero .title, .footer h3, .videos .carousel__controls a {
   font-size: var(--font-size);
   text-transform: uppercase; }
 
@@ -349,7 +349,7 @@ footer .menu-item a, footer .page_item a {
   .icon-before.icon-mail::before {
     background-image: url(../../build/icons/807315cd7d3af203350a94fd3484fb80.svg); }
 
-.wp-block-button__link, .button {
+.wp-block-button__link, .button, .floatingButton {
   --border-color: var(--darkPink);
   --color: currentColor;
   --font-size: var(--fontSize-small);
@@ -363,7 +363,7 @@ footer .menu-item a, footer .page_item a {
   z-index: 0;
   -webkit-transition: color .6s linear;
   transition: color .6s linear; }
-  .wp-block-button__link::before, .button::before {
+  .wp-block-button__link::before, .button::before, .floatingButton::before {
     display: block;
     content: '';
     width: 100%;
@@ -379,7 +379,7 @@ footer .menu-item a, footer .page_item a {
             transform-origin: center left;
     -webkit-transform: scaleX(0);
             transform: scaleX(0); }
-  .wp-block-button__link::after, .button::after {
+  .wp-block-button__link::after, .button::after, .floatingButton::after {
     display: block;
     content: '';
     width: 60px;
@@ -394,19 +394,19 @@ footer .menu-item a, footer .page_item a {
             transform-origin: center left;
     -webkit-transform: scaleX(0);
             transform: scaleX(0); }
-  .wp-block-button__link:hover, .button:hover {
+  .wp-block-button__link:hover, .button:hover, .floatingButton:hover {
     --color: var(--lightPink); }
-  .wp-block-button__link:hover::before, .button:hover::before {
+  .wp-block-button__link:hover::before, .button:hover::before, .floatingButton:hover::before {
     -webkit-transform: scaleX(1);
             transform: scaleX(1); }
-  .wp-block-button__link:hover::after, .button:hover::after {
+  .wp-block-button__link:hover::after, .button:hover::after, .floatingButton:hover::after {
     -webkit-transform: scaleX(1);
             transform: scaleX(1); }
   @media (min-width: 0px) and (max-width: 1023px) {
-    .wp-block-button__link, .button {
+    .wp-block-button__link, .button, .floatingButton {
       width: 100%;
       text-align: center; } }
-  .wp-block-button__link:visited, .button:visited {
+  .wp-block-button__link:visited, .button:visited, .floatingButton:visited {
     color: var(--color) !important; }
 
 .wp-block-button__link, .button {
@@ -423,6 +423,42 @@ input[type='submit'] {
 @media (min-width: 0px) and (max-width: 1023px) {
   .wp-block-buttons, .wp-block-button {
     width: 100%; } }
+
+.floatingButton {
+  font-size: 16px;
+  letter-spacing: .6px;
+  background-color: var(--darkPink);
+  color: var(--lightPink) !important;
+  font-weight: 500;
+  position: fixed;
+  bottom: 48px;
+  right: 48px;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  @media (min-width: 0px) and (max-width: 1023px) {
+    .floatingButton {
+      bottom: 8px;
+      right: 8px;
+      left: 8px;
+      width: calc(100% - 16px);
+      border-radius: 4px;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      font-size: 14px; } }
+  .floatingButton:visited {
+    color: var(--lightPink) !important; }
+  .floatingButton__icon {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 16px; }
 
 .slider__bullets {
   display: -webkit-box;

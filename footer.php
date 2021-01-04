@@ -5,8 +5,22 @@ $page = get_page_by_path('footer-' . get_bloginfo('language'));
 
 
 <footer class="footer">
+    <?php
+    // Get contact group
+    $button = get_field("floating_button", $page->ID);
+    $button_title = $button['title'];
+    $button_link = $button['link'];
+    $button_icon = $button['icon']['url'];
+    ?>
+    <?php if ($button_link) : ?>
+        <a class="floatingButton" href="<?php echo $button_link; ?>">
+            <?php if ($button_icon) : ?>
+                <div class="floatingButton__icon" style="background-image: url('<?php echo $button_icon; ?>');"></div>
+            <?php endif; ?>
+            <?php echo $button_title; ?>
+        </a>
+    <?php endif; ?>
     <div class="container">
-
         <div class="row">
             <?php
             // Get contact group
@@ -16,7 +30,6 @@ $page = get_page_by_path('footer-' . get_bloginfo('language'));
             $contact_address = $contact['address'];
             $contact_email = $contact['email'];
             ?>
-
             <?php if ($contact_title) : ?> <h3><?php echo $contact_title; ?></h3><?php endif; ?>
             <ul class="details">
                 <?php if ($contact_phone) : ?><li><a class="icon-before icon-phone" href="tel:<?php echo $contact_phone; ?>"><?php echo $contact_phone; ?></a></li><?php endif; ?>
@@ -24,9 +37,7 @@ $page = get_page_by_path('footer-' . get_bloginfo('language'));
                 <?php if ($contact_email) : ?><li><a class="icon-before icon-mail" href="mail:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a></li><?php endif; ?>
                 <img class="map" src="<?php echo get_template_directory_uri(); ?>/assets/icons/map.png" alt="">
             </ul>
-
         </div>
-
         <div class="row">
             <?php
             // Get hours group
@@ -34,7 +45,6 @@ $page = get_page_by_path('footer-' . get_bloginfo('language'));
             $hours_title = $hours['title'];
             $open_hours = $hours['open_hours'];
             ?>
-
             <?php if ($hours_title) : ?><h3><?php echo $hours_title; ?></h3><?php endif; ?>
             <?php if ($open_hours) : ?>
                 <ul class="hours">
@@ -44,12 +54,10 @@ $page = get_page_by_path('footer-' . get_bloginfo('language'));
                     endforeach; ?>
                 </ul>
             <?php endif; ?>
-
             <?php
             // Get Footer Menu
             wp_nav_menu(array('theme_location' => 'footer'));
             ?>
-
             <?php
             // Get hours group
             $socials = get_field("socials", $page->ID);
@@ -63,18 +71,15 @@ $page = get_page_by_path('footer-' . get_bloginfo('language'));
                 </ul>
             <?php endif; ?>
         </div>
-
         <div class="row trophee">
             <?php
             // Get Trophees
             $trophee = get_field("trophee", $page->ID);
             ?>
-
             <?php if ($trophee) : ?>
                 <img src="<?php echo $trophee['sizes']['medium']; ?>" alt="">
             <?php endif; ?>
         </div>
-
     </div>
 
     <div class="footer__bottom">

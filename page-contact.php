@@ -39,7 +39,6 @@ $image = get_the_post_thumbnail($post->ID, 'full');
         $firstName = $lastName = $email = $phone = $message = $success = "";
 
         if ($_POST['submit_contact']) {
-            // first-name validation
             if (empty($_POST["contact-first-name"])) {
                 $firstName_error = pll__('form-error-firstName-missing');
             } else {
@@ -49,7 +48,6 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 }
             }
 
-            // last-name validation
             if (empty($_POST["contact-last-name"])) {
                 $lastName_error = pll__('form-error-lastName-missing');
             } else {
@@ -59,7 +57,6 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 }
             }
 
-            // phone validation
             if (empty($_POST["phone"])) {
                 $phone_error = pll__('form-error-phone-missing');
             } else {
@@ -79,21 +76,20 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 }
             }
 
-            // message validation
             if (empty($_POST["message"])) {
                 $message_error = pll__('form-error-message-missing');
             } else {
                 $message = test_input($_POST["message"]);
             }
 
-            $name = $firstName . ' ' . $lastName;
 
+            $name = $firstName . ' ' . $lastName;
             $body .= "<h3>Vous avez un nouveau message!</h3>";
             $body .= "<br/><h3>Informations :</h3><br/><strong>Nom : </strong>$name\r\n<br/><strong>Email : </strong>$email\r\n<br/><strong>Téléphone : </strong>$phone";
             $body .= "\r\n\r\n";
             $body .= "<br/><br/><h3>Message :</h3><br/>$message";
 
-            $to = get_option('admin_email');
+            $to = get_field('contact_address');
             $subject = "Nouveau message de votre site web";
             $headers = array('Content-Type: text/html; charset=UTF-8;Reply-To: {$name} <{$email}>');
 
@@ -116,7 +112,7 @@ $image = get_the_post_thumbnail($post->ID, 'full');
                 }
             }
         } else if ($_POST['submit_job']) {
-            $to = get_option('admin_email');
+            $to = get_field('job_address');
 
             // first-name validation
             if (empty($_POST["contact-first-name"])) {

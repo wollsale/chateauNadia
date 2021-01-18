@@ -304,10 +304,14 @@ footer .menu-item a, footer .page_item a {
     background-image: url(../../build/icons/8a4039f198b95ee10deae94bb8f45d5b.svg); }
   .icon-facebook {
     background-image: url(../../build/icons/6f5548f9626956bea557ea095d0872c4.svg); }
+  .icon-pinterest {
+    background-image: url(../../build/icons/a6c20aa57d7fb6848c5725d07c17e52a.svg); }
   .icon-instagram-dark {
     background-image: url(../../build/icons/a1a3f5099da574a28465445f1b502c9e.svg); }
   .icon-facebook-dark {
     background-image: url(../../build/icons/f3e5ba09a38301c2a8d3db1a39f58677.svg); }
+  .icon-pinterest-dark {
+    background-image: url(../../build/icons/a30dc6c065bf0c7021f04433d6a1c51d.svg); }
   .icon-prev {
     background-image: url(../../build/icons/18435939980b5224a74cc14da838bd35.svg);
     -webkit-transform: rotate(180deg);

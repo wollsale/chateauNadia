@@ -63,11 +63,13 @@ $page = get_page_by_path('footer-' . get_bloginfo('language'));
             $socials = get_field("socials", $page->ID);
             $socials_facebook = $socials['facebook'];
             $socials_instagram = $socials['instagram'];
+            $socials_pinterest = $socials['pinterest'];
             ?>
             <?php if ($socials_facebook or $socials_instagram) : ?>
                 <ul class="socials">
                     <?php if ($socials_facebook) : ?><li><a href="<?php echo $socials_facebook; ?>" target="_blank" class="icon icon-facebook-dark"><span class="hidden"><?php echo $socials_facebook; ?></span></a></li><?php endif; ?>
                     <?php if ($socials_instagram) : ?><li><a href="<?php echo $socials_instagram; ?>" target="_blank" class="icon icon-instagram-dark"><span class="hidden"><?php echo $socials_instagram; ?></span></a></li><?php endif; ?>
+                    <?php if ($socials_pinterest) : ?><li><a href="<?php echo $socials_pinterest; ?>" target="_blank" class="icon icon-pinterest-dark"><span class="hidden"><?php echo $socials_pinterest; ?></span></a></li><?php endif; ?>
                 </ul>
             <?php endif; ?>
         </div>

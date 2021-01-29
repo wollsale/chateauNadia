@@ -15,7 +15,7 @@
     .container { height: 100%; }
     
     .title {
-        --font-size: var(--fontSize-h3);
+        --font-size: var(--fontSize-h4);
         font-weight: bold;
 
         @extend %text;
@@ -23,11 +23,12 @@
         font-style: normal;
 
         position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
+        left: 50%;
+        bottom: var(--u4);
+        transform: translateX(-50%);
         z-index: 2;
         
-        background-color: var(--white);
+        background-color: rgba(#fff, .6);
         padding: var(--u2) var(--u4);
 
         @include mobile {

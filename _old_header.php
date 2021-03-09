@@ -53,19 +53,24 @@
 <?php
 $starry = get_field('starry_background');
 
-// $args = array(
-//     'role' => 'Administrator'
-// );
+$args = array(
+    'role' => 'Administrator'
+);
 
-$page = get_page_by_path('footer-' . get_bloginfo('language'));
-// Get contact group
-$contact = get_field("contact", $page->ID);
-$contact_phone = $contact['phone'];
-$socials = get_field("socials", $page->ID);
-$socials_facebook = $socials['facebook'];
-$socials_instagram = $socials['instagram'];
-$socials_pinterest = $socials['pinterest'];
+$users = get_users($args);
 
+foreach ($users as $user) {
+    $id = $user->ID;
+    $id = 'user_' . $id;
+    $reference = get_field('reference', $id);
+
+    if ($reference) :
+        $phone = get_field('phone', $id);
+        $facebook = get_field('facebook', $id);
+        $instagram = get_field('instagram', $id);
+        $pinterest = get_field('pinterest', $id);
+    endif;
+}
 ?>
 
 <body <?php
@@ -76,8 +81,8 @@ $socials_pinterest = $socials['pinterest'];
         <div class="topbar">
             <div class="topbar__head">
                 <div class="left">
-                    <?php if ($contact_phone) : ?>
-                        <a href="tel:<?php echo $contact_phone; ?>" target="_blank">TEL: <?php echo $contact_phone; ?></a>
+                    <?php if ($phone) : ?>
+                        <a href="tel:<?php echo $phone; ?>" target="_blank">TEL: <?php echo $phone; ?></a>
                     <?php endif; ?>
                     <!-- prise-de-rendez-vous -->
                     <?php
@@ -91,11 +96,11 @@ $socials_pinterest = $socials['pinterest'];
                     <a class="topbar__cta" href="<?php echo $url; ?>"><?php pll_e('Prendre rendez-vous'); ?></a>
                 </div>
                 <div class="right">
-                    <?php if ($socials_facebook or $socials_instagram or $socials_pinterest) : ?>
+                    <?php if ($facebook or $instagram) : ?>
                         <ul class="socials">
-                            <?php if ($socials_facebook) : ?><li><a href="<?php echo $socials_facebook; ?>" target="_blank" class="icon icon-facebook"><span class="hidden"><?php echo $socials_facebook; ?></span></a></li><?php endif; ?>
-                            <?php if ($socials_instagram) : ?><li><a href="<?php echo $socials_instagram; ?>" target="_blank" class="icon icon-instagram"><span class="hidden"><?php echo $socials_instagram; ?></span></a></li><?php endif; ?>
-                            <?php if ($socials_pinterest) : ?><li><a href="<?php echo $socials_pinterest; ?>" target="_blank" class="icon icon-pinterest"><span class="hidden"><?php echo $socials_pinterest; ?></span></a></li><?php endif; ?>
+                            <?php if ($facebook) : ?><li><a href="<?php echo $facebook; ?>" target="_blank" class="icon icon-facebook"><span class="hidden"><?php echo $facebook; ?></span></a></li><?php endif; ?>
+                            <?php if ($instagram) : ?><li><a href="<?php echo $instagram; ?>" target="_blank" class="icon icon-instagram"><span class="hidden"><?php echo $instagram; ?></span></a></li><?php endif; ?>
+                            <?php if ($pinterest) : ?><li><a href="<?php echo $pinterest; ?>" target="_blank" class="icon icon-pinterest"><span class="hidden"><?php echo $pinterest; ?></span></a></li><?php endif; ?>
                         </ul>
                     <?php endif; ?>
                     <div class="lang__wrapper">
